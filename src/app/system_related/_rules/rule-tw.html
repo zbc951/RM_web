@@ -1,0 +1,60 @@
+<div class="us_category">
+    <div [class.active]="selectItem == 'about_rule_pd'"  (click)="selectItem = 'about_rule_pd'">波膽(正確比分)</div>
+    <div [class.active]="selectItem == 'about_rule_pdhr'"  (click)="selectItem = 'about_rule_pdhr'">上半場波膽</div>
+    <!-- 此站無"總得分"，所以隱藏 -->
+    <!--<div [class.active]="selectItem == 'about_rule_total'" (click)="selectItem = 'about_rule_total'">總得分</div>-->
+</div>
+<div class="right_area" [ngSwitch]="selectItem">
+    <div *ngSwitchCase="'about_rule_pd'" >
+        <h1>總則</h1>
+        <ol>
+            <li>所有足球投資之賽果認定以本公司所訂定之規則為準，不接受其他體育網站或其他實時比分所公佈的賽果，敬請會員注意!</li>
+            <li>交易皆以法定時間〈上下半場各須滿45分鐘及含傷停補時〉的比賽結果為準〈未滿九十分鐘者皆不予計算〉。</li>
+            <li>某些青少年其正規比賽時間(含傷停補時)為80、70分鐘不等，若無腰斬或氣候等突發因素影響導致比賽未滿正規時間，本 公司仍視為<span class="red">"有效注單"</span>。</li>
+            <li>所有足球若聯盟已標明於何處舉行賽事，則該聯盟賽事隊伍無論標明主場或客場，其實際並無主客場區別，若無受天氣或其他突發因素影響賽事進行，則所有投資單均視為<span class="red">"有效注單"</span>。</li>
+            <li>所有足球投資之賽事，若受天氣或其他突發因素影響賽事進行，如腰斬、保留比賽…等，所有投資一律退回不予計算，以波膽上半場波膽總入球首入球，如已進行至規範時間內是否計算一律以本公司公告為主。</li>
+            <li><span class="red">如遇特殊狀況，導致賽事無法完成，所有投資單是否有效，本公司會以公告方式進行通知裁定結果</span>。</li>
+            <li>在指定球賽中，反對球賽的最終正確比分。所有足球波膽交易皆以法定時間(上下半場各須滿45分鐘及傷停補時)的比賽結果為準(未滿九十分鐘者皆不予計算)；加時及十二碼決勝之比賽，或之後由任何體育紀律委員會重新裁決而更改之賽果均不予計算。</li>
+            <li>兩隊必須完成該賽事，才視為<span class="red">"有效注單"</span>，如因腰斬、延長加賽、保留比賽、天候異常及無法抗拒之因素導至無法完成整埸比賽,則投注該賽事視為"無效注單"。</li>
+            <li>如遇賽事臨時更改開賽時間而提前開賽，所有投資於該賽事的注單，<span class="red">視為有效注單</span>，一律依照官方公告之賽事結果為比賽最後依據。</li>
+            <li>如因賽事提前開賽或有已開賽後之交易單，所有投資於開賽時間後之交易單，本公司圴視為無效交易單。</li>
+            <li>如遇黑客攻擊或人為因素…其他外力因素影響帳務數據，一律以本公司備份數據為主。</li>
+            <li>本公司發現有打水套利或惡意破壞….等，本公司保有刪除注單及停止會員賬號之權利。</li>
+            <li>會員一旦使用本網站後，及視為同意本公司一切規定。</li>
+        </ol>
+        <h1>玩法說明-波膽(正確比分)</h1>
+        <h2>範例說明: 意大利U21(主) v 奧地利U21</h2>
+        <div class="img1-1"></div>
+        <div class="img1-2"></div>
+        <h2>投資 <span class="red">反對</span>意大利U21(主) v 奧地利U21</h2>
+        <p>
+            假設最終比賽結果是<span class="red">0-3</span> 
+            既是 投資失利 虧損 投資金額<span class="red">1000元</span><br>
+            相對如果最終比賽結果不是<span class="red">0-3</span>即為獲利<br>
+            (投資1000 X 0.0138 X 0.95 = <span class="red">13.11</span>)
+        </p>
+    </div>
+    <div *ngSwitchCase="'about_rule_pdhr'">
+        <h1>上半場波膽</h1>
+        <div class="img2-1"></div>
+        <div class="img2-2"></div>
+        <h2>投資 <span class="red">反對</span>意大利U21(主) v 奧地利U21</h2>
+        <p>
+            假設上半場45分鐘結果是<span class="red">0-0</span> 既是 投資失利 虧損<span class="red">投資金額1000元</span><br>
+            相對如果最終比賽結果不是<span class="red">0-0</span>即為獲利<br>
+            (投資1000 X 0.002 X0.95 = <span class="red">1.90</span>)
+        </p>
+    </div>
+    <div *ngSwitchCase="'about_rule_total'">
+        <h1>總得分</h1>
+        <div class="img3-1"></div>
+        <div class="img3-2"></div>
+        <h2>投資 <span class="red">反對</span>克罗地亚(主) v 葡萄牙</h2>
+        <h2>兩隊比分結果不超過三球(含)以上</h2>
+        <p>
+            假設比分結果為<span class="red">3-3</span> 既是 投資失利 虧損 投資金額<span class="red">100元</span><br>
+            相對比分結果是<span class="red">0-0</span>或者<span class="red">1-1總得分不超過三球</span>即為 獲利<br>
+            (投資100 X 0.0285 X 0.95 = <span class="red">2.51</span>)
+        </p>
+    </div>
+</div>

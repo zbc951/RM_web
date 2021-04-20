@@ -1,0 +1,73 @@
+<main class="bet_history">
+    <div class="main_center bhs">
+        <div class="main_title">{{ "History" | getLang : api.langPackage}}</div>
+        <div class="main_content">
+            <form>
+                <!--<span>{{ "Search" | getLang : api.langPackage}}: </span>-->
+                <input (change)="starttime=$event.target.value" type="date" value="{{starttime}}">
+                <span>{{ "To" | getLang : api.langPackage}}</span>
+                <input (change)="endtime=$event.target.value" type="date" value="{{endtime}}">
+                <button (click)="search()">{{ "Search" | getLang : api.langPackage}}</button>
+                <div (click)="setKeyDate('Biweekly')">{{ "Biweekly" | getLang : api.langPackage}}</div>
+                <div (click)="setKeyDate('This week')">{{ "This week" | getLang : api.langPackage}}</div>
+                <div (click)="setKeyDate('Last week')">{{ "Last week" | getLang : api.langPackage}}</div>
+                <div (click)="setKeyDate('This month')">{{ "This month" | getLang : api.langPackage}}</div>
+                <div (click)="setKeyDate('Last month')">{{ "Last month" | getLang : api.langPackage}}</div>
+                <div (click)="setKeyDate('year')">{{ "year" | getLang : api.langPackage}}</div>
+                <button class="reload_btn" (click)="reload()">{{ "Reload" | getLang : api.langPackage}}</button>
+            </form>
+            <div class="form_datalist">
+                <div class="title">
+                    <h1>{{ ( getKeyDate == "Biweekly" ? "This week" : getKeyDate ) | getLang : api.langPackage}}</h1>
+                </div>
+                <div class="bhs_group">
+                    <div class="bhs_item">
+                        <div class="item1">{{ "History Date" | getLang : api.langPackage}}</div>
+                        <div class="item2">{{ "Total stake" | getLang : api.langPackage}}</div>
+                        <div class="item3">{{ "Total profit" | getLang : api.langPackage}}</div>
+                        <div class="item4">{{ "Total payout" | getLang : api.langPackage}}</div>
+                    </div>
+                    <div class="bhs_data" *ngFor="let list of firstData" [ngClass]="{'active' : list.count > 0 && getKeyDate != 'year', 'open' : switch[list.dtime] }" (click)="open(list.dtime)">
+                        <div class="data1">{{list.dtime}}<span class="count" *ngIf="list.count > 0 ">{{list.count}}</span></div>
+                        <div class="data2">{{list.gold | cashAddCommas }}</div>
+                        <div class="data3">{{list.win_nw | cashAddCommas }}</div>
+                        <div class="data4" [style.color]="list.win > 0 ? 'green':'red'">{{list.win | numberToCash | cashAddCommas }}</div>
+                        <bet-history-detail *ngIf="list.count > 0 && switch[list.dtime]" [dataTime]="list.dtime"></bet-history-detail>
+                    </div>
+                    <div class="bhs_result">
+                        <div class="result1">{{ "Total" | getLang : api.langPackage}}:</div>
+                        <div class="result2">{{allGold | cashAddCommas }}</div>
+                        <div class="result3">{{allWin_nw | cashAddCommas }}</div>
+                        <div class="result4" [style.color]="allWin > 0 ? 'green':'red'">{{allWin | numberToCash | cashAddCommas }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form_datalist" *ngIf="secondData?.length > 0">
+                <div class="title">
+                    <h1>{{ "Last week" | getLang : api.langPackage}}</h1>
+                </div>
+                <div class="bhs_group">
+                    <div class="bhs_item">
+                        <div class="item1">{{ "History Date" | getLang : api.langPackage}}</div>
+                        <div class="item2">{{ "Total stake" | getLang : api.langPackage}}</div>
+                        <div class="item3">{{ "Total profit" | getLang : api.langPackage}}</div>
+                        <div class="item4">{{ "Total payout" | getLang : api.langPackage}}</div>
+                    </div>
+                    <div class="bhs_data" *ngFor="let list of secondData" [ngClass]="{'active' : list.count > 0 , 'open' : switch[list.dtime] }" (click)="open(list.dtime)">
+                        <div class="data1">{{list.dtime}}<span class="count" *ngIf="list.count > 0">{{list.count}}</span></div>
+                        <div class="data2">{{list.gold | cashAddCommas }}</div>
+                        <div class="data3">{{list.win_nw | cashAddCommas }}</div>
+                        <div class="data4" [style.color]="list.win > 0 ? 'green':'red'">{{list.win | numberToCash | cashAddCommas }}</div>
+                        <bet-history-detail *ngIf="list.count > 0 && switch[list.dtime]" [dataTime]="list.dtime"></bet-history-detail>
+                    </div>
+                    <div class="bhs_result">
+                        <div class="result1">{{ "Total" | getLang : api.langPackage}}:</div>
+                        <div class="result2">{{lastallGold | cashAddCommas }}</div>
+                        <div class="result3">{{lastallWin_nw | cashAddCommas }}</div>
+                        <div class="result4" [style.color]="lastallWin > 0 ? 'green':'red'">{{lastallWin | numberToCash | cashAddCommas }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

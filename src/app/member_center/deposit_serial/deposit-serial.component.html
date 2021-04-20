@@ -1,0 +1,143 @@
+<div class="reload">
+    <button (click)="goBack()">{{ "Previous page" | getLang : api.langPackage}}</button>
+</div>
+<h1 class="book_h1">{{"Please enter your deposit information" | getLang : api.langPackage}}</h1>
+<ul class="steplist step_book">
+	<li>
+		<button class="copy" ngxClipboard [cbContent]="bankData['bank']">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Bank" | getLang : api.langPackage}}</h2>
+		<span>{{bankData['bank']}}</span>
+	</li>
+	<li>
+		<button class="copy" ngxClipboard [cbContent]="bankData['banksubacc']">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Branch" | getLang : api.langPackage}}</h2>
+		<span>{{bankData['banksubacc']}}</span>
+	</li>
+	<li>
+		<button class="copy" ngxClipboard [cbContent]="bankData['bankname']">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Payee" | getLang : api.langPackage}}</h2>
+		<span>{{bankData['bankname']}}</span>
+	<li>
+		<button class="copy" ngxClipboard [cbContent]="bankData['bankaccount']">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Account" | getLang : api.langPackage}}</h2>
+		<span>{{bankData['bankaccount']}}</span>
+	</li>
+	<!--<li>
+		<h2>{{"电子信箱" | getLang : api.langPackage}}</h2>
+		<span>{{bankData['email']}}</span>
+	</li>-->
+	<li>
+		<button class="copy" type="button" ngxClipboard [cbContent]="inputGold">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Amount" | getLang : api.langPackage}}</h2>
+		<input type="number" [(ngModel)]="inputGold" [formControl]="inputGoldControl" >
+		<p class="errtips">{{erroMsg}}</p>
+		<p class="notice_txt">
+			<span class="nt_range">{{"the amount is 100 ~ 50,000" | getLang : api.langPackage}}</span>
+		</p>
+	</li>
+	<li class="special">
+		<h2 class="stringPlace">{{"Remittance account after four yards" | getLang : api.langPackage}}</h2>
+		<input type="text" class="bookstep2_ip" [(ngModel)]="inputSerial" [maxLength]="4" pattern="[0-9]{4}$" #serial="ngModel" #thisTag>
+		<p class="errtips" *ngIf="serial.invalid && serial.dirty">{{"Remittance account must be 4 digits" | getLang : api.langPackage}}。</p>
+		<div class="stringLength">{{thisTag.value.length}}/{{thisTag.maxLength}}</div>
+		<!--<div class="clearboth" >流水号长度需为27码！</div>-->
+	</li>
+	<li>
+		<!--<button class="bookbtn_cancel">取消訂單</button>-->
+		<!--<button (click)="doSerial()" [disabled]="(power.valid || power.pristine)|| erroMsg || !inputGold || !inputSerial" class="bookbtn_ok">確認充值</button>-->
+		<button (click)="doSerial()" [ngClass]="((serial.invalid && serial.dirty)|| (bankData | json) =='{}' || erroMsg || !inputGold || !inputSerial) ? 'notclick_btn' : 'bookbtn_ok' "
+		                             [disabled]="((serial.invalid && serial.dirty)|| (bankData | json) =='{}' || erroMsg || !inputGold || !inputSerial)" >{{"OK" | getLang : api.langPackage}}</button>
+	</li>
+</ul>
+<div [ngSwitch]="globals.getNowLang()">
+	<div class="description"  *ngSwitchCase="'en-us'">
+		<h1>Notice</h1>
+		<ul>
+			<li>1. Please fill in the last four digits of the remittance account.</li>
+			<li>2. If you use a mobile banking or online banking remittance, please attach a note in the attached member account.</li>
+			<li>3. Please click OK after the remittance is successful, otherwise click OK to receive the payment within five minutes. This deposit is invalid.</li>
+			<li>4. Deposit will be in ten minutes for, if any questions, please feel free to consult 24/7 online customer service.</li>
+			<li>5. When the amount of the order is not in line with the amount of the online banking transfer, the actual amount will be subject to the actual amount and the actual transfer amount must meet the amount required.</li>
+		</ul>
+	</div>
+	<div class="description"  *ngSwitchCase="'zh-tw'">
+		<h1>注意事項</h1>
+		<ul>
+			<li>1. 請確實填寫匯款帳戶末四碼。</li>
+			<li>2. 如使用手機銀行或網上銀行匯款請在附言備註會員帳號。</li>
+			<li>3. 請在匯款成功後，在點擊確認鍵，否則點擊確認在五分鐘內未收到款項此存款單為無效。</li>
+			<li>4. 存款會在十分鐘內辦理，如有任何疑問，請隨時諮詢24/7在線客服。</li>
+			<li>5. 訂單金額與網銀轉賬金額不符時，以實際到賬金額為準，且實際轉賬金額必須符合充值申請時的金額要求。</li>
+		</ul>
+	</div>
+	<div class="description"  *ngSwitchCase="'zh-cn'">
+		<h1>注意事项</h1>
+		<ul>
+			<li>1. 请确实填写汇款帐户末四码。</li>
+			<li>2. 如使用手机银行或网上银行汇款请在附言备注会员帐号。</li>
+			<li>3. 请在汇款成功后，在点击确认键，否则点击确认在五分钟内未收到款项此存款单为无效。</li>
+			<li>4. 存款会在十分钟内办理，如有任何疑问，请随时咨询24/7在线客服。</li>
+			<li>5. 订单金额与网银转账金额不符时，以实际到账金额为准，且实际转账金额必须符合充值申请时的金额要求。</li>
+		</ul>
+	</div>
+</div>
+<!--<ul class="steplist step_book">
+	<li>
+		<h2>存款銀行</h2>
+		<span>台灣銀行</span>
+	</li>
+	<li>
+		<h2>存款方式</h2>
+		<span>網路轉帳</span>
+	</li>
+	<li>
+		<h2>存款金額</h2>
+		<input type="text">
+		<div class="clearboth"></div>
+		<p class="notice_txt">
+			<span class="nt_range">60秒內到帳，單筆存款金額1.00~10000.00元，每日次數不限制。</span>
+		</p>
+	</li>
+	<li>
+		<button>下一步</button>
+	</li>
+</ul>
+<ul class="steplist step_book">
+	<li>
+		<h2>收款銀行名稱</h2>
+		<span>台灣銀行</span>
+	</li>
+	<li>
+		<h2>收款人姓名</h2>
+		<span>安東尼</span>
+	</li>
+	<li>
+		<h2>匯款信箱</h2>
+		<span>ispr000@ispr.com</span>
+	</li>
+	<li>
+		<h2>存款金額</h2>
+		<span>1000</span>
+		<div class="clearboth"></div>
+		<button class="goatm">去工行轉帳</button>
+	</li>
+	<li>
+		<h2>交易流水號</h2>
+		<input type="text" class="bookstep2_ip">
+		<div class="clearboth"></div>
+	</li>
+	<li>
+		<button class="bookbtn_cancel">取消訂單</button>
+		<button class="bookbtn_ok">確認充值</button>
+	</li>
+</ul>
+<div class="description">
+	<h1>注意事項</h1>
+	<ul>
+		<li>匯款賬戶目前只支持工商銀行郵箱匯款方式。登陸中國工商銀行網銀， 點擊"轉賬匯款"後選擇"E-mail匯款"。</li>
+		<li>收款賬戶名和賬號會不定期更換，請在獲取最新信息後充值，否則充值將無法到賬。</li>
+		<li>訂單金額與網銀轉賬金額不符時，以實際到賬金額為準，且實際轉賬金額必須符合充值申請時的金額要求。</li>
+		<li>存款會在十分鐘內辦理，如有任何疑問，請隨時諮詢24/7在線客服。</li>
+	</ul>
+</div>
+-->

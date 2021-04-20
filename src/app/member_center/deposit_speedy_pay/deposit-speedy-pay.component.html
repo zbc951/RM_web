@@ -1,0 +1,23 @@
+<h1>選擇存款銀行</h1>
+<ul class="banklist">
+	<li *ngFor="let list of bank">
+		<label>
+			<input type="radio" name="bank" (click)="selectedBank=list['value']">
+			<div [ngClass]="list['class']"></div>
+		</label>
+	</li>
+</ul>
+<ul class="steplist">
+	<li>
+		<h2>存款金額</h2>
+		<input type="text" [(ngModel)]="inputGold" [formControl]="betGoldInputControl">
+		<div class="clearboth"></div>
+		<p class="notice_txt">
+			<span class="nt_range">60秒內到帳，單筆存款金額1.00~10000.00元，每日次數不限制。</span>
+			<span>請務必在銀行匯款頁面填寫附言，否則無法自動極速到賬！</span>
+		</p>
+	</li>
+	<li>
+		<button (click)="doDepositSpeedyPay()" [disabled]="selectedBank == '' ||  erroMsg != '' || inputGold == null ">確認充值</button>
+	</li>
+</ul>

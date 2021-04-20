@@ -1,0 +1,123 @@
+
+<div class="us_category">
+    <div [class.active]="selectItem == 'Serial'"  (click)="selectItem = 'Serial'">流水号存款</div>
+    <div [class.active]="selectItem == 'alipay'"  (click)="selectItem = 'alipay'">支付宝</div>
+    <div [class.active]="selectItem == 'online'"  (click)="selectItem = 'online'">在线客服充值</div>
+    <div [class.active]="selectItem == 'Wechat'"  (click)="selectItem = 'Wechat'">微信</div>
+    <div [class.active]="selectItem == 'schedule'"  (click)="selectItem = 'schedule'">存款进度</div>
+</div>
+
+
+<div class="right_area">
+    <h1>存款操作说明</h1>
+
+    <ol *ngIf="selectItem == 'Serial'">
+        <li>
+            进入「我的帐户」
+            <div class="img2-1-1"></div>
+        </li>
+        <li>
+            选择「存款」
+            <div class="img2-1-2"></div>
+        </li>
+        <li>
+            选择「流水号存款」
+            <div class="img2-1-3"></div>
+        </li>
+        <li>
+            填写资料
+            <div class="img2-1-4"></div>
+        </li>
+        <li>
+            完成
+            <div class="img2-1-5"></div>
+        </li>
+    </ol>
+
+    <ol *ngIf="selectItem == 'online'">
+        <li>
+            进入「我的帐户」
+            <div class="img2-4-1"></div>
+        </li>
+        <li>
+            选择「存款」
+            <div class="img2-4-2"></div>
+        </li>
+        <li>
+            选择「人工客服充值渠道」
+            <div class="img2-4-3"></div>
+        </li>
+        <li>
+            选择「再线激活」
+            <div class="img2-4-4"></div>
+        </li>
+        <li>
+            客服帮助您储值
+            <div class="img2-4-5"></div>
+        </li>
+    </ol>
+
+    <ol *ngIf="selectItem == 'Wechat'">
+        <li>
+            进入「我的帐户」，选择「存款」
+            <div class="img2-5-1"></div>
+        </li>
+        <li>
+            选择「微信」
+            <div class="img2-5-2"></div>
+        </li>
+        <li>
+            选择欲【付费方式】付款
+            <div class="img2-5-3"></div>
+        </li>
+        <li>
+            扫描二维码
+            <div class="img2-5-4"></div>
+        </li>
+    </ol>
+
+
+
+    <ol *ngIf="selectItem == 'alipay'">
+        <li>
+            进入「我的帐户」
+            <div class="img2-3-1"></div>
+        </li>
+        <li>
+            ，选择「存款」
+            <div class="img2-3-2"></div>
+        </li>
+        <li>
+            选择「支付宝」 
+            <div class="img2-3-3"></div>
+        </li>
+        <li>
+            选择分流
+            <div class="img2-3-4"></div>
+        </li>
+        <li>
+            扫描二维码
+            <div class="img2-3-5"></div>
+        </li>
+    </ol>
+
+
+
+
+
+
+
+ 
+    <ol *ngIf="selectItem == 'schedule'">
+        <h1>存款进度</h1>
+        <li>
+            进入「我的帐户」
+            <div class="img2-2-1"></div>
+        </li>
+        <li>
+            您可以透过「交易纪录」追踪存款处理状态
+            <div class="img2-2-2"></div>
+            <div class="img2-2-3"></div>
+        </li>
+    </ol>
+</div>

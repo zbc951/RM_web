@@ -1,0 +1,41 @@
+<div class="reload">
+    <button (click)="getProblem()">{{ "Reload" | getLang : api.langPackage}}</button>
+</div>
+<h1 class="title">{{"Help" | getLang : api.langPackage}}</h1>
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <ul class="form_list">
+        <!--<li>
+            <h2>{{"Contact" | getLang : api.langPackage}}</h2>
+            <input type="text" [(ngModel)]="contact" [maxLength]="50" name="contact" #contactInput>
+            <span> {{contactInput.value.length}} / {{contactInput.maxLength}}</span>
+        </li>-->
+        <!--<li>
+            <h2>主題</h2>
+            <input type="text">
+        </li>-->
+        <li>
+            <h2>{{"Content" | getLang : api.langPackage}}</h2>
+            <textarea [(ngModel)]="problem" [maxLength]="150"  name="problem" #problemTextarea></textarea>
+            <div class="clearboth"></div>
+            <span> {{problemTextarea.value.length}} / {{problemTextarea.maxLength}}</span>
+        </li>
+        <li>
+            <button type="submit" [ngClass]="!problem ? 'notclick_btn' : '' " [disabled]="!problem">{{"OK" | getLang : api.langPackage}}</button>
+        </li>
+    </ul>
+</form>
+<h1>{{"Communication" | getLang : api.langPackage}}</h1>
+
+<ul class="qa_record">
+
+    <li *ngFor="let list of record" (click)="list.chk=='0'&& !list.toggle && isRead(list)" [ngClass]="list.chk == '0' && list.reply != '' ? 'noreply' :'' "  >
+        <div class="top">
+            <div class="qa_tip" *ngIf="list.chk == '0' && list.reply != '' ">{{"New reply message,please click to view!" | getLang : api.langPackage }}</div>
+            <div class="qa_time">{{list.adddate}}</div>
+        </div>
+        <div class="down">
+            <div class="qa_problem">{{ "Question" | getLang : api.langPackage }}:&nbsp;{{list.problem}}</div>
+            <div class="qa_reply" *ngIf="list.toggle">{{ "Reply" | getLang : api.langPackage }}:&nbsp;{{list.reply}}</div>
+        </div>
+    </li>
+</ul>

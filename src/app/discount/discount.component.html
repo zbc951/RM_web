@@ -1,0 +1,55 @@
+<main class="bulletin_discount">
+    <div class="main_center">
+        <div class="main_title">{{ "Promotions" | getLang : api.langPackage}}
+			<div class="title_btn" *ngIf="route.snapshot.url[0].path == 'main'" (click)="toreturn()" style="float: right;">{{ "brack" | getLang : api.langPackage}}</div>
+		</div>
+        <div class="main_content" >
+			<div class="card1">
+				<div class="banner" (click)="open[0] = !open[0]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[0]"></div>
+			</div>
+			<!-- <div class="card2">
+				<div class="banner" (click)="open[1] = !open[1]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[1]"></div>
+			</div> -->
+			<div class="card3" >
+				<div class="banner" (click)="open[2] = !open[2]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[2]"></div>
+			</div>
+
+			<div class="card4">
+				<div class="banner" (click)="open[3] = !open[3]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[3]"></div>
+			</div>
+			<div class="card7">
+				<div class="banner" (click)="open[6] = !open[6]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[6]"></div>
+			</div>
+
+			<!-- <div class="card6">
+				<div class="banner" (click)="open[5] = !open[5]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[5]"></div>
+			</div> -->
+			<div class="card5">
+				<div class="banner" (click)="open[4] = !open[4]">
+					<div class="check"></div>
+				</div>
+			  <div class="content" *ngIf="open[4]"></div>
+			</div>
+
+
+        </div>
+    </div>
+</main>

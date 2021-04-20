@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+
+main {
+		//各頁面style
+	.pb, .rule, .how {
+		.main_title {
+			.title {
+				float: left;
+				margin: 0 100px 0 5px;
+			}
+			.title_btn {
+				float: left;
+				line-height: 30px;
+				text-align: center;
+				cursor: pointer;
+				font-size: 16px;
+				font-weight: normal;
+				border-radius: 6px 6px 0 0;
+				padding: 5px 10px;
+				color: #1f1f1f;
+				margin: 19px 10px 0 0;
+				border: 1px solid #B8B8CC;
+				border-bottom: 0;
+				letter-spacing: 0;
+				@include gradient-gray2;
+				&:hover {
+					@include gradient-gray2up;
+				}
+				&.active,
+				&:active {
+					background: $color-blue18;
+					color: #fff;
+				}
+			}
+		}
+		.main_content {
+			background: #f5f4f3;
+		}
+	}	
+	
+	&.about_rule {
+		.rule {
+			.main_content {
+				padding: 0 0 50px 0;
+				background: $color-blue18;
+				.us_category {
+					padding: 30px 30px 0 68px;
+					&:after {
+						content: '';
+						display: block;
+						clear: both;
+					}
+					div {
+						float: left;
+						line-height: 38px;
+						height: 38px;
+						text-align: center;
+						@include btn-style4;
+						@include gradient-gray2;
+						color: #006abb;
+						margin-right: 15px;
+						&:hover {
+							@include gradient-gray2up;
+						}
+						&.active {
+							background: linear-gradient(to bottom, #19a4ff 1%, #1268b1 100%);
+							color: $color-white;
+							&:hover {
+								background: linear-gradient(to bottom, #1268b1 0%, #19a4ff 100%);
+							}
+						}
+					}
+				}
+				.right_area {
+					width: 1200px;
+    				margin: 0px auto 0px auto;
+					.red{
+							color: #ffcd2b;
+							font-weight: bold;
+						}
+					h1 {
+						font-size: 24px;
+						color: #fff;
+						font-weight: bold;
+						padding: 50px 0px 15px 0;
+					}
+					h2 {
+						font-size: 20px;
+						color: #fff;
+						font-weight: bold;
+						line-height: 36px;
+					}
+					ol {
+						font-size: 16px;
+						line-height: 30px;
+						list-style-type: decimal;
+						margin-left: 40px;
+						li {
+							color: #fff;
+							padding: 0 0 0 32px;
+    						text-indent: -13px;
+							border-bottom: 1px solid transparent;
+							border-image: linear-gradient(to right, rgba(220, 220, 220, 0) 2%, rgba(220, 220, 220, 0.8) 30%, rgba(220, 220, 220, 0.8) 70%, rgba(220, 220, 220, 0) 98%);
+							border-image-slice: 1;
+							line-height: 54px;
+							font-weight: bold;
+						}
+					}
+					p {
+						font-size: 16px;
+						line-height: 30px;
+						color: $color-white;
+						font-weight: bold;
+					}
+					.img1-1, .img1-2, .img2-1, .img2-2, .img3-1, .img3-2 {
+						margin: 10px 0 0 0;
+						padding: 0 0 10px 0;
+					}
+					.img1-1 { 
+						background: url("../img/rule/rule_img1-1.jpg") no-repeat;
+						width: 506px;
+						height: 713px;
+					}
+					.img1-2 { 
+						background: url("../img/rule/rule_img1-2.jpg") no-repeat;
+						width: 825px;
+						height: 465px;
+					}
+					.img2-1 { 
+						background: url("../img/rule/rule_img2-1.jpg") no-repeat;
+						width: 493px;
+						height: 525px;
+					}
+					.img2-2 { 
+						background: url("../img/rule/rule_img2-2.jpg") no-repeat;
+						width: 831px;
+						height: 529px;
+					}
+					.img3-1 { 
+						background: url("../img/rule/rule_img3-1.jpg") no-repeat;
+						width: 501px;
+						height: 614px;
+					}
+					.img3-2 { 
+						background: url("../img/rule/rule_img3-2.jpg") no-repeat;
+						width: 828px;
+						height: 527px;
+					}
+					ul.qa_record {
+						margin: 30px 0 70px;
+						font-size:18px;
+						color: $color-gray11;
+						li {
+							width: 80%;
+							line-height: 24px;
+							margin: 0 0 20px 70px;
+							border: 1px solid #CCC;
+							padding: 20px;
+							@include borderRadius(8px);
+							@include insetshadow;
+							&.noreply {
+								border: 1px solid $color-blue4;
+								box-shadow: inset 0 1px 16px rgba(11, 139, 247, 0.4);
+								-webkit-box-shadow: inset 0 1px 16px rgba(11, 139, 247, 0.4);							    
+							    -moz-box-shadow: inset 0 1px 16px rgba(11, 139, 247, 0.4);
+							    div {	
+							    	color: $color-blue4;
+							    }
+							}
+							div {
+								
+							}
+							.qa_question {
+								font-weight: bold;
+								margin-bottom: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+		
+}

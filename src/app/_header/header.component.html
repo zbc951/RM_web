@@ -1,0 +1,41 @@
+<header>
+	<div class="top">
+		<div class="time">{{nowTime}}</div>
+		<!-- 需要國旗圖示 lg_XX  在 class 加上 lg_icon -->
+		<!-- <div class="language">
+			
+			<span class="lg_tw" [ngClass]="selectLangClass">{{selectLang}}</span>
+			<div class="lg_item">
+				<span class="lg_cn" (click)="changeLanguage('zh-cn')">简体中文</span>
+				<span class="lg_tw" (click)="changeLanguage('zh-tw')">繁體中文</span>
+				<span class="lg_en" (click)="changeLanguage('en-us')">English</span>
+			</div>
+		</div> -->
+		<div class="language" *ngIf="onlinepeople">
+			<span>{{"online" | getLang : api.langPackage}}:{{onlinepeople}}</span>
+		</div>
+		<div class="marquee" *ngIf="!globals.getShowLogin()" (click)="changePage(['bulletinboard'])">
+			<marquee scrollamount="9">{{marqueeData}}</marquee>
+
+		</div>
+	</div>
+	<div class="down">
+		<div class="logo"></div>
+		<div class="center">
+			<div class="menu" *ngIf="!globals.getShowLogin()">
+				<span [class.active]="globals.getSelectRouterItem() == 'gametable'" (click)="changePage(['gametable',globals.getDefaultBallType()])">{{"Market" | getLang : api.langPackage}}</span>
+				<span [class.active]="globals.getSelectRouterItem() == 'betdetail'" (click)="changePage(['betdetail'])">
+					{{"Details" | getLang : api.langPackage}}
+					<div class="count" *ngIf="detailCount != 0 ">{{detailCount}}</div>
+				</span>
+				<span [class.active]="globals.getSelectRouterItem() == 'bethistory'" (click)="changePage(['bethistory'])">{{"History" | getLang : api.langPackage}}</span>
+				<span [class.active]="globals.getSelectRouterItem() == 'gameresult'" (click)="changePage(['gameresult'])">{{"Box Score" | getLang : api.langPackage}}</span>
+				<span [class.active]="globals.getSelectRouterItem() == 'bulletinboard'" (click)="changePage(['bulletinboard'])">{{"News" | getLang : api.langPackage}}</span>
+				<span [class.active]="globals.getSelectRouterItem() == 'systemreated'" (click)="changePage(['systemreated'])">{{"System" | getLang : api.langPackage}}</span>
+			</div>
+			<!--登入頁面-->
+			<login (headerBackTime)="doBackTime($event)"></login>
+		</div>
+	</div>
+</header>
+<customer-service></customer-service>

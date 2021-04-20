@@ -1,0 +1,20 @@
+<h1 class="book_h1">{{ "Select the way of withdrawal" | getLang : api.langPackage}}</h1>{{ "" | getLang : api.langPackage}}
+<ul class="withdra_button">
+	<li (click)="setType('serial')" [ngClass]="{'active' : type == 'serial'}">
+		<div class=serial>
+		</div>
+		<div class="button_title">
+			<p>{{"Bank transfer withdrawal" | getLang : api.langPackage}}</p>
+			<p>{{ "Deposit via online payment method of serial number" | getLang : api.langPackage}}</p>
+		</div>
+	</li>
+	<li *ngIf="globals.getIsIchat()" (click)="setType('ichat')" [ngClass]="{'active' : type == 'ichat'}">
+		<i>
+			<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0i5ZyW5bGkXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMjAxLjIgMjAwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMDEuMiAyMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiMxMjk2REI7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNjUuNywxMjUuNmMyOSw5LjYsMzUuNSwxMC4yLDM1LjUsMTAuMlYzMmMwLTE3LjctMTQuNC0zMi0zMi4yLTMySDMyLjJDMTQuNCwwLDAsMTQuMywwLDMyVjE2OA0KCQljMCwxNy43LDE0LjQsMzIsMzIuMiwzMkgxNjljMTcuOCwwLDMyLjItMTQuMywzMi4yLTMydi0xLjNjMCwwLTUyLjMtMjEuNy03OC44LTM0LjNjLTE3LjcsMjEuNy00MC42LDM0LjgtNjQuMywzNC44DQoJCWMtNDAuMSwwLTUzLjgtMzQuOS0zNC44LTU3LjljNC4xLTUsMTEuMi05LjgsMjIuMS0xMi41YzE3LjEtNC4yLDQ0LjQsMi42LDY5LjksMTFjNC44LTguNyw4LjYtMTgsMTEuMy0yNy41SDQ4di03LjloNDAuNlY1OC4xDQoJCUgzOS41di03LjloNDkuMVYyOS45YzAsMCwwLTMuNCwzLjUtMy40aDE5Ljh2MjMuN2g0OC42djcuOWgtNDguNnYxNC4yaDM5LjdjLTMuOCwxNS41LTkuNiwyOS43LTE2LjgsNDIuMg0KCQlDMTQ2LjgsMTE4LjgsMTU3LjYsMTIyLjksMTY1LjcsMTI1LjZMMTY1LjcsMTI1LjZ6IE00OC45LDEwOC42Yy01LDAuNS0xNC41LDIuNy0xOS42LDcuMmMtMTUuNSwxMy40LTYuMiwzNy45LDI1LjEsMzcuOQ0KCQljMTguMiwwLDM2LjQtMTEuNiw1MC43LTMwLjFDODQuNywxMTMuOSw2Ny41LDEwNi44LDQ4LjksMTA4LjZMNDguOSwxMDguNnoiLz4NCjwvZz4NCjwvc3ZnPg0K" alt="alipay">
+		</i>
+		<div class="button_title">
+			<p>ichat</p>
+			<p>通过转入至ichat点数方式进行提款</p>
+		</div>
+	</li>
+</ul>

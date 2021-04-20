@@ -1,0 +1,25 @@
+<main class="bulletin_billboard">
+    <div class="main_center bb">
+        <div class="main_title">{{"News" | getLang : api.langPackage}}</div>
+        <div class="main_content">
+			<div class="reload">
+				<button (click)="reload()">{{ "Reload" | getLang : api.langPackage}}</button>
+			</div>
+            <div class="bb_group">
+				<!--<div class="bb_item">
+					<div class="item1">{{"Time" | getLang : api.langPackage}}</div>
+					<div class="item2">{{"Content" | getLang : api.langPackage}}</div>
+				</div>
+				<div class="bb_data"  *ngFor="let list of bulletinBoardData">
+					<div class="data1">{{list.dtime}}</div>
+					<div class="data2">{{list.content}}</div>
+				</div>-->
+				<div class="bb_data"  *ngFor="let list of bulletinBoardData">
+					<div class="left"></div>
+					<div class="data1">{{list.content}}</div>
+					<div class="data2">{{list.dtime}}</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</main>

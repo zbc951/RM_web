@@ -1,0 +1,50 @@
+<div class="reload">
+    <button (click)="goBack()">{{ "Previous page" | getLang : api.langPackage}}</button>
+</div>
+<h1 class="book_h1">{{"Please enter the points transferred by ichat" | getLang : api.langPackage}}</h1>
+<ul class="steplist step_book">
+	<li class="special">
+		<button class="copy" type="button" ngxClipboard [cbContent]="inputGold">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Amount" | getLang : api.langPackage}}</h2>
+		<input type="number" [(ngModel)]="inputGold" [formControl]="inputGoldControl" >
+		<p class="errtips">{{erroMsg}}</p>
+		<p class="notice_txt">
+			<span class="nt_range">{{"the amount is 100 ~ 50,000" | getLang : api.langPackage}}</span>
+		</p>
+	</li>
+	<li>
+		<!--<button class="bookbtn_cancel">取消訂單</button>-->
+		<!--<button (click)="doSerial()" [disabled]="(power.valid || power.pristine)|| erroMsg || !inputGold || !inputSerial" class="bookbtn_ok">確認充值</button>-->
+		<button (click)="doIchatIn()" [ngClass]="(erroMsg || !inputGold ) ? 'notclick_btn' : 'bookbtn_ok' "
+		                             [disabled]="(erroMsg || !inputGold)" >{{"OK" | getLang : api.langPackage}}</button>
+	</li>
+</ul>
+<div [ngSwitch]="globals.getNowLang()">
+	<div class="description"  *ngSwitchCase="'en-us'">
+		<h1>Notice</h1>
+		<ul>
+			<li>1. If you use a mobile banking or online banking remittance, please attach a note in the attached member account.</li>
+			<li>2. Please click OK after the remittance is successful, otherwise click OK to receive the payment within five minutes. This deposit is invalid.</li>
+			<li>3. Deposit will be in ten minutes for, if any questions, please feel free to consult 24/7 online customer service.</li>
+			<li>4. When the amount of the order is not in line with the amount of the online banking transfer, the actual amount will be subject to the actual amount and the actual transfer amount must meet the amount required.</li>
+		</ul>
+	</div>
+	<div class="description"  *ngSwitchCase="'zh-tw'">
+		<h1>注意事項</h1>
+		<ul>
+			<li>1. 如使用手機銀行或網上銀行匯款請在附言備註會員帳號。</li>
+			<li>2. 請在匯款成功後，在點擊確認鍵，否則點擊確認在五分鐘內未收到款項此存款單為無效。</li>
+			<li>3. 存款會在十分鐘內辦理，如有任何疑問，請隨時諮詢24/7在線客服。</li>
+			<li>4. 訂單金額與網銀轉賬金額不符時，以實際到賬金額為準，且實際轉賬金額必須符合充值申請時的金額要求。</li>
+		</ul>
+	</div>
+	<div class="description"  *ngSwitchCase="'zh-cn'">
+		<h1>注意事项</h1>
+		<ul>
+			<li>1. 如使用手机银行或网上银行汇款请在附言备注会员帐号。</li>
+			<li>2. 请在汇款成功后，在点击确认键，否则点击确认在五分钟内未收到款项此存款单为无效。</li>
+			<li>3. 存款会在十分钟内办理，如有任何疑问，请随时咨询24/7在线客服。</li>
+			<li>4. 订单金额与网银转账金额不符时，以实际到账金额为准，且实际转账金额必须符合充值申请时的金额要求。</li>
+		</ul>
+	</div>
+</div>

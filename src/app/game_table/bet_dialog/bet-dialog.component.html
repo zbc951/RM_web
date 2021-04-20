@@ -1,0 +1,114 @@
+<main class="bet_dialog">
+            
+    <div class="main_center_dialog bdi_group" *ngIf="betInfo" >
+    <!--<div class="main_center_dialog bdi_group" *ngIf="betInfo" [@sideInAnimation]="dialogAnimate">-->
+
+        <div class="bdi_top">
+            <div class="title">{{ "Bet infomation" | getLang : api.langPackage}}</div>
+            <div class="topInfo">
+                <div class="BalanceInfo">
+                    <label>{{"Balance" | getLang : api.langPackage }} :</label>
+                    <input class="mem_input" type="text"  [ngModel]="memberSurplus | number" (ngModelChange)="memberSurplus=$event" name="surplus" readonly>
+                </div>
+                <div class="otherInfo" (click)="globals.openScoreLink()">{{"Live score" | getLang : api.langPackage}}</div>
+                <!-- <div class="otherInfo" (click)="globals.openBattleRecord(betInfo.gid)">{{"Battle record" | getLang : api.langPackage}}</div> -->
+            </div>
+            <div class="close" (click)="closeDialog(['closeDialog'])"></div>
+        </div>
+        <div class="bdi_content">
+            <div class="bdi_title">
+				<div class="title_1">{{ betInfo.date + '&nbsp;' + betInfo.gtime}}</div>
+				<div class="title_2">
+                     [{{ betInfo.lid }}]
+                    <span>{{ betInfo.ht }}</span>
+                    <span>[{{"Home" | getLang : api.langPackage}}]</span>
+                    <span>&nbsp; v &nbsp;{{ betInfo.ct }}</span>
+                </div>
+			</div>
+            <div class="bdi_info">
+                <div class="info_1">{{ "You are" | getLang : api.langPackage}} <span class="against"> {{ "against" | getLang : api.langPackage}} </span> {{ "this result" | getLang : api.langPackage}}&ensp;</div>
+                <div class="info_2"><span>{{ betInfo.ptype | getLang : api.langPackage}}&ensp;{{ betInfo.score | getLang : api.langPackage}}&ensp;</span></div>
+                <div class="info_3">{{"Fee" | getLang : api.langPackage}} : <span>5%</span></div>
+                <div class="info_4">{{"Trading volume" | getLang : api.langPackage}} : {{betInfo.trade | cashAddCommas }}</div>
+			</div>
+            <div class="bdi_data_groug">
+                <div class="bdi_name">
+                    <div class="data_1">{{"Stake" | getLang : api.langPackage}}</div>
+                    <div class="data_2">{{"Profit" | getLang : api.langPackage}}%</div>
+                    <div class="data_3">{{"Estimate" | getLang : api.langPackage}}</div>
+                </div>
+                <div class="bdi_data">
+                    <div class="data_1">
+                        <input class="data_input" type="number" [(ngModel)]="inputGold" [formControl]="betGoldInputControl"/>
+                        
+                    </div>
+                    <div class="data_2">{{ betInfo.win }} %</div>
+                    <div class="data_3" [hidden]="!btnSetQuickGold || !inputGold">{{ winForecastCal(inputGold, betInfo.win) | cashAddCommas}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="tip" [style.visibility]="erroMsg?'visible':'hidden'" [style.visibility]="btnSetQuickGold?'visible':'hidden'">{{ erroMsg }}</div>
+        <div class="bdi_button_group" *ngIf="btnBetRequest">
+            <!--
+                快速下注
+                <div class="money_button" *ngIf="btnSetQuickGold">
+                <div class="btn_1" (click)="inputGold = memberGoldSet[0]; betRequest(betInfo, inputGold);">{{ memberGoldSet[0] }}</div>
+                <div class="btn_1" (click)="inputGold = memberGoldSet[1]; betRequest(betInfo, inputGold);">{{ memberGoldSet[1] }}</div>
+                <div class="btn_1" (click)="inputGold = memberGoldSet[2]; betRequest(betInfo, inputGold);">{{ memberGoldSet[2] }}</div>
+                <div class="btn_2" (click)="btnSetQuickGold = false; betGoldInputControl.disable();">{{"Set a quick bet" | getLang : api.langPackage}}</div>
+            </div>-->
+            <div class="money_button" *ngIf="btnSetQuickGold">
+                <div class="btn_1" (click)="inputGold = calculationALLIN(betInfo)">{{"All in" | getLang : api.langPackage}}</div>
+                <div class="btn_1" (click)="inputGold = calculationGold(inputGold,memberGoldSet[0])">{{ memberGoldSet[0] | number }}</div>
+                <div class="btn_1" (click)="inputGold = calculationGold(inputGold,memberGoldSet[1])">{{ memberGoldSet[1] | number }}</div>
+                <div class="btn_1" (click)="inputGold = calculationGold(inputGold,memberGoldSet[2])">{{ memberGoldSet[2] | number }}</div>
+                <div class="btn_1" (click)="inputGold = null ">{{"Clear" | getLang : api.langPackage}}</div>
+                <div class="btn_2" (click)="btnSetQuickGold = false; betGoldInputControl.disable();">{{"Set bet amounts" | getLang : api.langPackage}}</div>
+                <!--<div class="btn_1" (click)="inputGold = calculationALLIN(betInfo)">{{"All in" | getLang : api.langPackage}}</div>
+                <div class="btn_1" (click)="inputGold = null ">{{"Clear" | getLang : api.langPackage}}</div>-->
+
+            </div>
+            <div class="money_input" *ngIf="!btnSetQuickGold">
+                <span>{{"Set bet amounts" | getLang : api.langPackage}} :</span>
+                <form (ngSubmit)="SetQuickGold(memberGoldSet[0], memberGoldSet[1], memberGoldSet[2]); betGoldInputControl.enable();">
+                    <input class="input_1" type="number" [(ngModel)]="memberGoldSet[0]" [ngModelOptions]="{standalone: true}" #memberGoldSet1="ngModel" min="100" max="100000"/>
+                    <input class="input_1" type="number" [(ngModel)]="memberGoldSet[1]" [ngModelOptions]="{standalone: true}" #memberGoldSet2="ngModel" min="100" max="100000"/>
+                    <input class="input_1" type="number" [(ngModel)]="memberGoldSet[2]" [ngModelOptions]="{standalone: true}" #memberGoldSet3="ngModel" min="100" max="100000"/>
+                    <button class="btn_1" (click)="getMemberData(globals.getNowUid());btnSetQuickGold = true; betGoldInputControl.enable();">{{"Cancel" | getLang : api.langPackage}}</button>
+                    <button class="btn_1" type="submit" 
+                            [ngClass]="{'disable': memberGoldSet1.invalid || memberGoldSet2.invalid || memberGoldSet3.invalid }"
+                            [disabled]="memberGoldSet1.invalid || memberGoldSet2.invalid || memberGoldSet3.invalid">{{"OK" | getLang : api.langPackage}}</button>
+                    <div class="errorMsg" *ngIf="memberGoldSet1.invalid || memberGoldSet2.invalid || memberGoldSet3.invalid">*{{"Set the amount:" | getLang : api.langPackage}}100〜100,000 </div>
+                </form>
+            </div>
+            <div class="confirm_button">
+                <button  class="btn_cancel" (click)="closeDialog(['closeDialog'])"
+                         [ngClass]="{'disable': !btnBetRequest}"
+                         [disabled]="!btnBetRequest">{{"Cancel" | getLang : api.langPackage}}</button>
+            <button  class="btn_ok disable" (click)="betGoldInputControl.disable();betRequest(betInfo, inputGold);"
+                         [ngClass]="{'disable': !btnSetQuickGold || !inputGold || erroMsg || !btnBetRequest}"
+                         [disabled]="!btnSetQuickGold || !inputGold || erroMsg || !btnBetRequest">{{"Place bet" | getLang : api.langPackage}}</button>
+            </div>
+        </div>
+    </div>
+    <!--<div class="main_center_dialog bdi_group" *ngIf="betInfo2" [@sideInAnimation]="dialogAnimate">
+        <div class="confirm_button">
+             <button  class="btn_cencle" (click)="closeDialog(['closeDialog'])">{{"Cancel" | getLang : api.langPackage}}</button>
+            <button class="btn_ok disable" (click)="betRequest(betInfo, inputGold)">{{"Place bet" | getLang : api.langPackage}}</button>
+        </div>
+    </div>-->
+    <div class="main_center_dialog bdi_applyOK" *ngIf="betSucDetail">
+        <h1>{{ "Bet successful" | getLang : api.langPackage}}!</h1>
+        <ul>
+            <li><span class="data_th">{{ "League" | getLang : api.langPackage}}</span><span>{{ betSucDetail.lid }}</span></li>
+            <li><span class="data_th">{{ "Race time" | getLang : api.langPackage}}</span><span>{{ betSucDetail.date + '&nbsp;' + betSucDetail.gtime}}</span></li>
+            <li><span class="data_th stringSpace">{{ "Game" | getLang : api.langPackage}}</span><span>{{ betSucDetail.ht }} v {{ betSucDetail.ct }}</span></li>
+            <li><span class="data_th stringSpace">{{ "Option" | getLang : api.langPackage}}</span><span>{{ betSucDetail.ptype | getLang : api.langPackage}} {{ betSucDetail.score  | getLang : api.langPackage}}</span></li>
+            <li><span class="data_th stringSpace">{{ "No." | getLang : api.langPackage}}</span><span>{{ betSucDetail.bid }}</span></li>
+            <li><span class="data_th stringSpace">{{ "Stake" | getLang : api.langPackage}}</span><span>{{ "$" | getLang : api.langPackage}} {{ betSucDetail.gold | cashAddCommas }}</span></li>
+            <li><span class="data_th stringSpace">{{ "Profit" | getLang : api.langPackage}}</span><span>{{ betSucDetail.win }}%</span></li>
+            <li class="last_li"><span class="data_th">{{ "Estimate" | getLang : api.langPackage}}</span><span>{{ betSucDetail.est_win }}</span></li>
+        </ul>
+        <button (click)="closeDialog(['closeAndUpdate'])">{{ "Close" | getLang : api.langPackage}}</button>
+    </div>
+</main>

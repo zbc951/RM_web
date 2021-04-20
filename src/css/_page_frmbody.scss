@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+@keyframes banner {
+	  0% {left: 0;}
+	 20% {left: -100%;}
+	 35% {left: -200%;}
+	 50% {left: -300%;}
+	 70% {left: -400%;}
+	 90% {left: 0%;}
+	100% {left: 0;}
+}
+
+main {
+	//各頁面style
+	&.center_member {
+		.frm_body {
+			width: auto;
+			.main_content {	
+				.slidebg {
+					min-height: calc(100vh - 127px);
+					min-width: calc(100vw - 11px);
+					position: relative;
+					overflow: hidden;	
+					box-shadow: 0px 6px 30px rgba(0,0,0,0.2) inset;
+					// background: url('../img/banner/banner_bg.jpg') center center no-repeat;
+					background: url('../img/banner/banner0.jpg') center center no-repeat;
+					background-size: cover;
+					.bannerContainer {
+						width: 500%;
+						//width: 100%;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						animation: banner 25s infinite;
+						.banner {
+							height: 100%;
+							width: calc(100% / 5);
+							//width: 100%;
+							float: left;
+							background: center center no-repeat;
+							// background-image: url('../img/banner/banner3.png');
+							//background-image: url('../img/banner/banner01.jpg');
+							background-size: cover;
+							@for $i from 1 through 5 {
+								&:nth-child(#{$i}) {
+									background-image: url('../img/banner/banner0#{$i}.jpg');
+								}
+							}
+						}
+					}
+				}				
+			}
+			.frm_footer {
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				height: 40px;
+				padding: 0;
+				background: #041c31;
+				line-height: 20px;
+				color: #ffffff;
+				font-size: $front13;
+				box-shadow: 0 -5px 10px rgba(#000, .4);
+				.cpright {
+					float: left;
+					margin: 10px 0 0 40px;
+				}
+				.supbroswer {
+					float: right;
+					// margin: 5px 40px 0 0;
+					margin: 5px 155px 0 0;
+					.broswericon {
+						float: left;
+						margin-left: 40px;
+						text-align: center;	
+						opacity: 0.7;
+						cursor: default;				
+						&:before {
+							content: '';
+							display: inline-block;
+							width: 20px;
+							height: 20px;
+							margin-right: 10px;
+							background: url('../img/broswericon.png') 0 0 no-repeat;
+							background-size: 300%;
+							position: relative;
+							top: 5px;
+						}
+						&:hover {
+							opacity: 1;
+						}
+						&:first-child {
+							margin-left: 0;
+						}			
+					}
+					.suggestion:before {
+						background-position: 20px 0;
+					}
+					.bs_fox:before {
+						background-position: -20px 0; 
+					}
+					.bs_ie:before {
+						background-position: -40px 0; 
+					}
+				}
+			}
+		}		
+	}
+}

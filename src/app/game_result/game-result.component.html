@@ -1,0 +1,40 @@
+<main class="game_result">
+    <div class="main_center gr">
+        <div class="main_title">{{ "Box Score" | getLang : api.langPackage}}</div>
+        <div class="main_content">
+            <form>
+                <input type="date" (change)="searchDate = $event.target.value" value="{{searchDate}}">
+                <button (click)="search()">{{ "Search" | getLang : api.langPackage}}</button>
+                <span class="keyWord">{{ "Key words" | getLang : api.langPackage}} :</span>
+                <input type="text" #searchWord>
+                <div class="icon_search"></div>
+
+            </form>
+            <div class="gr_group">
+                <div class="gr_item">
+                    <div class="item1">{{ "Game time" | getLang : api.langPackage}}</div>
+                    <div class="item2">{{ "Game" | getLang : api.langPackage}}</div>
+                    <div class="item3">{{ "PD" | getLang : api.langPackage}}</div>
+                    <div class="item4">{{ "PDHR" | getLang : api.langPackage}}</div>
+                    <!--<div class="item5">{{ "Total score" | getLang : api.langPackage}}</div>
+					<div class="item6">{{ "First goal" | getLang : api.langPackage}}</div>-->
+                </div>
+                <div class="gr_data" *ngFor="let list of ( gameResult | searchFilter : searchWord.value ) ">
+                    <!--<div class="gr_data" *ngFor="let list of gameResult" >-->
+                    <div class="data1">{{list.time | slice:0:10}}<br>{{list.time | slice:11}}</div>
+                    <div class="data2">
+                        <span>[{{list.lname}}]</span><br>
+                        <span>{{list.ht}}</span>
+                        <span>[{{ "Home" | getLang : api.langPackage}}]</span>
+                        <span> VS </span>
+                        <span>{{list.ct}}</span>
+                    </div>
+                    <div class="data3">{{list.PD}}</div>
+                    <div class="data4">{{list.PDHR}}</div>
+                    <!--<div class="data5">{{list.am}}</div>
+					<div class="data6"></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

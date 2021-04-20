@@ -1,0 +1,20 @@
+<div class="qrcode_dialog">
+    <div class="main_center_dialog" [ngSwitch]="serviceInfo.qrcode">
+        <div class="close" (click)="closeDialog()"></div>
+        <div class="bdi_top">{{ serviceInfo.title | getLang : api.langPackage :1}}</div>
+        <div class="box"  *ngSwitchCase="'qqQrcode'">
+            <div class="qqQrcode"></div>
+            <div class="content"> {{"ID" | getLang : api.langPackage}}:897257436</div>
+        </div>
+        <div class="box"  *ngSwitchCase="'wechatQrcode'">
+            <div class="wechatQrcode"></div>
+            <div class="content">ID:wiselink1988</div>
+        </div>
+        <div class="box"  *ngSwitchCase="'weiboQrcode'">
+            <div class="weiboQrcode"></div>
+            <button (click)="globals.openLink('https://m.weibo.cn/u/6267582467','location=yes,fullscreen=yes,status=yes')">
+                {{"Open link" | getLang : api.langPackage}}
+            </button>
+        </div>
+    </div>
+</div>

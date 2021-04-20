@@ -1,0 +1,44 @@
+<div class="bhs_data content">
+    <div class="content_th">
+        <div class="detail_item1">{{ "No." | getLang : api.langPackage}}</div>
+        <div class="detail_item2">{{ "Bet time" | getLang : api.langPackage}}</div>
+        <div class="detail_item3">{{ "Game time" | getLang : api.langPackage}}</div>
+        <div class="detail_item4">{{ "Game" | getLang : api.langPackage}}</div>
+        <div class="detail_item5">{{ "Bet content" | getLang : api.langPackage}}</div>
+        <div class="detail_item6">{{ "Stake" | getLang : api.langPackage}}</div>
+        <div class="detail_item7">{{ "Profit" | getLang : api.langPackage}}%</div>
+        <div class="detail_item8">{{ "Payout" | getLang : api.langPackage}}</div>
+    </div>
+    <div class="content_td" *ngFor="let list of thisweek">
+        <div class="detail_data1">{{list.bid}}</div>
+        <div class="detail_data2">
+            <span>{{list.btime | slice:0:10}}</span><br/>
+            <span>{{list.btime | slice:11}}</span>
+        </div>
+        <div class="detail_data3">
+            <span>{{list.stime | slice:0:10}}</span><br/>
+            <span>{{list.stime | slice:11}}</span>
+        </div>
+        <div class="detail_data4">
+            <span class="gameCancel" *ngIf="list.detailed_content.gameCancel">{{ list.detailed_content.text | getLang : api.langPackage}}</span>
+            <span>{{'['+list.lid+']'}}</span><br/>
+            <span>{{list.ht+ "[" + ("Home" | getLang : api.langPackage) + "]"}}</span>
+            <span class="score" *ngIf="!list.detailed_content.gameCancel">&nbsp;{{list.detailed_content.hr}}</span>
+            <span class="vs">&nbsp;&nbsp;VS&nbsp;</span>
+            <span>{{list.ct}}</span>
+            <span class="score" *ngIf="!list.detailed_content.gameCancel">&nbsp;{{list.detailed_content.cr}}</span>
+        </div>
+        <div class="detail_data5">
+            <span>{{ list.ptype | getLang : api.langPackage}}</span><span>{{list.score | getLang : api.langPackage}}</span><br/>
+            <span>{{ "Fee" | getLang : api.langPackage}}:</span><span>5%</span></div>
+        <div class="detail_data6">{{list.gold  | cashAddCommas }}</div>
+        <div class="detail_data7">{{list.profit+'%'}}</div>
+        <div class="detail_data8" *ngIf="list.result != 'NC'" [style.color]="!list.detailed_content.gameCancel && list.win > 0 ? '#13ff48':'#ff1a00'">{{ !list.detailed_content.gameCancel ? (list.win | numberToCash | cashAddCommas ) : ( list.detailed_content.text | getLang : api.langPackage) }}</div>
+        <div class="detail_data8" *ngIf="list.result =='NC'">{{ "Withdrawal" | getLang : api.langPackage}}</div>    
+    </div>
+    <div class="content_td_result">
+        <div class="result1">{{ "Total" | getLang : api.langPackage}}<span>{{thisweek?.length}}</span>{{ "records" | getLang : api.langPackage}}</div>
+        <div class="result2">{{allGold | cashAddCommas}}</div>
+        <div class="result3 blue" [style.color]="allWin > 0 ? '#13ff48':'#ff1a00'">{{allWin | numberToCash | cashAddCommas }}</div>
+    </div>
+</div>

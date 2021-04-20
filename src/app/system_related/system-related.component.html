@@ -1,0 +1,22 @@
+<main [ngClass]="{about_pb : this.selectItem == 'problem',about_rule : this.selectItem == 'rules',
+                  about_how : this.selectItem == 'bet' || this.selectItem == 'bankCard' || this.selectItem == 'depositSerial' || this.selectItem == 'withdraw'}">
+    <div class="main_center" [ngClass]="{pb : this.selectItem == 'problem',rule : this.selectItem == 'rules',
+                                         how : this.selectItem == 'bet' || this.selectItem == 'bankCard' || this.selectItem == 'depositSerial' || this.selectItem == 'withdraw'}">
+        <div class="main_title">
+            <div class="title">{{"System" | getLang : api.langPackage}}</div>
+            <div class="title_btn" [class.active]="selectItem == 'rules'" (click)="changeSelectItem('rules')">{{"Rule" | getLang : api.langPackage}}</div>
+            <div class="title_btn" [class.active]="selectItem == 'bet'" (click)="changeSelectItem('bet')">{{"Investment operation instructions" | getLang : api.langPackage}}</div>
+            <div class="title_btn" [class.active]="selectItem == 'bankCard'" (click)="changeSelectItem('bankCard')" *ngIf="globals.getShowLogout()">{{"Instructions for binding ATM card" | getLang : api.langPackage}}</div>
+            <div class="title_btn" [class.active]="selectItem == 'depositSerial'" (click)="changeSelectItem('depositSerial')" *ngIf="globals.getShowLogout()">{{"deposit operation instructions" | getLang : api.langPackage}}</div>
+            <div class="title_btn" [class.active]="selectItem == 'withdraw'" (click)="changeSelectItem('withdraw')" *ngIf="globals.getShowLogout()">{{"Withdrawal instructions" | getLang : api.langPackage}}</div>            
+        </div>
+        <div class="main_content" [ngSwitch]="selectItem">
+                <rules  *ngSwitchCase="'rules'"></rules>
+                <about-bet  *ngSwitchCase="'bet'"></about-bet>
+                <about-bank-card  *ngSwitchCase="'bankCard'"></about-bank-card>
+                <about-deposit-serial  *ngSwitchCase="'depositSerial'"></about-deposit-serial>
+                <about-withdraw  *ngSwitchCase="'withdraw'"></about-withdraw>
+
+        </div>
+    </div>
+</main>

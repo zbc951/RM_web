@@ -1,0 +1,47 @@
+<div class="select_row_bet" *ngIf="record">
+
+	<div class="total">
+		<span>{{ "Whether the amount required for investment has not been reached" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+		<span class="cash">{{((record.waterfailnum == 0)?'Up to standard':'did not make it')| getLang : api.langPackage}}</span>
+	</div>
+	<div class="total">
+		<span>{{ "Fee" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+		<span class="cash">{{record.Fee}}%</span>
+	</div>
+	<div class="total">
+		<span>{{ "Withdrawal this week" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+		<span class="cash">{{record.nowWeekOrders}}</span>
+	</div>
+</div>
+<div class="mbtsrd_group_bet"  *ngIf="record">
+	<div class="mbtsrd_item">
+		<div class="item0">{{ "No." | getLang : api.langPackage}}</div>
+		<div class="item1">{{ "Target investment amount" | getLang : api.langPackage}}</div>
+		<div class="item2">{{ "Current investment amount" | getLang : api.langPackage}}</div>
+		<div class="item3">{{ "Deposit amount" | getLang : api.langPackage}}</div>
+
+	</div>
+	<div class="mbtsrd_data"  *ngFor="let list of record.waterfail  ">
+		<div class="data0">{{list.orderid}}</div>
+		<div class="data1">￥{{ list.targetWater}}</div>
+		<div class="data2">￥{{ list.nowwater}}</div>
+		<div class="data3">￥{{ list.ordernum}}</div>
+
+	</div>
+	<!-- <div class="mbtsrd_total">
+		<div class="total">
+			<span>{{ "存款金额" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+			<span class="cash">56</span>
+		</div>
+		<div class="total">
+			<span>{{ "提款金额" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+			<span class="cash">56</span>
+		</div>
+	</div> -->
+</div>
+<div class="select_row_bet" *ngIf="!record">
+
+	<div>
+		<span style="color: #383838;">{{ "You have no transaction history" | getLang : api.langPackage}}!</span>
+	</div>
+</div>

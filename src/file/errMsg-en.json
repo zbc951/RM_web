@@ -1,0 +1,107 @@
+{
+    "700": "You have been logged out",
+    "704": "The server is busy, please wait",
+    "705": "Invalid operating state",
+    "708": "language can not judge",
+
+    "99901": "Account or password entered incorrectly",
+
+    "95001": "Input format does not match",
+
+    "94001": "Enter the title more than 50 words",
+    "94002": "Enter more than 500 words",
+    "94003": "Input format does not match",
+
+    "92501": "Enter phone number error",
+    "92502": "Enter Email error",
+    "92503": "Enter QQ account error",
+    "92504": "input WeChat account error",
+
+    "92201": "Enter old security code error",
+    "92202": "Enter new security code format error",
+
+    "92001": "Enter old password error",
+    "92002": "Enter new password error",
+    "92003": "new password can not be empty",
+    "92004": "Old password is the same as new password",
+
+    "68001": "Input ball error",
+    "68002": "Enter date error",
+
+    "62001": "input ball error",
+    "62002": "Enter date error",
+
+    "61001": "input ball error",
+    "61002": "Enter the start date error",
+    "61003": "Enter the end date error",
+    "61004": "Search for more than 30 days",
+
+    "31001": "event error",
+    "31002": "bet amount exceeds the limit",
+    "31003": "bet amount less than 100 the limit",
+    "31004": "The race has been closed",
+    "31005": "The event has been suspended",
+    "31006": "tournament profit change",
+    "31007": "lack of balance",
+    "31008": "odds wrong",
+    "31009": "system busy",
+    "31010": "Betting status is disabled",
+    "31011": "set the wrong, please respond to customer service",
+    "31012": "bet amount exceeds company limit",
+    "31013": "Profit% change, please re-trade",
+
+    "12001": "input ball error",
+
+    "10001": "input ball error",
+    "10002": "choose the game error",
+    "10003": "The plant race has been closed",
+
+    "76001": "The wrong amount",
+    "76002": "The serial number is wrong",
+    "76003": "Deposit is wrong",
+    "76004": "No such deposit account",
+
+    "57001" : "Wrong payment of information",
+    "57002" : "Repeat the order",
+    "57003" : "The amount of the deposit is out of range",
+    "57099" : "Other errors",
+
+    "76201": "Amount is incorrect",
+    "76202": "Bank account is malformed",
+    "76203": "Bank name is malformed",
+    "76204": "Remarks formatting error",
+    "76205": "The system is busy, clear later try to mention",
+    "76206": "The amount of the claim shall not be less than 100",
+
+    "91201": "No such bank records",
+    "91202": "Wrong parameters",
+    "91203": "Wrong behavior",
+    "91204": "Bank name is malformed",
+    "91205": "Bank account format is wrong",
+    "91206": "Bank account is malformed",
+    "91207": "Confirm password is wrong",
+
+
+
+    "99501":"The token session obtained by the server is empty, please log in again",
+    "99502":"Account does not exist",
+    "99503":"Account has been bound",
+    "99504":"The binding information already exists",
+    "93501":"Wrong Promotion Code",
+    "93502":"Wrong account format",
+    "93503":"Wrong password format",
+    "93504":"Wrong nickname format",
+    "93505":"Wrong phone format",
+    "93506":"Wrong Mailbox Format",
+    "93507":"Wrong QQ Format",
+    "93508":"Wrong WeChat format",
+    "93509":"Confirm password error",
+    "93510":"Member already exists",
+    "93511":"Failed to add member",
+    "93512": "Member failed to add-please contact to overcome",
+    "93513":"The agent has been deactivated, please contact customer service",
+    "93001":"Wrong Promotion Code",
+    "91208":"Province format error",
+    "91209":"Prefecture-level city format error",
+    "91210":"Branch format error"
+}

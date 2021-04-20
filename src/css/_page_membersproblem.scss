@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+main {
+	//各頁面style
+	&.center_member {
+		.mbprob {
+			.main_content {	
+				min-height: 750px;
+				.right_area {
+					&::after {
+						content: '';
+						display: block;
+						clear: both;
+					}
+					h1 {
+						font-size: 20px;
+						color: $color-gray7;
+						font-weight: bold;
+						height: 20px;
+						padding: 20px;
+						&.title {
+							border-radius: 10px 10px 0 0;
+							@include gradient-gray1;
+							border-bottom: 1px solid #c8c8c8;
+						}
+					}
+					.reload {
+						margin: 15px 15px 0;
+						display: flex;
+						float: right;
+						button {
+							@include btn-style6-reload;
+						}
+					}
+					ul.form_list {
+						width: 100%;
+						padding-bottom: 20px;
+						border-bottom: 1px solid transparent;
+						border-image: linear-gradient(to right, rgba(220,220,220,0) 2%, rgba(220,220,220,.8) 30% , rgba(220,220,220,.8) 70%, rgba(220,220,220,0) 98%);
+						border-image-slice: 1;
+						li {
+							padding: 30px 0 0;
+							font-size: 18px;
+							color: $color-gray11;
+							&:last-child {
+								padding: 0;
+							}
+							h2 {
+								width: 150px;
+								float: left;
+								margin-right: 20px;
+								text-align: right;
+							}
+							input, textarea {
+								@include insetshadow;
+								border-radius: 5px;
+								border: 1px solid #ccc;
+								font-size: $front15;
+								color: $color-gray8;
+								float: left;
+								font-family: inherit;
+								padding: 5px 10px;
+								width: 650px;
+							}
+							input {
+								margin-top: -5px;						
+							}
+							textarea {
+								margin-top: -5px;	
+								height: 110px;
+							}
+							.clearboth {
+								margin-bottom: 5px;
+							}
+							span {
+								display: block;
+								font-size: $front15;
+								text-align: right;
+								margin-right: 105px;
+							}
+							button {
+								@include btn-style10;
+								height: 40px;
+								float: left;
+								margin: 0 420px 0;
+								width: 120px;
+								&.notclick_btn {
+									@include notclick_btn; //_page_deposit.scss
+									float: none;
+									&:hover {
+										background: $color-gray11;
+									}
+								}
+							}
+							&:after {
+								content: '';
+								display: block;
+								clear: both;
+							}
+						}
+					}
+					ul.qa_record {
+						margin: 0 0 40px;
+						font-size:18px;
+						color: $color-gray11;
+						&::after {
+									content: '';
+									display: block;
+									clear: both;
+								}
+						li {
+							&::after {
+									content: '';
+									display: block;
+									clear: both;
+								}
+							width: 673px;
+							line-height: 24px;
+							margin: 0 0 20px 168px;
+							border: 1px solid #CCC;
+							@include borderRadius(10px);
+							@include insetshadow;
+							&.noreply {
+								box-shadow: 0px 1px 10px rgba(205, 10, 85, 0.45);
+								-webkit-box-shadow: 0px 1px 10px rgba(205, 10, 85, 0.45);							    
+							    -moz-box-shadow: 0px 1px 10px rgba(205, 10, 85, 0.45);
+								border: 1px solid #cd0a55;
+								cursor: pointer;
+							}
+							.top {
+								background: #062744;
+								border-radius: 10px 10px 0 0;
+								border-bottom: 1px solid #cccccc;
+								&::after {
+									content: '';
+									display: block;
+									clear: both;
+								}
+								.qa_tip{
+									float: left;
+									padding: 8px 0 8px 0;
+									text-align: center;
+									font-weight: bold;
+									color: #cd0a55;
+									width: 363px;
+									@include gradient-gray1;
+									border-radius: 10px 0 0 0;
+									position: relative;
+									&::after {
+										content: '';
+										display: block;
+										position: absolute;
+										top: 0;
+										left: 0;
+										height: 100%;
+										background: linear-gradient(90deg, rgba(255, 255,255,0), #cd0a55, rgba(255, 255,255,0));
+										animation: 3s linear infinite tipbg;
+										@keyframes tipbg { 
+											  0%{width: 0%;	opacity: 0;	 left: 0%;}
+											 40%{width: 65%;opacity: 0.4;left: 35%;}
+											 80%{width: 30%;opacity: 0;	 left: 70%;}
+											100%{width: 0%;	opacity: 0;	 left: 0%;}
+										}
+									}
+								}
+								.qa_time{
+									position: relative;
+									text-align: right;
+									float: right;
+									color: #fff;
+									width: 210px;
+									padding: 8px 40px 8px 60px;
+									background: linear-gradient(to bottom, #1262a6 0%, #114571 100%);
+									border-radius: 0 10px 0 0;
+									&::before {
+										content: '';
+										display: block;
+										position: absolute;
+										top: 0;
+										left: 0;
+										width: 0;
+										height: 0;
+										border-style: solid;
+										border-width: 40px 40px 0 0;
+										border-color: #062744 transparent transparent transparent;
+									}
+								}
+							}
+							
+							.down {
+								.qa_problem {
+									font-weight: bold;
+									padding: 16px 20px;
+									clear: both;
+									border-bottom: 1px solid transparent;
+									border-image: linear-gradient(to right, rgba(220,220,220,0) 2%, rgba(220,220,220,.8) 30% , rgba(220,220,220,.8) 70%, rgba(220,220,220,0) 98%);
+									border-image-slice: 1;
+								}
+								.qa_reply {
+									font-weight: bold;
+									padding: 16px 20px;
+									color: #062744;
+									background-color: #d8e3ea;
+									span {
+										display: block;
+										color: $color-gold8;
+										font-weight: bold;
+										margin-bottom: 10px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}		
+	}
+}

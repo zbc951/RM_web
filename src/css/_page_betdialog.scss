@@ -1,0 +1,525 @@
+@charset "utf-8";
+main {
+    //各頁面style
+    &.bet_dialog {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        position: fixed;
+        z-index: 9998;
+        top: 0px;
+        height: 100%;
+        //彈跳視窗置中
+        .main_center_dialog {
+            width: 800px;
+            margin: 0 auto;
+            background: #2aa6dc;
+            border: 1px solid #73d3ff;
+            position: relative;
+            top: calc(50% - 250px);
+        }
+        .bdi_group {
+            border-radius: 10px;
+            .bdi_top {
+                position: relative;
+                line-height: 57px;
+                background: #062744;
+                border-radius: 10px 10px 0 0;
+                border-top: 1px solid #1c5588;
+                &::after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+                .title {
+                    float: left;
+                    padding-left: 20px;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: bold;
+                    letter-spacing: 3px;
+                }
+                .topInfo {
+                    float: right;
+                    padding: 10px 30px 0 0;
+                    div {
+                        font-size: 20px;
+                        font-weight: bold;
+                        float: left;
+                    }
+                    .BalanceInfo {
+                        margin: 0px 25px 0px 0px;
+                        label {
+                            float: left;
+                            @include label-style1;
+                            line-height: 36px;
+                        }
+                        .mem_input {
+                            float: left;
+                            @include input-style1;
+                            font-size: 19px;
+                            width: 160px;
+                            background-color: transparent;
+                        }
+                    }
+                    .otherInfo {
+                        text-align: center;
+                        @include btn-style9;
+                        padding: 0 6px;
+                        line-height: 33px;
+                        color: #fff;
+                        margin: 0px 10px 0px 0px;
+                        border-bottom: 3px solid #062744;
+                        background: linear-gradient(to bottom, #0093d4 0%, #0c5f84 100%);
+                        border: 1px solid #89dbff;
+                        &:hover,
+                        &.active {
+                            background: #031525;
+                            border: 1px solid #2b89b2;
+                        }
+                        &::before {
+                            content: '';
+                            display: block;
+                            float: left;
+                            width: 24px;
+                            height: 32px;
+                            margin: 0 4px 0 0;
+                            background: url('../img/http_white.png') center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+                .close {
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    position: absolute;
+                    background: #fff url(../img//ic_close_black_24dp_1x.png) center center no-repeat;
+                    right: -10px;
+                    top: -10px;
+                    cursor: pointer;
+                }
+            }
+            .bdi_content {
+                border: 1px solid #7bd5ff;
+                border-radius: 10px;
+                margin: 20px 20px 0;
+                .bdi_title {
+                    @include gradient-gray1;
+                    line-height: 55px;
+                    border-radius: 10px 10px 0 0;
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                    .title_1 {
+                        color: $color-gray4;
+                        font-size: 18px;
+                        font-weight: bold;
+                        padding: 0 0 0 15px;
+                        float: left;
+                    }
+                    .title_2 {
+                        color: $color-blue13;
+                        font-size: 18px;
+                        font-weight: bold;
+                        padding: 0 0 0 15px;
+                        float: left;
+                        span {
+                            color: $color-gold1;
+                            &:nth-child(2) {
+                                color: $color-gray4;
+                            }
+                        }
+                    }
+                }
+                .bdi_info {
+                    font-size: 18px;
+                    line-height: 50px;
+                    text-align: center;
+                    color: #fff;
+                    padding: 0 20px;
+                    background: linear-gradient(to bottom, #028ecc 0%, #051e33 100%);
+                    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2) inset;
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                    .info_1 {
+                        float: left;
+                        .against {
+                            position: relative;
+                            -webkit-animation-name: shake_bottom;
+                            /* Safari 4.0 - 8.0 */
+                            -webkit-animation-duration: 0.3s;
+                            /* Safari 4.0 - 8.0 */
+                            animation-name: shake_bottom;
+                            animation-duration: 0.3s;
+                            animation-iteration-count: infinite;
+                            animation-direction: alternate;
+                            color: #faaf3c;
+                            font-weight: bold;
+                            font-size: 20px;
+                        }
+                    }
+                    .info_2 {
+                        float: left;
+                        span {
+                            color: #faaf3c;
+                            font-weight: bold;
+                            font-size: 20px;
+                        }
+                    }
+                    .info_3 {
+                        float: right;
+                    }
+                    .info_4 {
+                        float: right;
+                        margin: 0px 20px;
+                    }
+                    .info_4 {
+                        float: right;
+                        margin: 0px 20px;
+                    }
+                }
+                .bdi_data_groug {
+                    .bdi_name {
+                        height: 55px;
+                        line-height: 55px;
+                        background: #051e33;
+                        border-top: 1px solid #045783;
+                        >div {
+                            float: left;
+                            width: (100% / 3);
+                            font-size: 18px;
+                            text-align: center;
+                            color: #fff;
+                            font-weight: bold;
+                            &::after {
+                                @include vertical-line2;
+                                height: 55px;
+                            }
+                        }
+                        // &::after {
+                        // 	@include level-line1;
+                        // }
+                        .data_3 {
+                            &::after {
+                                border: none;
+                            }
+                        }
+                    }
+                    .bdi_data {
+                        height: 56px;
+                        line-height: 56px;
+                        background: #f7f7f7;
+                        border-radius: 0 0 10px 10px;
+                        >div {
+                            float: left;
+                            width: (100% / 3);
+                            font-size: 20px;
+                            font-weight: 600;
+                            text-align: center;
+                            color: $color-gray7;
+                            &::after {
+                                @include vertical-line1;
+                                height: 55px;
+                            }
+                        }
+                        .data_1 {
+                            border-radius: 0 0 0 10px;
+                            input.data_input {
+                                padding: 5px;
+                                font-size: 15px;
+                                color: $color-gray4;
+                                vertical-align: text-bottom;
+                                margin-top: 12px;
+                                border-radius: 5px;
+                                border: 1px solid #cccccc;
+                                @include gradient-gray2;
+                            }
+                        }
+                        .data_2 {
+                            color: $color-red;
+                        }
+                        .data_3 {
+                            color: $color-red;
+                            border-radius: 0 0 10px 0;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .tip {
+                position: absolute;
+                color: $color-gold5;
+                font-size: 17px;
+                font-weight: bold;
+                left: 20px;
+            }
+            .bdi_button_group {
+                font-family: "Microsoft JhengHei";
+                .money_button {
+                    padding: 20px 20px 80px;
+                    width: calc(100% - 40px);
+                    height: 95px;
+                    font-size: 16px;
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                    .btn_1,
+                    .btn_2 {
+                        font-size: 18px;
+                        font-weight: bold;
+                        text-align: center;
+                        border: 1px solid #cccccc;
+                        border-radius: 5px;
+                        padding: 10px 0;
+                        width: 180px;
+                        cursor: pointer;
+                        // @include reflect;
+                    }
+                    .btn_1 {
+                        @include gradient-gray2;
+                        float: left;
+                        margin: 0 calc(32px / 3) 15px 0;
+                        color: #000;
+                        &:nth-child(4n) {
+                            margin-right: 0;
+                        }
+                        &:hover {
+                            @include gradient-gray2up;
+                            border: 1px solid #035077;
+                        }
+                    }
+                    .btn_2 {
+                        background: linear-gradient(to bottom, #099cdc 0%, #05233c 100%);
+                        float: right;
+                        color: #fff;
+                        &:hover {
+                            background: #051e33;
+                        }
+                    }
+                }
+                .money_input {
+                    padding: 20px 20px 45px;
+                    width: calc(100% - 40px);
+                    height: 95px;
+                    font-size: 16px;
+                    line-height: 60px;
+                    span {
+                        float: left;
+                        color: #ffffff;
+                        font-weight: bold;
+                    }
+                    form {
+                        float: right;
+                        &::after {
+                            content: '';
+                            display: block;
+                            clear: both;
+                        }
+                        .input_1 {
+                            float: left;
+                            height: 20px;
+                            padding: 6px;
+                            width: 110px;
+                            margin: 14px 0 0 11px;
+                            font-size: 18px;
+                            color: #000;
+                            border: 1px solid #a2b0bb;
+                            border-radius: 5px;
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                        .btn_1 {
+                            @include btn-style5;
+                            float: left;
+                            line-height: 22px;
+                            margin: 14px 0 0 20px;
+                            padding: 5px;
+                            width: 105px;
+                            border: 1px solid #8bf0ff;
+                            &:hover {
+                                background: #08423b;
+                            }
+                            &.disable {
+                                background: #ccc;
+                                border: none;
+                                cursor: context-menu;
+                            }
+                        }
+                        .errorMsg {
+                            clear: both;
+                            font-weight: bold;
+                            position: relative;
+                            line-height: 25px;
+                            color: $color-gold5;
+                        }
+                    }
+                }
+                .confirm_button {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    border-top: 1px solid #999999;
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                    .btn_cancel,
+                    .btn_ok {
+                        font-family: "Microsoft JhengHei";
+                        float: left;
+                        width: 50%;
+                        cursor: pointer;
+                        padding: 16px;
+                        font-size: 22px;
+                        font-weight: bold;
+                        @include gradient-gray4;
+                        border: 0;
+                        &:hover {
+                            background: #051e33;
+                            color: #ffffff;
+                            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset;
+                        }
+                    }
+                    .btn_cancel {
+                        border-radius: 0 0 0 10px;
+                        color: #999999;
+                        position: relative;
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            width: 1px;
+                            height: 100%;
+                            border-right: 1px solid #999999;
+                        }
+                    }
+                    .btn_ok {
+                        border-radius: 0 0 10px 0;
+                        color: $color-blue7;
+                        &.disable {
+                            color: #888888;
+                            background: #999999;
+                            &:hover {
+                                color: #888888;
+                                box-shadow: 0 0 0 rgba(0, 0, 0, 0) inset;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bdi_applyOK {
+            width: 500px;
+            min-height: 360px;
+            border-radius: 10px;
+            h1 {
+                font-size: 26px;
+                color: #fff;
+                background: #062744;
+                padding: 16px 20px;
+                border-radius: 10px 10px 0 0;
+                text-align: center;
+            }
+            ul {
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 25px;
+                padding: 0 20px 62px;
+                li {
+                    border-bottom: 1px solid transparent;
+                    border-image: linear-gradient(to right, rgba(220, 220, 220, 0) 2%, rgba(220, 220, 220, .8) 30%, rgba(220, 220, 220, .8) 70%, rgba(220, 220, 220, 0) 98%);
+                    border-image-slice: 1;
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                    span {
+                        color: #003280;
+                        display: inline-block;
+                        padding: 15px 0 15px 15px;
+                        &.data_th {
+                            width: 100px;
+                            text-align: left;
+                            font-weight: bold;
+                            color: #000102;
+                            &:first-child {
+                                text-align: right;
+                            }
+                        }
+                        &.data_game {
+                            width: 100%;
+                            text-align: center !important;
+                        }
+                    }
+                    &:after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                }
+            }
+            .cancel_div {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                border-top: 1px solid #999999;
+                button {
+                    &.cancel_button_left {
+                        float: left;
+                        width: 50%;
+                        cursor: pointer;
+                        padding: 16px;
+                        font-size: 22px;
+                        font-weight: bold;
+                        position: initial;
+                    }
+                    &.cancel_button_right {
+                        float: right;
+                        width: 49%;
+                        cursor: pointer;
+                        padding: 16px;
+                        font-size: 22px;
+                        font-weight: bold;
+                        position: initial;
+                    }
+                }
+            }
+            button {
+                @include btn-style7;
+                @include gradient-gray4;
+                border: 0;
+                border-top: 1px solid #999999;
+                font-size: 22px;
+                font-weight: bold;
+                letter-spacing: 10px;
+                padding: 15px;
+                width: 100%;
+                border-radius: 0 0 10px 10px;
+                position: absolute;
+                bottom: 0;
+                color: $color-blue7;
+                &:hover {
+                    border: 0;
+                    border-top: 1px solid #62cfff;
+                    background: #041c31;
+                    color: #ffffff;
+                    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset;
+                }
+            }
+        }
+    }
+}

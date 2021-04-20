@@ -1,0 +1,149 @@
+<form [formGroup]="userForm" novalidate>
+    <div class="reload">
+        <button (click)="updateMoneyInfo()">{{ "Reload" | getLang : api.langPackage}}</button>
+    </div>
+    <h1>{{ "Personal info" | getLang : api.langPackage}}</h1>
+    <ul class="line" [ngSwitch]="globals.getIsIchat()">
+        <li *ngSwitchCase="false">
+            <h3>{{ "Account" | getLang : api.langPackage}}</h3>
+            <span>{{username}}</span>
+        </li>
+        <li *ngSwitchCase="true">
+                <h3>{{ "nickname" | getLang : api.langPackage}}</h3>
+                <span>{{globals.getIchatUser()}}</span>
+        </li>
+        <li>
+            <h3>{{ "Balance" | getLang : api.langPackage}}</h3>
+            <span class="gold">{{ "$" | getLang : api.langPackage}} {{surplus | number}}</span>
+        </li>
+        <!--<li>
+            <h2>現有交易額度</h2>
+            <span>{{nowCredit}}</span>
+        </li>-->
+        <li>
+            <h3>{{ "Transaction count" | getLang : api.langPackage}}</h3>
+            <span class="purple">{{tradeCount}}</span>
+        </li>
+    </ul>
+    <!--<h1>{{ "Setting" | getLang : api.langPackage}}</h1>-->
+    <h1 *ngIf="!globals.getIsIchat()">{{ "Setting data" | getLang : api.langPackage}}</h1>
+    <ul class="info" *ngIf="!globals.getIsIchat()">
+        <li>
+            <div class="mem_icon phone"></div>
+            <h2>{{info.phone.name | getLang : api.langPackage}}</h2>
+            <span>{{info.phone.data}}&nbsp;</span>
+            <div *ngIf="!info.phone.toggle">
+                <button (click)="changeToggle('phone')">{{ "Change" | getLang : api.langPackage}}</button>
+                <!-- <button [ngClass]="info.phone.phoneVerification == 1 ? 'apply_noclick':'apply_ok'"
+                        [disabled]="info.phone.phoneVerification == 1"
+                        (click)="DoVerification()">{{ (info.phone.phoneVerification == 1 ? "Verified" : "Unverified") | getLang : api.langPackage}}</button> -->
+            </div>
+            <div *ngIf="info.phone.toggle">
+                <div class="input_box">
+                    <input formControlName="phone">
+                    <div  *ngIf="userForm.controls.phone.invalid && userForm.controls.phone.dirty">
+                        <p class="err_point">{{ "Phone munber must be at least 8 digits" | getLang : api.langPackage }}</p>
+                    </div>
+                </div>
+                <button (click)="changeToggle('phone')">{{ "Cancel" | getLang : api.langPackage}}</button>
+                <button [ngClass]="userForm.controls.phone.invalid ? 'apply_noclick':'apply_ok'" [disabled]="userForm.controls.phone.invalid" (click)="changeInfo('phone')" >{{ "OK" | getLang : api.langPackage}}</button>
+            </div>
+        </li>
+        <li>
+            <div class="mem_icon mail"></div>
+            <h2>{{"E-mail" | getLang : api.langPackage}}</h2>
+            <span>{{info.email.data}}&nbsp;</span>
+            <div *ngIf="!info.email.toggle">
+                <button (click)="changeToggle('email')">{{ "Change" | getLang : api.langPackage}}</button>
+            </div>
+            <div *ngIf="info.email.toggle">
+                <div class="input_box">
+                    <input formControlName="email">  
+                    <div  *ngIf="userForm.controls.email.invalid && userForm.controls.email.dirty">
+                        <p class="err_point">{{ "E-mail is invalid" | getLang : api.langPackage }}</p>
+                    </div>
+                </div>
+                <button (click)="changeToggle('email')">{{ "Cancel" | getLang : api.langPackage}}</button>
+                <button [ngClass]="userForm.controls.email.invalid ? 'apply_noclick':'apply_ok'" 
+                        [disabled]="userForm.controls.email.invalid" (click)="changeInfo('email');" >{{ "OK" | getLang : api.langPackage}}</button>
+            </div>
+        </li>
+        <li>
+            <div class="mem_icon QQ"></div>
+            <h2>{{"QQ" | getLang : api.langPackage : 0}}</h2>
+            <span>{{info.QQ.data}}&nbsp;</span>
+            <div *ngIf="!info.QQ.toggle">
+                <button (click)="changeToggle('QQ')">{{ "Change" | getLang : api.langPackage}}</button>
+            </div>
+            <div *ngIf="info.QQ.toggle">
+                <div class="input_box">
+                    <input formControlName="QQ">
+                    <div  *ngIf="userForm.controls.QQ.invalid && userForm.controls.QQ.dirty">
+                        <p class="err_point">{{ "QQ is invalid" | getLang : api.langPackage }}</p>
+                    </div>
+                </div>
+                <button (click)="changeToggle('QQ')">{{ "Cancel" | getLang : api.langPackage}}</button>
+                <button [ngClass]="userForm.controls.QQ.invalid ? 'apply_noclick':'apply_ok'" 
+                        [disabled]="userForm.controls.QQ.invalid" (click)="changeInfo('QQ')" >{{ "OK" | getLang : api.langPackage}}</button>
+            </div>
+        </li>
+        <li>
+            <div class="mem_icon wechat"></div>
+            <h2>{{info.WeChat.name | getLang : api.langPackage : 0}}</h2>
+            <span>{{info.WeChat.data}}&nbsp;</span>
+            <div *ngIf="!info.WeChat.toggle">
+                <button (click)="changeToggle('WeChat')">{{ "Change" | getLang : api.langPackage}}</button>
+            </div>
+            <div *ngIf="info.WeChat.toggle">
+                <div class="input_box">
+                    <input formControlName="WeChat">
+                    <div  *ngIf="userForm.controls.WeChat.invalid && userForm.controls.WeChat.dirty">
+                        <p class="err_point">{{ "Wechat is invalid" | getLang : api.langPackage }}</p>
+                    </div>
+                </div>
+                <button (click)="changeToggle('WeChat')">{{ "Cancel" | getLang : api.langPackage}}</button>
+                <button [ngClass]="userForm.controls.WeChat.invalid ? 'apply_noclick':'apply_ok'" 
+                        [disabled]="userForm.controls.WeChat.invalid" (click)="changeInfo('WeChat')" >{{ "OK" | getLang : api.langPackage}}</button>
+            </div>
+        </li>
+        <li class="repw">
+            <div class="mem_icon pw"></div>
+            <h2>{{info.password.name | getLang : api.langPackage}}</h2>
+            <span>{{info.password.data}}</span>
+            <div *ngIf="!info.password.toggle">
+                <button (click)="changeToggle('password')">{{ "Change" | getLang : api.langPackage}}</button>
+            </div>
+            <div class="input_box" *ngIf="info.password.toggle">
+                <label>{{"old" | getLang : api.langPackage}} :</label>
+                <input type="password" minlength='4' formControlName="oldPassword">
+                <div  *ngIf="userForm.controls.oldPassword.invalid && userForm.controls.oldPassword.dirty">
+                    <p class="err_point">{{"The password is only letters or numbers and that`s length must be 6 to 12 characters" | getLang : api.langPackage }}</p>
+                </div>
+                <div class="clearboth"></div>
+                <label>{{"new" | getLang : api.langPackage}} :</label>
+                <input type="password" minlength='4' formControlName="newPassword">
+
+                <div  *ngIf="(userForm.controls.newPassword.invalid || userForm.hasError('samePasswords')) && userForm.controls.newPassword.dirty">
+                    <p class="err_point">
+                        {{ "The password is only letters or numbers,that`s length must be 6 to 12 characters and must not be the same as the old password" | getLang : api.langPackage}}
+                    </p>
+                </div>
+                <div class="clearboth"></div>
+                <label>{{"comfirm" | getLang : api.langPackage}} :</label>
+                <input type="password" formControlName="confirmPassword">
+                <div  *ngIf="(userForm.controls.confirmPassword.invalid || userForm.hasError('mismatchedPasswords')) && userForm.controls.confirmPassword.dirty">
+                    <!--<p class="err_point">confirmPassword</p>-->
+                    <p class="err_point" *ngIf="userForm.hasError('mismatchedPasswords')">{{ "The password must be the same as the new password" | getLang : api.langPackage}}</p>
+                </div>
+                <div class="clearboth"></div>
+                <button class="apply_cancel" (click)="changeToggle('password')">{{ "Cancel" | getLang : api.langPackage}}</button>
+                <button [ngClass]="userForm.controls.oldPassword.invalid || userForm.controls.confirmPassword.invalid || 
+                                        userForm.hasError('samePasswords') || userForm.hasError('mismatchedPasswords') ? 'apply_noclick':'apply_ok'" 
+                        [disabled]="userForm.controls.oldPassword.invalid || userForm.controls.confirmPassword.invalid || 
+                                        userForm.hasError('samePasswords') || userForm.hasError('mismatchedPasswords')" 
+                        (click)="changeInfo('password');" >{{ "OK" | getLang : api.langPackage}}</button>
+                <div class="clearboth"></div>
+            </div>
+        </li>
+    </ul>
+</form>

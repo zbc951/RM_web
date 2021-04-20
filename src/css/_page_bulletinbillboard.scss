@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+
+main {
+	//各頁面style
+	&.bulletin_billboard {
+		.bb {
+			.main_content {
+				height: calc(100% - 231px);
+				padding-bottom: 20px;
+				.reload {
+					padding: 15px 20px 15px 20px;
+					&::after {
+						content: '';
+						display: block;
+						clear: both;
+					}
+					button {
+						@include btn-style6-reload;
+					}
+				}
+				.bb_group {
+					margin: 0 20px;
+					.bb_data {
+						position: relative;
+						font-size: 16px;
+						background: #fff;
+						border-radius: 5px;
+						margin-bottom: 22px;
+						color: $color-gray4;
+						box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+						&::after {
+							content: '';
+							display: block;
+							clear: both;
+						}
+						.left {
+							position: absolute;
+							left: 0;
+							width: 5px;
+							height: 100%;
+							border-radius: 5px 0 0 5px;
+						}
+						&:nth-child(odd) {
+							.left {
+								background-color: $color-blue17;
+							}
+						}
+						&:nth-child(even) {
+							.left {
+								background-color: $color-gold8;
+							}
+						}
+						
+						.data1, .data2 {
+							width: 100%;
+							text-align: left;
+							line-height: 30px;
+							font-weight: bold;
+							padding: 15px 0 15px 40px;
+							width: calc(100% - 60px);
+						}
+						.data1 {
+							font-size: 18px;
+							padding-bottom: 0;
+							word-break: break-all;
+						}
+						.data2 {
+							font-size: 16px;
+							color: $color-gold1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+

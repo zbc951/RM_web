@@ -1,0 +1,23 @@
+<h1>{{"Choose a deposit bank" | getLang : api.langPackage}}</h1>
+<ul class="banklist">
+	<li *ngFor="let list of bank">
+		<label>
+			<input type="radio" name="bank" (click)="selectedBank=list['value']">
+			<div [ngClass]="list['class']"></div>
+		</label>
+	</li>
+</ul>
+<ul class="steplist">
+	<li>
+		<h2>{{"Deposit amount" | getLang : api.langPackage}}</h2>
+		<input type="text" [(ngModel)]="inputGold" [formControl]="betGoldInputControl">
+		<div class="clearboth"></div>
+		<p class="notice_txt">
+			<span class="nt_range">{{"Arrival within 60 seconds, the single deposit amount is 1.00~10000.00 yuan, and the number of times per day is unlimited." | getLang : api.langPackage}}</span>
+			<span>{{"Be sure to fill in the postscript on the bank remittance page, otherwise you will not be able to arrive quickly" | getLang : api.langPackage}}！</span>
+		</p>
+	</li>
+	<li>
+		<button (click)="doDepositSpeedyPay()" [disabled]="selectedBank == '' ||  erroMsg != '' || inputGold == null ">{{"deposit" | getLang : api.langPackage}}</button>
+	</li>
+</ul>

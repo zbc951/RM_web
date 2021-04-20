@@ -1,0 +1,431 @@
+@charset "utf-8";
+main {
+    //各頁面style
+    &.bet_history {
+        .bhs {
+            padding-bottom: 20px;
+            .main_content {
+                form {
+                    padding: 30px 20px;
+                    * {
+                        height: 30px;
+                        margin-right: 15px;
+                    }
+                    span {
+                        color: $color-white;
+                        font-size: 16px;
+                        font-weight: bold;
+                        float: left;
+                        line-height: 30px;
+                        margin: 4px 15px 0 0;
+                    }
+                    input {
+                        float: left;
+                        width: 150px;
+                        height: 36px;
+                        text-align: center;
+                        outline: none;
+                        font-size: $front15;
+                        border-radius: 5px;
+                        border: 1px solid #b4b4b4;
+                        color: #5a5a5a;
+                        @include gradient-gray2;
+                    }
+                    div {
+                        float: left;
+                        line-height: 30px;
+                        text-align: center;
+                        @include btn-style3;
+                        border: 1px solid #b4b4b4;
+                        border-radius: 5px;
+                        padding: 3px 18px;
+                        color: #6e195a;
+                        &.date_ytd {
+                            margin-left: 25px;
+                        }
+                    }
+                    button {
+                        float: left;
+                        @include btn-style10;
+                        width: 110px;
+                        height: 38px;
+                    }
+                    button.reload_btn {
+                        @include btn-style6-reload;
+                        width: 140px;
+                    }
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                }
+                .reload {
+                    padding: 15px 20px 15px 20px;
+                    height: 30px;
+                    button {
+                        @include btn-style6-reload;
+                    }
+                }
+                .form_datalist {
+                    width: 1300px;
+                    border: 1px solid #a2b0bb;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+                    margin: 0 auto 40px;
+                    .title {
+                        @include gradient-gray1;
+                        border-radius: 10px 10px 0 0;
+                        border-bottom: none;
+                        height: 55px;
+                        line-height: 55px;
+                        width: 100%;
+                        h1 {
+                            color: $color-gray4;
+                            font-size: 20px;
+                            font-weight: bold;
+                            float: left;
+                            padding: 0 0 0 15px;
+                        }
+                    }
+                    .bhs_group {
+                        .bhs_item {
+                            background: #062744;
+                            border-bottom: 1px solid $color-gray10;
+                            height: 47px;
+                            line-height: 47px;
+                            >div {
+                                color: #ffffff;
+                                font-size: 18px;
+                                font-weight: bold;
+                                line-height: 50px;
+                                float: left;
+                                text-align: center;
+                                width: (100% / 4);
+                                &::after {
+                                    @include vertical-line2;
+                                }
+                                &:last-child::after {
+                                    border: none;
+                                }
+                            }
+                        }
+                        .bhs_data {
+                            color: $color-white;
+                            font-size: 16px;
+                            background: $color-gray5;
+                            width: calc(100% - 1px);
+                            &:nth-child(odd) {
+                                background-color: #eaeaea;
+                            }
+                            &::after {
+                                @include level-line1;
+                            }
+                            &.active {
+                                position: relative;
+                                cursor: pointer;
+                                &::before {
+                                    content: '';
+                                    display: block;
+                                    position: absolute;
+                                    width: 28px;
+                                    height: 28px;
+                                    background: url('../img/ic_expand_less_black_18dp_2x.png') center center no-repeat;
+                                    background-size: contain;
+                                    transform: rotate(180deg);
+                                    top: 10px;
+                                    right: 22px;
+                                    transition: 0.3s ease;
+                                }
+                                &.open {
+                                    &::before {
+                                        transform: rotate(0deg);
+                                    }
+                                }
+                            }
+                            >div {
+                                float: left;
+                                text-align: center;
+                                font-weight: bold;
+                                line-height: 50px;
+                                width: (100% / 4);
+                                &::after {
+                                    @include vertical-line1;
+                                    height: 50px;
+                                }
+                                &.data1 {
+                                    color: #0088e0;
+                                    text-decoration: underline;
+                                    position: relative;
+                                    .count {
+                                        position: absolute;
+                                        right: 22px;
+                                        top: 13px;
+                                        background-color: #d69500;
+                                        border: 1px solid #fff74d;
+                                        border-radius: 50%;
+                                        line-height: 24px;
+                                        width: 24px;
+                                        color: #fff;
+                                        box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.4);
+                                    }
+                                }
+                                &.data2 {
+                                    color: $color-purple4;
+                                }
+                                &.data3 {
+                                    color: #2d2d2d;
+                                }
+                                &.data4 {
+                                    color: $color-purple3;
+                                }
+                                &:last-child::after {
+                                    border: none;
+                                }
+                            }
+                            &.content {
+                                background: #dcdcdc;
+                                margin: 0 20px 20px;
+                                box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+                                border-radius: 10px;
+                                display: inline-block;
+                                width: calc(100% - 40px);
+                                border: 1px solid #fff;
+                                &::after {
+                                    display: none;
+                                }
+                                >div {
+                                    width: 100%;
+                                    display: inline-block;
+                                    &::after {
+                                        display: none;
+                                    }
+                                    >div {
+                                        float: left;
+                                        height: 100%;
+                                        min-height: 50px;
+                                        line-height: 56px;
+                                        // &::after {
+                                        // 	@include vertical-line1;
+                                        // 	border-right: 1px solid #1470d0;
+                                        // 	border-left: 1px solid #539cdc;
+                                        // }
+                                    }
+                                    &.content_th {
+                                        background: linear-gradient(to bottom, #309fea 0%, #19598a 100%);
+                                        color: #ffffff;
+                                        border-radius: 10px 10px 0 0;
+                                        border-bottom: 1px solid #e6e6e6;
+                                        font-size: 18px;
+                                        >div {
+                                            &::after {
+                                                @include vertical-line2;
+                                            }
+                                            &:last-child::after {
+                                                border: none;
+                                            }
+                                        }
+                                    }
+                                    &.content_td {
+                                        background: #062744;
+                                        line-height: 22px;
+                                        &:nth-child(odd) {
+                                            background-color: #093358;
+                                        }
+                                        >div {
+                                            &:last-child::after {
+                                                border: none;
+                                            }
+                                        }
+                                        div {
+                                            position: relative;
+                                        }
+                                        div::after {
+                                            border-right: 1px solid #094477;
+                                            border-left: 1px solid #041c31;
+                                            position: absolute;
+                                            height: 100%;
+                                            top: 0;
+                                            right: 0;
+                                        }
+                                        div.detail_data8::after {
+                                            display: none;
+                                        }
+                                        &::after {
+                                            @include level-line1;
+                                            height: auto;
+                                        }
+                                    }
+                                    &.content_td_result {
+                                        background: linear-gradient(to bottom, #1e72ad 0%, #134a73 100%);
+                                        border-radius: 0 0 10px 10px;
+                                        border-top: 2px solid #3285c1;
+                                        &::after {
+                                            @include level-line1;
+                                            height: auto;
+                                        }
+                                        div::after {
+                                            border-right: 1px solid #ffffff;
+                                            border-left: 1px solid #dedede;
+                                        }
+                                        .result1 {
+                                            width: 983px;
+                                            text-align: left;
+                                            padding-left: 38px;
+                                            box-sizing: border-box;
+                                            span {
+                                                margin: 0 10px;
+                                                font-size: 20px;
+                                                color: $color-blue16;
+                                            }
+                                        }
+                                        .result2 {
+                                            width: 95px;
+                                            color: $color-gold7;
+                                        }
+                                        .result3 {
+                                            width: 175px;
+                                            &::after {
+                                                border: none;
+                                            }
+                                        }
+                                        .blue {
+                                            color: $color-purple3;
+                                        }
+                                    }
+                                    .detail_item1,
+                                    .detail_data1 {
+                                        width: 90px;
+                                    }
+                                    .detail_item2,
+                                    .detail_data2 {
+                                        width: 130px;
+                                    }
+                                    .detail_item3,
+                                    .detail_data3 {
+                                        width: 130px;
+                                    }
+                                    .detail_item4,
+                                    .detail_data4 {
+                                        width: 438px;
+                                        .score {
+                                            color: #4fdac5;
+                                        }
+                                        .vs {
+                                            color: $color-blue15;
+                                        }
+                                    }
+                                    .detail_item5,
+                                    .detail_data5 {
+                                        width: 195px;
+                                    }
+                                    .detail_item6,
+                                    .detail_data6 {
+                                        width: 95px;
+                                    }
+                                    .detail_item7,
+                                    .detail_data7 {
+                                        width: 75px;
+                                    }
+                                    .detail_item8,
+                                    .detail_data8 {
+                                        width: 95px;
+                                        &::after {
+                                            border: none;
+                                        }
+                                    }
+                                    .detail_data2,
+                                    .detail_data3,
+                                    .detail_data4,
+                                    .detail_data5 {
+                                        line-height: 28px;
+                                    }
+                                    .detail_data5 {
+                                        span {
+                                            &:nth-child(1) {
+                                                color: $color-green1;
+                                                margin-right: 10px;
+                                            }
+                                            &:nth-child(2) {
+                                                color: $color-green1;
+                                            }
+                                            &:nth-child(4) {
+                                                color: $color-gray12;
+                                            }
+                                            &:nth-child(5) {
+                                                color: $color-gold6;
+                                            }
+                                        }
+                                    }
+                                    .detail_data6 {
+                                        color: $color-gold7;
+                                    }
+                                    .gameCancel {
+                                        color: red;
+                                        margin: 0px 20px 0px 0px;
+                                        font-weight: bold;
+                                        -webkit-animation-name: DoOpacity;
+                                        /* Safari 4.0 - 8.0 */
+                                        -webkit-animation-duration: 0.4s;
+                                        /* Safari 4.0 - 8.0 */
+                                        animation-name: DoOpacity;
+                                        animation-duration: 0.4s;
+                                        animation-iteration-count: infinite;
+                                        animation-direction: alternate;
+                                    }
+                                    .detail_data8 {
+                                        color: $color-purple3;
+                                    }
+                                }
+                            }
+                        }
+                        .bhs_result {
+                            background: #F8F8FF;
+                            border-radius: 0 0 10px 10px;
+                            border-top: 2px solid #062744;
+                            &::after {
+                                @include level-line1;
+                                height: auto;
+                            }
+                            div::after {
+                                border-right: 1px solid #ffffff;
+                                border-left: 1px solid #dedede;
+                            }
+                            >div {
+                                float: left;
+                                text-align: center;
+                                font-size: 18px;
+                                line-height: 46px;
+                                width: (100% / 4);
+                                font-weight: bold;
+                                color: #062744;
+                                &::after {
+                                    @include vertical-line2;
+                                    height: 46px;
+                                }
+                                &:last-child::after {
+                                    border: none;
+                                }
+                            }
+                            .result1 {
+                                text-align: center;
+                                padding-left: 10px;
+                                box-sizing: border-box;
+                            }
+                            .result2 {}
+                            .result3 {}
+                            .result4 {
+                                &::after {
+                                    border: none;
+                                }
+                            }
+                            .blue {
+                                color: #f30c0c;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

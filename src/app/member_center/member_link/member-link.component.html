@@ -1,0 +1,15 @@
+<div class="blackBg">
+    <div class="main_center_dialog">
+        <div class="close" (click)="closeDialog()"></div>
+        <div class="bdi_top">{{ "Promotion link" | getLang : api.langPackage}}</div>
+        <div class="qrcode">
+            <qr-code  [value]="memberLink" [size]="250"></qr-code>
+            <!--<qr-code  [value]="'http://u.wechat.com/IM4RjCABL5fFCkP0-BSxtgU'" [size]="250"></qr-code>-->
+        </div>
+        <div class="input-group">
+            <input type="text" [(ngModel)]="memberLink" #inputTarget readonly>
+            <button class="btn_copy" type="button" [ngxClipboard]="inputTarget" >{{ "Copy" | getLang : api.langPackage}}</button>
+            <button class="btn_link" type="button" (click)="globals.openLink(memberLink,'location=yes,fullscreen=yes,status=yes')" >{{ "Open link" | getLang : api.langPackage}}</button>
+        </div>
+    </div>
+</div>

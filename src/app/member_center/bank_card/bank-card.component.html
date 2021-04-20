@@ -1,0 +1,198 @@
+<table class="bankList" *ngIf="bankCardList.length != 0 ">
+    <caption>{{"Debit card info" | getLang : api.langPackage}}</caption>
+    <tr>
+        <th>{{"*Bank" | getLang : api.langPackage}}</th>
+        <th>{{"*Name" | getLang : api.langPackage}}</th>
+        <th>{{"*Account" | getLang : api.langPackage}}</th>
+        <th>{{"Status" | getLang : api.langPackage}}</th>
+        <th>{{"Type" | getLang : api.langPackage}}</th>
+    </tr>
+    <tr *ngFor="let list of bankCardList; let i=index ">
+        <td>{{list?.mbank}}</td>
+        <td>{{list?.mbname}}</td>
+        <td>{{list?.mbaccount}}</td>
+        <td>{{(list?.enable == 'Y' ? ( "Enable" | getLang : api.langPackage ) :( "Disable" | getLang : api.langPackage ))}}</td>
+        <td>
+            <!--<button *ngIf="list.enable == 'N'" (click)="list.enable='Y';changeBankCard(i)">{{"Enable" | getLang : api.langPackage}}</button>-->
+            {{(list?.enable == 'Y' ? ( "Bind" | getLang : api.langPackage ) :( "Disable" | getLang : api.langPackage ))}}
+        </td>
+    </tr>
+</table>
+<ul class="bankinfo" *ngIf="bankCardList.length == 0 ">
+    <li class="tip"><h2>{{"Required field" | getLang : api.langPackage}}</h2></li>
+    <li>
+        <h2>{{"*Bank" | getLang : api.langPackage}}</h2>
+        <select [(ngModel)]="selectBank">
+            <option value = "theFirst">{{"--Bank--" | getLang : api.langPackage}}</option>
+            <option *ngFor="let list of bankList" [value]="list?.bank">{{list?.bank}}</option>
+        </select>
+    </li>
+    <li>
+        <h2>{{"*Bank city" | getLang : api.langPackage}}</h2>
+        <select [(ngModel)]="selectProvince" (ngModelChange)="selectCity='theFirst'" >
+            <option value = "theFirst">{{"--Province--" | getLang : api.langPackage}}</option>
+            <option *ngFor="let province of ChinaAreaKey" [value]="province">{{province}}</option>
+        </select>
+        <select [(ngModel)]="selectCity">
+            <option value = "theFirst">{{"--City--" | getLang : api.langPackage}}</option>
+            <option *ngFor="let city of api.ChinaArea[selectProvince]" [value]="city">{{city}}</option>
+        </select>
+        <!--<div class="clearboth"></div>
+        <p class="errtips err_city">請選擇城市</p>-->
+    </li>
+    <li>
+        <h2>{{"*Branch" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="branchBank" >
+        <span class="tips">*{{"Required" | getLang : api.langPackage}}</span>
+        <!--<div class="clearboth"></div>
+        <p class="errtips">您輸入的卡號錯誤</p>-->
+    </li>
+     <li>
+        <h2>{{"*Name" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="accountName" >
+        <span class="tips">*{{"Required" | getLang : api.langPackage}}</span>
+        <!--<div class="clearboth"></div>
+        <p class="errtips">您輸入的卡號錯誤</p>-->
+    </li>
+    <li class="special">
+        <h2>{{"Account" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="bankNo" pattern="[0-9-\s]{1,}$" #bankNoValue="ngModel">
+        <span class="tips">*{{"Please enter your bank account" | getLang : api.langPackage}}</span>
+        <div class="clearboth"></div>
+        <p class="errtips" *ngIf="bankNoValue.invalid && bankNoValue.dirty">{{"The account number you entered is incorrect" | getLang : api.langPackage}}</p>
+    </li>
+    <li>
+        <h2>{{"Check account" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="checkBankNo">
+        <span class="tips">*{{"Please enter your bank account again" | getLang : api.langPackage}}</span>
+        <div class="clearboth"></div>
+        <p class="errtips" *ngIf="bankNo != checkBankNo">{{"Not the same as bank account" | getLang : api.langPackage}}</p>
+    </li>
+
+
+
+    <li class="special">
+        <h2>{{"phone" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="addPhone" pattern="[0-9-\s]{1,}$" #addP="ngModel">
+        <span class="tips">*{{"Required" | getLang : api.langPackage}}</span>
+        <div class="clearboth"></div>
+        <p class="errtips" *ngIf="addP.invalid && addP.dirty">*{{"Malformed" | getLang : api.langPackage}}</p>
+    </li>
+    <li>
+        <h2>QQ</h2>
+        <input type="text" [(ngModel)]="addQQ" >
+        <span class="tips">*{{"Required" | getLang : api.langPackage}}</span>
+    </li>
+    <li>
+        <h2>{{"wechat" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="addWechat" >
+        <span class="tips">*{{"Required" | getLang : api.langPackage}}</span>
+    </li>
+    <li>
+        <h2>{{"Withdraw password" | getLang : api.langPackage}}</h2>
+        <input type="text" [(ngModel)]="safety" >
+        <span class="tips">*{{"Required" | getLang : api.langPackage}}</span>
+    </li>
+
+
+</ul>
+<div class="dpwith_btnbox" *ngIf="bankCardList.length == 0 ">
+    <!--<button>重置</button>-->
+    <button  class="confirm" (click)="setBankCard();" 
+             [ngClass]="(selectBank == 'theFirst' || selectProvince == 'theFirst' || selectCity == 'theFirst' || !branchBank || !accountName || !bankNo || !checkBankNo||!addPhone ||!addQQ ||!addWechat || (bankNo != checkBankNo)) || !safety ? 'notclick_btn' : '' "
+            [disabled]="selectBank == 'theFirst' || selectProvince == 'theFirst' || selectCity == 'theFirst' || !branchBank || !accountName || !bankNo || !checkBankNo||!addPhone ||!addQQ ||!addWechat || (bankNo != checkBankNo) || !safety">
+            {{"OK" | getLang : api.langPackage}}</button>
+    <!--<button class="notclick_btn">綁定</button>-->
+</div>
+<div class="clearboth"></div>
+<div [ngSwitch]="globals.getNowLang()">
+	<div class="description" *ngSwitchCase="'en-us'">
+		<h1>Notice</h1>
+		<ul>
+            <li>1. Bank card binding is mainly used for member withdrawals, please carefully check.</li>
+            <li>2. A member can only bind a bank card, if you need to modify the withdrawal account, please contact customer service personnel to modify.</li>
+            <li>3. For your withdrawal can be quickly credited into account, please fill out the bank card when the account information.</li>
+        </ul>
+	</div>
+	<div class="description" *ngSwitchCase="'zh-tw'">
+		<h1>注意事項</h1>
+		<ul>
+            <li>1. 銀行卡綁定主要用於會員提款使用，請認真核對。</li>
+            <li>2. 一位会员只能绑定一张银行卡，如需修改提款帐户，请联系客服人员修改。</li>
+            <li>3. 為了您的提款能快速到賬，請準確填寫辦理銀行卡時的開戶信息。</li>
+        </ul>
+	</div>
+	<div class="description" *ngSwitchCase="'zh-cn'">
+		<h1>注意事项</h1>
+		<ul>
+            <li>1. 银行卡绑定主要用于会员提款使用，请认真核对。</li>
+            <li>2. 一位会员只能绑定一张银行卡，如需修改提款帐户，请联系客服人员修改。</li>
+            <li>3. 为了您的提款能快速到账，请准确填写办理银行卡时的开户信息。</li>
+        </ul>
+	</div>
+</div>
+
+<!--<ul class="bankinfo">
+    <li>
+        <h2>開戶銀行</h2>
+        <input type="text" placeholder="第一銀行" disabled>
+        <select>
+            <option>請選擇銀行</option>
+            <option>台灣銀行</option>
+            <option>第一銀行</option>
+        </select>
+    </li>
+    <li class="city_site">
+        <h2>開戶銀行所在城市</h2>
+        <select>
+            <option>省分</option>
+            <option>台北</option>
+            <option>台中</option>
+        </select>
+        <select>
+            <option>地級市</option>
+            <option>西屯</option>
+            <option>北區</option>
+        </select>
+        <div class="clearboth"></div>
+        <p class="errtips err_city">請選擇城市</p>
+    </li>
+    <li>
+        <h2>支行名稱</h2>
+        <input type="text" placeholder="請仔細確認，否則無法到帳">
+
+    </li>
+    <li>
+        <h2>開戶姓名</h2>
+        <span class="bank_txtinfo">陳東東</span>
+    </li>
+    <li>
+        <h2>銀行卡號</h2>
+        <input type="text">
+        <span>請輸入您的銀行卡號。</span>
+        <div class="clearboth"></div>
+        <p class="errtips">您輸入的卡號錯誤</p>
+    </li>
+    <li>
+        <h2>確認卡號</h2>
+        <input type="text">
+        <span>請再輸入您的卡號。</span>
+        <div class="clearboth"></div>
+        <p class="errtips">您輸入的卡號錯誤</p>
+    </li>
+</ul>
+<div class="dpwith_btnbox">
+    <button>重置</button>
+    <button>綁定</button>
+    <button class="notclick_btn">綁定</button>
+</div>
+<div class="clearboth"></div>
+<div class="description">
+    <h1>注意事項</h1>
+    <ul>
+        <li>銀行卡綁定主要用於會員提款使用，一個會員可以綁定多張銀行卡。</li>
+        <li>為了您的提款能快速到賬，請準確填寫辦理銀行卡時的開戶信息。</li>
+        <li>請注意一旦綁定銀行卡，不能修改刪除，請認真核對。</li>
+        <li>會員提現時請選擇需要提現到已經綁定的銀行卡，並仔細核對。</li>
+    </ul>
+</div>-->

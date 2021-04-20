@@ -1,0 +1,39 @@
+<div class="select_row">
+	<select [(ngModel)]="selectedPage" (ngModelChange)="reload()">
+			<option  *ngFor="let pow of pages" [value]="pow" >
+				{{ ("The" | getLang : api.langPackage)+ "&nbsp;" + pow + "&nbsp;" +("page" | getLang : api.langPackage) }}</option>
+	</select>
+	<div>
+		<span (click)="reload()">{{"Update" | getLang : api.langPackage}} :{{backTime | number:'2.0-0' }}</span>
+	</div>
+</div>
+<div class="mbtsrd_group" >
+	<div class="mbtsrd_item">
+		<div class="item0">{{ "No." | getLang : api.langPackage}}</div>
+		<div class="item1">{{ "History Date" | getLang : api.langPackage }}</div>
+		<div class="item2">{{"Type" | getLang : api.langPackage }}</div>
+		<div class="item3">{{"Content" | getLang : api.langPackage }}</div>
+		<div class="item4">{{"Amount" | getLang : api.langPackage }}</div>
+		<div class="item5">{{"Status" | getLang : api.langPackage }}</div>
+		<div class="item6">{{"Remarks" | getLang : api.langPackage }}</div>
+	</div>
+	<div class="mbtsrd_data"  *ngFor="let list of sourceData">
+		<div class="data0">{{list.no}}</div>
+		<div class="data1">{{list.c_time}}</div>
+		<div class="data2">{{list.tab_type}}</div>
+		<div class="data3">{{ list.type_type }}</div>
+		<div class="data4">{{list.gold}}</div>
+		<div class="data5" [style.color]="list['progress_type'] == '交易完成' ? '#5C5CE6':'#EA4444'">{{list.progress_type}}</div>
+		<div class="data6">{{ list.reason }}</div>
+	</div>
+	<div class="mbtsrd_total">
+		<div class="total">
+			<span>{{ "Deposit amount" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+			<span class="cash">{{deposit}}</span>
+		</div>
+		<div class="total">
+			<span>{{ "Withdraw amount" | getLang : api.langPackage}}:&nbsp;&nbsp;</span>
+			<span class="cash">{{withdraw}}</span>
+		</div>
+	</div>
+</div>

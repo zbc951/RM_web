@@ -1,0 +1,759 @@
+@charset "utf-8";
+
+
+main {
+	//各頁面style
+	&.game_list {
+		.gl {
+			//border-bottom: 1px solid #b2b2b2;
+			.main_title {
+				@include main_title2;
+				padding-right: 0;
+				.title {
+					float: left;
+					margin: 0 100px 0 0;
+					color: #1A1A33;
+					font-size: 20px;
+					letter-spacing: 3px;
+				}
+				.title_btn {
+					float: left;
+					line-height: 30px;
+					text-align: center;
+					border-radius: 5px;
+					padding: 3px 6px;
+					margin: 10px 0 0 74px;
+					color: #fff;
+					border-bottom: 3px solid #062744;
+					background: linear-gradient(to bottom, #0093d4 0%, #0c5f84 100%);
+					cursor: pointer;
+					&:hover, &.active {
+						background: #062744;
+    					border-bottom: 1px solid #181861;
+					}
+					&::before {
+						content: '';
+						display: block;
+						float: left;
+						width: 24px;
+						height: 32px;
+						margin: 0 4px 0 0;
+						background: url('../img/http_white.png') center center no-repeat;
+						background-size: contain;
+					}
+				}
+				.newDetail{
+					position: absolute;
+					right: -1px;
+					background: linear-gradient(to bottom, #fff 0%,  #EEEEF5 100%);
+					max-width: 200px;
+					max-height: 207px;
+					min-height: 59px;
+					line-height: 22px;
+					letter-spacing: 0;
+					z-index: 997;
+					cursor: pointer;
+					overflow: hidden;
+					border-radius: 4px;
+					border: 2px solid #ffffff;
+					box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+					border-top: 0;
+					transition: all 0.2s ease-in-out;
+					-moz-transition: all 0.2s ease-in-out;
+					-ms-transition: all 0.2s ease-in-out;
+					-o-transition: all 0.2s ease-in-out;
+					-webkit-transition: all 0.2s ease-in-out;
+					div{
+						font-weight: bold;
+						white-space: nowrap;
+						span{
+							padding: 0px;
+						}
+					}
+					.dtitle{
+						font-size: 14px;
+						width: calc(100% - 12px);
+						background: #EEEEF5;
+						border-bottom: 1px solid #DADAE0;
+						padding: 0 10px;
+						color: #1A1A33;
+						transition: all 0.2s ease-in-out;
+						-moz-transition: all 0.2s ease-in-out;
+						-ms-transition: all 0.2s ease-in-out;
+						-o-transition: all 0.2s ease-in-out;
+						-webkit-transition: all 0.2s ease-in-out;
+						span.new {
+							background: url('../img/ic_menu_white_18dp_1x.png') left center no-repeat;
+							background-size: contain;
+							padding: 0 26px 0 26px;
+						}
+						.expand{
+							width: 26px;
+							height: 26px;
+							transition: 0.2s ease;
+							position: absolute;
+							right: 10px;
+							top: 0;
+							background: url('../img/ic_expand_less_white_18dp_2x.png') center center no-repeat;
+							transform: rotate(0);
+						}
+					}
+					.contentContainer {
+						width: 100%;
+						position: relative;
+						max-height: 0;
+						//@include scrollbar_purple1;
+
+						li.content{
+							font-weight: normal;
+							font-size: 15px;
+							line-height: 18px;
+							border-bottom: 1px solid transparent;
+							border-image: linear-gradient(to right, rgba(220,220,220,0) 2%, rgba(220,220,220,.8) 30% , rgba(220,220,220,.8) 70%, rgba(220,220,220,0) 98%);
+							border-image-slice: 1;
+							padding: 0px 12px;
+							transition: all 0.2s ease-in-out;
+							-moz-transition: all 0.2s ease-in-out;
+							-ms-transition: all 0.2s ease-in-out;
+							-o-transition: all 0.2s ease-in-out;
+							-webkit-transition: all 0.2s ease-in-out;
+							&:last-child {
+								border-bottom: 0;
+							}
+							span {
+								padding: 0;
+								white-space: nowrap;
+								&:nth-child(1) {
+									color: #cc8e00;
+								}
+								&:nth-child(2) {
+									color: #1380c7;
+								}
+								&:nth-child(3) {
+									color: #DC2217;
+								}
+								&:nth-child(4) {
+									color: #2A2A66;
+								}
+							}
+							div {
+								color: #062744;
+							}
+						}
+					}
+					&:hover {
+						max-width: 450px;
+						max-height: 1000px;
+						.dtitle {
+							.expand{
+								top: -2px;
+								transform: rotate(180deg);
+							}
+						}
+						.contentContainer {
+							max-height: 1000px;
+							&::-webkit-scrollbar {
+								height: 0px;
+							}
+						}
+					}
+				}
+			}
+			.main_content {
+				height: calc(100vh - 187px);
+				display: flex;
+				.game_list_menu {
+					position: relative;
+					@include scrollbar_gray1 ;
+					width: 300px;
+					border-right: 1px solid #b2b2b2;
+					padding:0 0 0 0; 
+					// @include gradient-purple1;
+					background: #FAFAFA;
+					>ul {
+						>li {
+							// 分類
+							&:first-child {
+								cursor: pointer;
+								height: 50px;
+								font-size: 16px;
+								color: #525966;
+								background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%);
+								span {
+									font-weight: bold;
+									line-height: 50px;
+									float: left;
+									padding: 0 0 0 15px;
+								}
+								.arrow {
+									color: #b1b1b1;
+									font-size: 16px;
+									line-height: 50px;
+									float: right;
+									padding: 0 10px 0 0;
+									.count{
+										color: #525966;
+										margin: 0px 15px 0px 0px;
+									}
+								}
+								&:hover, &.active {
+									box-shadow: 0 0 6px #076756 inset;
+									background: linear-gradient(to bottom, #028cb9 0%, #00bac7 40%, #12d8ba 100%);
+									border-bottom: 1px solid #64fff1;
+									span {
+										color: #fff;
+									}
+									.arrow {
+										color: #fff;
+									}
+								}
+							}
+
+							// 單一賽事
+							&.list_open {
+								height: auto;
+								border-bottom: none;
+								ul {
+									li {
+										position: relative;
+										padding: 0 16px 0px 16px;
+										height: 80px;
+										font-size: 16px;
+										font-weight: bold;
+										border-bottom: 1px solid #64fff1;
+										background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%);
+										cursor: pointer;
+										p {
+											color: #A6A6B3;
+											font-size: 14px;
+											padding: 7px 0 3px 10px;
+											span {
+												color: $color-red;
+												line-height: 20px;
+												float: none;
+												padding: 0 0 0 10px;
+											}
+										}
+										span,div {
+											color: #58929c;
+											padding: 0px 0 0 10px;
+											line-height: 20px;
+											font-weight: bold;
+											overflow: hidden;
+											text-overflow: ellipsis;
+											white-space: nowrap;
+											width: 242px;
+										}
+										.league{
+											color: #114169;
+											font-weight: 700;
+										}
+										&:hover, &.active {
+											color: #fff;
+											background: linear-gradient(to bottom, #09756b 0%, #0a9084 40%, #0bcdbe 100%);
+											p {
+												color: #fff;
+												span {
+													color: $color-white;
+												}
+											}
+											span,div {
+												color: #fff;
+												font-weight: bold;
+											}
+											.league{
+												color: #fff;
+												font-weight: bold;
+											}
+										}
+										// &.active {
+										// 	&:before {
+										// 		content: '';
+										// 		display: block;
+										// 		position: absolute;
+										// 		left: 0;
+										// 		width: 5px;
+										// 		height: 100%;
+										// 		background: #ffb542;
+										// 	}
+										// }
+									}
+								}
+							}
+						}
+						&.list_union {
+							li { 
+								cursor: pointer;
+								height: 50px;
+								border-bottom: 1px solid #e3e3e3;
+								background: linear-gradient(to bottom, #1394e8 0%, #15578e 50%, #114169 100%);
+								box-shadow: 0 0 0 rgba(#000, 0);
+								p {
+									color: $color-white;
+									font-size: 16px;
+								}
+								span {
+									color: #ffffff;
+									font-size: 16px;
+									line-height: 50px;
+									padding: 0 0 0 15px;
+								}
+								.arrow {
+									color: #ffffff;
+								}
+								&:hover, &.active {
+									background: #062744;
+									box-shadow: 0 0 0 rgba(#000, 0);
+								}
+								&.un_active {
+									background: #f1b48d;
+									padding: 0 20px 0 20px;
+									p { 
+										float: left;
+										line-height: 50px;
+									}
+									span {
+										float: right;
+										color: $color-gray6;
+									}
+								}
+								&.un {
+									background: #1b588c;
+									padding: 0 20px 0 20px;
+									font-weight: bold;
+									p { 
+										float: left;
+										color: #fff;
+										line-height: 50px;
+									}
+									span {
+										float: right;
+										color: #75c8ff;
+									}
+									&:hover {
+										background: #1394e8;
+										p { color: $color-white;}
+										span { color: $color-white;}
+									}
+									&.long {
+										height: 80px;
+										position: relative;
+										p {
+											line-height: 25px;
+											padding-top: 15px;
+											padding-right: 18px;
+											max-height: 50px;
+										}
+										span {
+											position: absolute;
+											right: 20px;
+											top: 18px;
+										}
+									}
+								}
+								&.list_open {
+									height: auto;
+									border-bottom: none;
+									ul {
+										li {
+											&:hover,
+											&.active {
+												background: #113a5d;
+											}
+										}
+									}
+								}
+							}
+							&.accordion_show {
+								.accordion_show:not(.accordion_close) {
+									max-height: 200px;
+								}
+							}
+						}
+					}
+					.accordion_show{ 
+						overflow: hidden; 
+						max-height: 20000px; 
+						transition: max-height .2s;
+						&.list_union {
+							.accordion_show {
+								&:not(.accordion_close) {
+									max-height: 200000px;
+								}
+							}	
+						}
+					} 
+					.accordion_close{ 
+						overflow: hidden;
+						max-height: 0;
+					}
+				}
+				.game_list_group {
+					@include scrollbar_gray1;
+					//float: left;
+					width: 1060px;
+					padding: 0 0px 5px 0px;
+					//height: 720px;
+					//overflow-x: hidden;
+					.glgroup_top {
+						background: #062744;
+						height: 30px;
+						width: 100%;
+						padding: 15px 0;
+						&.long {
+							height: 55px;
+							.gl_top_left {
+								h1 {
+									width: 673px;
+								}
+							}
+							.gl_top_right {
+								position: relative;
+    							top: 12px;
+							}
+						}
+						.gl_top_left {
+							float: left;
+							max-width: 673px;
+							margin: 0 0 0 40px;
+							h1 {
+								position: relative;
+								color: #fff;
+								font-size: 26px;
+								font-weight: bold;
+								float: left;
+								line-height: 30px;
+								margin: 0 10px 0 0;
+								&::before {
+									content: '';
+									display: block;
+									position: absolute;
+									left: -16px;
+									bottom: 6px;
+									width: 3px;
+									height: 16px;
+									background-color: #00efad;
+								}
+							}
+							div.team {
+								float: left;
+								&::after {
+									content: '';
+									display: block;
+									clear: both;
+								}
+							}
+							span {
+								color: #fff;
+								font-size: 20px;
+								float: left;
+								line-height: 30px;
+								&.greenTag {
+									color: #00efad;
+								}
+							}
+						}
+						.gl_top_right {
+							float: right;
+							.text_fee {
+								float: left;
+								span{
+									line-height: 30px;
+									float: left;
+									color: #fff;
+									font-size: 16px;
+								}
+								.feeCss{
+									margin-right: 10px;
+									color: #ffce3d;
+								}
+							}
+							.btn_reload {
+								float: left;
+								line-height: 28px;
+								margin: 0 10px 0 0;
+								@include btn-style3;
+								border-radius: 5px;
+								padding: 0 15px 0 15px;
+								p {
+									color: #000;
+									span {
+										color: #0707c5;
+									}
+								}
+							}
+							.btn_record {
+								float: left;
+								line-height: 26px;
+								margin: 0 10px 0 0;
+								@include btn-style4;
+								padding: 0 12px 0 12px;
+							}
+						}
+					}
+					.glgroup_content {
+						height: 100%;
+						font-weight: bold;
+						padding-bottom: 20px;
+						margin: 20px 0 0 20px;
+						display: inline-table;
+						.gl_content {
+							width: 484px;
+							float: left;
+							border: 1px solid #a2b0bb;
+							border-radius: 10px;
+							box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+							//border-bottom: none;
+							&.right {
+								margin: 0 0 0 16px;
+								margin: 0 0 0 10px \9\0;
+								float: left;
+								}
+							*::-ms-backdrop, &.right { margin: 0 0 0 10px;}
+							&.left {}
+							.glc_title {
+								@include gradient-gray1;
+								border-radius: 10px 10px 0 0;
+								border-bottom: 1px solid $color-gray10;
+								height: 55px;
+								line-height: 55px;
+								.title_name {
+									color: $color-gray4;
+									font-size: 20px;
+									font-weight: bold;
+									float: left;
+									padding: 0 0 0 15px;
+								}
+								.volume {
+									color: $color-gray4;
+									font-size: 16px;
+									float: right;
+									padding: 0 15px 0 0;
+									span {
+										color: #FC5130;
+									}
+								}
+							}
+							.glc_item {
+								background: #062744;
+								color: #fff;
+								font-size: 18px;
+								line-height: 50px;
+								text-align: center;
+								&::before {
+									@include level-line1;
+								}
+								&::after {
+									@include level-line1;
+								}
+								.item_1 {
+									width: 34%;
+									float: left;
+									&::after {
+										@include vertical-line2;
+									}
+								}
+								.item_2 {
+									width: 23%;
+									float: left;
+									&::after {
+										@include vertical-line2;
+									}
+								}
+								.item_3 {
+									width: 43%;
+									float: left;
+								}
+							}
+							.glc_data_groug {
+								overflow: hidden;
+								width: 100%;
+								.glc_data {
+									font-size: 17px;
+									line-height: 50px;
+									text-align: center;
+									background: $color-gray5;
+									&::after {
+										@include level-line1;
+									}
+									&:nth-child(even) {
+										background-color:#eaeaea;
+									}
+									&:last-child {
+										border-radius: 0 0 10px 10px;
+										&::after {
+											border: 0;
+										}
+									}
+									.data_1 {
+										width: 34%;
+										float: left;
+										color: $color-gray8;
+										&::after {
+											@include vertical-line1;
+										}
+									}
+									.data_2 {
+										width: 23%;
+										float: left;
+										color: #EA4444;
+										&::after {
+											@include vertical-line1;
+										}
+									}
+									.data_3 {
+										width: 43%;
+										float: left;
+										color: #2F2F2F;
+										cursor: pointer;
+										.btn_bet {
+											float: right;
+											@include btn-style10;
+											font-size: 14px;
+											line-height: 24px;
+											margin: 10px 10px 0 0;
+										}
+										.no_btn_bet{
+											cursor: not-allowed;
+											&:hover {
+												background: #f7f7f7;
+											}
+										}
+									}
+									.no_bet{
+											cursor: not-allowed;
+									}
+								}
+							}
+						}
+					}
+					.gr_group {
+						margin: 30px 20px 50px;
+						border: 1px solid #e1e1e1;
+						border-bottom: none;
+						border-radius: 10px;
+						font-weight: bold;
+						&:after {
+							content: '';
+							display: block;
+							clear: both;
+						}
+						.gr_item {
+							background: #062744;
+							border-radius: 10px 10px 0 0;
+							border-bottom: 1px solid $color-gray10;
+							height: 47px;
+							line-height: 47px;
+							box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+							.item1,
+							.item2,
+							.item3,
+							.item4,
+							.item5,
+							.item6 {
+								color: #fff;
+								font-size: 18px;
+								float: left;
+								text-align: center;
+								&::after {
+									@include vertical-line2;
+								}
+							}
+							.item1 {
+								width: 200px;
+							}
+							.item2 {
+								width: 580px;
+							}
+							.item3 {
+								width: 100px;
+							}
+							.item4 {
+								width: 100px;
+								&::after {
+									border: none;
+								}
+							}
+							.item5 {
+								width: 120px;
+							}
+							.item6 {
+								width: 150px;
+								&::after {
+									border: none;
+								}
+							}
+						}
+						.gr_data {
+							color: $color-gray11;
+							font-size: 16px;
+							background: #f3f3f3;
+							&:nth-child(odd) {
+								background-color: #fafafa;
+							}
+							&:last-child {
+								border-radius: 0 0 10px 10px;
+								border-bottom: 1px solid $color-gray10;
+							}
+							&::after {
+								@include level-line1;
+							}
+							.data1,
+							.data2,
+							.data3,
+							.data4,
+							.data5,
+							.data6 {
+								float: left;
+								position: relative;
+								text-align: center;
+								line-height: 56px;
+								&::after {
+									@include vertical-line1;
+									position: absolute;
+									top: 0;
+									right: 0;
+									height: 56px;
+								}
+							}
+							.data1 {
+								width: 200px;
+
+							}
+							.data2 {
+								width: 580px;
+								line-height: 28px;
+								span:nth-child(5) {
+									color: #1394e8;
+								}
+							}
+							.data3 {
+								width: 100px;
+								color: #c58d0d;
+							}
+							.data4 {
+								width: 100px;
+								color: #c58d0d;
+								&::after {
+									border: none;
+								}
+							}
+							.data5 {
+								width: 120px;
+								color: #dc0b0b;
+							}
+							.data6 {
+								width: 150px;
+								&::after {
+									border: none;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+

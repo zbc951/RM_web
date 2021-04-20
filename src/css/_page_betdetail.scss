@@ -1,0 +1,282 @@
+@charset "utf-8";
+main {
+    //各頁面style
+    &.bet_detail {
+        .bd {
+            .main_content {
+                height: calc(100% - 231px);
+                //min-height: 719px;
+                padding-bottom: 20px;
+                .searchWord {
+                    float: left;
+                    margin: 0px 0px 0px 70px;
+                    span {
+                        float: left;
+                        color: $color-gray4;
+                        font-size: 16px;
+                        font-weight: bold;
+                        margin: 20px 10px 0px 0px;
+                    }
+                    div {
+                        float: left;
+                    }
+                    .search_input {
+                        margin: 15px 0px 0px 0px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                    }
+                    input {
+                        font-size: 16px;
+                        color: #000;
+                        font-family: inherit;
+                        font-weight: bolder;
+                        border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        width: 320px;
+                        float: left;
+                        outline: none;
+                        border: none;
+                        padding: 3px;
+                    }
+                    .icon_search {
+                        height: 27px;
+                        width: 27px;
+                        background: url(../img/icon-search.png) no-repeat;
+                        position: relative;
+                        bottom: 3px;
+                        right: 5px;
+                    }
+                }
+                .reload {
+                    padding: 15px 20px;
+                    button {
+                        @include btn-style6-reload;
+                        width: 140px;
+                    }
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                }
+                .bd_group {
+                    margin: 0 20px;
+                    border: 1px solid #e1e1e1;
+                    border-radius: 10px;
+                    border-bottom: 1px solid #89b1ca;
+                    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+                    .bd_item {
+                        background: #062744;
+                        // border-bottom: 1px solid $color-gray10;
+                        border-radius: 10px 10px 0 0;
+                        height: 47px;
+                        line-height: 47px;
+                        display: flex;
+                        width: 100%;
+                        .item1,
+                        .item2,
+                        .item3,
+                        .item4,
+                        .item5,
+                        .item6,
+                        .item7,
+                        .item8,
+                        .item9 {
+                            color: #fff;
+                            font-size: 18px;
+                            font-weight: bold;
+                            float: left;
+                            text-align: center;
+                            &::after {
+                                @include vertical-line2;
+                            }
+                        }
+                        .item1 {
+                            width: 90px;
+                        }
+                        .item2 {
+                            width: 130px;
+                        }
+                        .item3 {
+                            width: 130px;
+                        }
+                        .item4 {
+                            width: 448px;
+                        }
+                        .item5 {
+                            width: 210px;
+                        }
+                        .item6 {
+                            width: 80px;
+                        }
+                        .item7 {
+                            width: 80px;
+                        }
+                        .item8 {
+                            width: 80px;
+                        }
+                        .item9 {
+                            width: 50px;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                    }
+                    .bd_data {
+                        color: #777777;
+                        font-size: 16px;
+                        font-weight: bold;
+                        background: #f3f3f3;
+                        &:nth-child(odd) {
+                            background-color: #ffffff;
+                        }
+                        &::after {
+                            @include level-line1;
+                            position: relative;
+                        }
+                        .data1,
+                        .data2,
+                        .data3,
+                        .data4,
+                        .data5,
+                        .data6,
+                        .data7,
+                        .data8,
+                        .data9 {
+                            float: left;
+                            text-align: center;
+                            line-height: 28px;
+                            height: 100%;
+                            position: relative;
+                            &::after {
+                                @include vertical-line1;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                            }
+                        }
+                        .data1 {
+                            width: 90px;
+                            line-height: 56px;
+                        }
+                        .data2 {
+                            width: 130px;
+                        }
+                        .data3 {
+                            width: 130px;
+                        }
+                        // .data4 { width: 368px; line-height: 20px; text-align: left; padding: 10px 0 10px 10px;}
+                        .data4 {
+                            width: 448px;
+                            text-align: center;
+                            span {
+                                &:nth-child(4),
+                                &:nth-child(6) {
+                                    color: #cd0a55
+                                }
+                            }
+                            .gameCancel {
+                                color: red;
+                                margin: 0px 20px 0px 0px;
+                                font-weight: bold;
+                                -webkit-animation-name: DoOpacity;
+                                /* Safari 4.0 - 8.0 */
+                                -webkit-animation-duration: 0.4s;
+                                /* Safari 4.0 - 8.0 */
+                                animation-name: DoOpacity;
+                                animation-duration: 0.4s;
+                                animation-iteration-count: infinite;
+                                animation-direction: alternate;
+                            }
+                        }
+                        .data5 {
+                            width: 210px;
+                            text-align: center;
+                            span {
+                                color: #737373;
+                                &:first-child {
+                                    color: $color-blue11;
+                                }
+                                .orange {
+                                    color: #FC5130;
+                                }
+                            }
+                        }
+                        .data6 {
+                            width: 80px;
+                            line-height: 54px;
+                            color: $color-blue18;
+                        }
+                        .data7 {
+                            width: 80px;
+                            line-height: 54px;
+                        }
+                        .data8 {
+                            width: 80px;
+                            line-height: 54px;
+                        }
+                        .data9 {
+                            width: 49px;
+                            line-height: 54px;
+                            span {
+                                background-color: rgb(71, 119, 169);
+                                border-color: rgb(100, 181, 246);
+                                color: rgb(238, 238, 238);
+                                border-radius: 4px;
+                                padding: 2px;
+                                cursor: pointer;
+                            }
+                            &::after {
+                                border: none;
+                            }
+                        }
+                    }
+                    .bd_result {
+                        background: #226896;
+                        border-top: 2px solid #fff;
+                        border-radius: 0 0 10px 10px;
+                        height: 50px;
+                        line-height: 50px;
+                        .result1,
+                        .result2,
+                        .result3,
+                        .result4,
+                        .result5,
+                        .result6,
+                        .result7,
+                        .result8 {
+                            color: $color-white;
+                            font-size: 16px;
+                            font-weight: bold;
+                            float: left;
+                            text-align: center;
+                            &::after {
+                                @include vertical-line1;
+                            }
+                        }
+                        .result1 {
+                            width: 1008px;
+                        }
+                        .result2 {
+                            width: 80px;
+                            color: #ffffff;
+                        }
+                        .result3 {
+                            width: 80px;
+                        }
+                        .result4 {
+                            width: 50px;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                        .blue {
+                            color: #1fffb8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

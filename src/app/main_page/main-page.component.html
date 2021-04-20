@@ -1,0 +1,135 @@
+<main class="center_member noScroll">
+	<!-- 2017 11 10 為了 ichat 自動登入 新增的功能 -->
+	<div *ngIf="globals.showAutoLogin">
+		<div class="blackBg" ></div>
+		<div class="deposit_Mask" [ngSwitch]="globals.showAutoLogin.type">
+			<h1 class="de_subtitle">{{globals.showAutoLogin.title}}</h1>
+
+			<p class="de_textdescript">{{globals.showAutoLogin.data}}</p>
+
+			<form class="bind_login"  *ngSwitchCase="'bind_login'">
+				<div class="logout_info">
+					<div class="mem_account">
+						<label>{{"Account" | getLang : api.langPackage}} :</label>
+						<input class="mem_input" type="text" [(ngModel)]="bind_username" name="username">
+					</div>
+					<div class="mem_password">
+						<label>{{"Password" | getLang : api.langPackage }} :</label>
+						<input class="mem_input pw" type="password" [(ngModel)]="bind_password" name="password">
+					</div>
+				</div>
+			</form>
+			<!-- 顯示 綁定 或 註冊 按鈕 -->
+			<div class="de_btnpos" *ngSwitchCase="'noBind_noRegister'">
+                <button btn="finish_dep" (click)="ichatLogin()">{{ "绑定" | getLang : api.langPackage}}</button>
+                <button btn="re_dep" (click)="doLogin(994,{} )">{{"Sign up" | getLang : api.langPackage}}</button>
+			</div>
+			<!-- 顯示綁定頁面 -->
+			<div class="de_btnpos" *ngSwitchCase="'bind_login'">
+				<button btn="finish_dep" (click)="doLogin(995,{ un: this.bind_username, pw: this.bind_password} )">{{ "绑定" | getLang : api.langPackage}}</button>
+				<button btn="re_dep" (click)="doLogin(994,{} )">{{"Sign up" | getLang : api.langPackage}}</button>
+			</div>
+			<!-- 顯示註冊按鈕 -->
+			<div class="de_btnpos" *ngSwitchCase="'noRegister'">
+				<button btn="re_dep" (click)="doLogin(994,{} )">{{"Sign up" | getLang : api.langPackage}}</button>
+			</div>
+			<!-- 自动登入中 -->
+			<div *ngSwitchCase="'successful'">
+			</div>
+			<!-- 關閉 Dialog -->
+			<div class="de_btnpos" *ngSwitchDefault>
+					<button btn="finish_dep" (click)="closeDialog()">{{ "Close" | getLang : api.langPackage}}</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="main_center frm_body">
+		<div class="main_content" (click)="Discount = false" *ngIf="Discount">
+			<div class="slidebg">
+				<div class="bannerContainer">
+					<div class="banner"></div>
+					<div class="banner"></div>
+					<div class="banner"></div>
+					<div class="banner"></div>
+					<div class="banner"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- <main class="bulletin_discount" *ngIf="!Discount">
+			<div class="main_center">
+				<div class="main_title">
+					<div class="title_btn" (click)="Discount = true" style="float: right;">返回</div>
+
+					优惠活动
+				</div>
+				
+				<div class="main_content">
+					<div class="card1">
+						<div class="banner" (click)="open[0] = !open[0]">
+							<div class="check"></div>
+						</div>
+					  <div class="content" *ngIf="open[0]"></div>
+					</div>
+					<div class="card2">
+						<div class="banner" (click)="open[1] = !open[1]">
+							<div class="check"></div>
+						</div>
+					  <div class="content" *ngIf="open[1]"></div>
+					</div>
+					<div class="card3">
+						<div class="banner" (click)="open[2] = !open[2]">
+							<div class="check"></div>
+						</div>
+					  <div class="content" *ngIf="open[2]"></div>
+					</div>
+				</div>
+			</div>
+		</main> -->
+		<discount (Discount)="toDiscount($event)"  *ngIf="!Discount"></discount>d
+
+
+
+
+
+
+
+		<div class="frm_footer">
+			<div class="cpright">Copyright © 2019 STG COMPANY.All rights reserved.</div>
+			<div class="supbroswer">
+				<ul>
+					<li class="broswericon suggestion">{{ "We recommend using the following browser." | getLang : api.langPackage}}</li>
+					<li class="broswericon bs_ch">Google Chrome</li>
+					<li class="broswericon bs_fox">Mozilla Firefox</li>
+					<li class="broswericon bs_ie">Internet Explorer 10+</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</main>
+<!--<nav class="center_member">
+	<div class="main_center frm_rightnav">
+		<div class="right_sidenav">
+			<div class="contact_icon"></div>
+			<div class="contact_detail">
+				<div class="side_girl">
+					<span>Service</span>
+					
+				</div>
+				<ul>
+					<li class="side_online">
+						<a href="javascript:void(0)">{{ "Online service" | getLang : api.langPackage }}</a>
+						<img src="../../img/sidenav_girl.png">
+					</li>
+					<li class="side_QQ">
+						<a href="javascript:void(0)">联系QQ</a>
+					</li>
+					<li class="side_wechat">
+						<a href="javascript:void(0)">Wechat</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>-->

@@ -1,0 +1,61 @@
+<div class="us_category">
+    <div [class.active]="selectItem == 'about_rule_pd'"  (click)="selectItem = 'about_rule_pd'">PD(score)</div>
+    <div [class.active]="selectItem == 'about_rule_pdhr'"  (click)="selectItem = 'about_rule_pdhr'">The first half of PD</div>
+    <!-- 此站無"總得分"，所以隱藏 -->
+    <!-- <div [class.active]="selectItem == 'about_rule_total'" (click)="selectItem = 'about_rule_total'">Total score</div> -->
+</div>
+<div class="right_area" [ngSwitch]="selectItem">
+    <div *ngSwitchCase="'about_rule_pd'" >
+        <h1>Rule</h1>
+        <ol>
+            <li>All soccer investment results are subject to the rules set by the Company and do not accept the results announced by other sports websites or other real-time scores.</li>
+            <li>The transaction is subject to the legal time〈the second half of the full 45 minutes and including injury injury time〉the results of the competition〈less than 90 minutes are not calculated〉</li>
+            <li>Some young people of their regular game time(including injury time) is 80,70 minutes range, if no waist cut or climate and other unexpected factors led to the game less than regular time, the company is still considered <span class="red">"Valid note form".</span></li>
+            <li>All Football If the Union has been marked where the event is held, the affiliate team, whether marked home or away, does not actually have a home away from home. If there is no weather or other unexpected factors affecting the event, all investment orders are treated as <span class="red">"Valid note form".</span></li>
+            <li>All the football investment events, if the weather or other unexpected factors affect the event, such as waist cut, keep the game ... and so on, all the investment will be returned to the calculation, to the first half of the wave of the total score of the ball into the ball, such as Whether or not to be calculated within the specification period is based on the announcement of the Company.</li>
+            <li><span class="red">In the event of a special situation, the event can not be completed, all investment orders are valid, the company will announce the results of the notice.</span></li>
+            <li>In the designated game, against the final correct score of the game. All soccer wave trade is subject to legal time (on the second half of the need to take 45 minutes and injury time) the results prevail (less than 90 minutes are not calculated); plus and 12 yards to win the game , Or any subsequent changes made by any Sports Disciplinary Committee shall not be counted.</li>
+            <li>The two teams must complete the event as a <span class="red">"valid note"</span>，such as due to cut, prolong play, keep the game, weather anomalies and irresistible factors lead to the completion of the whole game, then bet the event as "invalid note".</li>
+            <li>In case of temporary change to start the race and start ahead of schedule, all the investment in the tournament note, <span class="red">as a valid note</span>,all in accordance with the official announcement of the results of the event for the final game.</li>
+            <li>If the transaction is started before the race or after the start of the transaction, all the investment in the start of the transaction after the transaction, the company as invalid transactions.</li>
+            <li>In case of hacker attacks or human factors ... other external factors affect the accounting data, all to the company backup data.</li>
+            <li>The Company has the right to remove the bill and to stop the member's account.</li>
+            <li>Membership shall use the Site and deemed to agree to all the requirements of the Company.</li>
+        </ol>
+        <h1>Game description-PD(score)</h1>
+        <h2>Example: 意大利U21(主) v 奥地利U21</h2>
+        <div class="img1-1"></div>
+        <div class="img1-2"></div>
+        <h2>Investment <span class="red">against</span>意大利U21(主) v 奥地利U21</h2>
+        <p>
+            If the result of the final game is <span class="red">0-3</span> 
+            the customer is investing in loss of investment amount <span class="red">1000元</span><br>
+            finally,if the first half of game`s result is not<span class="red">0-3</span>  is profitable<br>
+            (1000 X 0.0138 X 0.95 = <span class="red">13.11</span>)
+        </p>
+    </div>
+    <div *ngSwitchCase="'about_rule_pdhr'">
+        <h1>The first half of PD</h1>
+        <div class="img2-1"></div>
+        <div class="img2-2"></div>
+        <h2>Investment <span class="red">against</span>意大利U21(主) v 奥地利U21</h2>
+        <p>
+            If the first half of the 45 minutes the result is<span class="red">0-0</span> 
+            the customer is investing in loss of investment amount <span class="red">1000元</span><br>
+            finally,if the first half of game`s result is not<span class="red">0-0</span>  is profitable<br>
+            (100 X 0.02 X0.95 = <span class="red">1.90</span>)
+        </p>
+    </div>
+    <div *ngSwitchCase="'about_rule_total'">
+        <h1>Total score</h1>
+        <div class="img3-1"></div>
+        <div class="img3-2"></div>
+        <h2>Investment <span class="red">against</span>意大利U21(主) v 奧地利U21</h2>
+        <p>
+            If the score is <span class="red">0-0</span>
+            the customer is investing in loss of investment amount <span class="red">100元</span><br>
+            If the score is <span class="red">0-0</span> or <span class="red">1-1 total score no more than three goals</span> is profitable<br>
+            (100 X 0.0285 X 0.95 = <span class="red">2.51</span>)
+        </p>
+    </div>
+</div>

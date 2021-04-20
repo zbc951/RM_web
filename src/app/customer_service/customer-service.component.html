@@ -1,0 +1,53 @@
+<div class="frm_rightnav" *ngIf="globals.getShowLogout()">
+	<div class="right_sidenav">
+				<!-- 20190406 客戶要求拿掉客服 -->
+		<!-- <div class="sidenavContainer" *ngIf="!globals.getShowLogin()">
+			<div class="sidenavIcon others"></div>
+			<ul class="detail">
+				<li class="reaction" (click)="changePage_membercenter(['membercenter','problem'])">
+					<a href="javascript:void(0)">{{"Help"| getLang : api.langPackage }}</a>
+				</li>
+				<li class="promote" (click)="changePage_membercenter(['membercenter','memberLink'])">
+					<a href="javascript:void(0)">{{"Link"| getLang : api.langPackage }}</a>
+				</li>
+			</ul>
+			<span class="count" *ngIf="helpcount != 0 && helpcount != undefined">{{helpcount}}</span>
+		</div> -->
+		<!-- 20190319 客戶要求拿掉客服 -->
+		<!-- <div class="sidenavContainer">
+			<div class="sidenavIcon contact"></div>
+			<ul class="detail">
+				 <li class="online" (click)="globals.openOnlineLink()">
+					<a href="javascript:void(0)">{{ "Online" | getLang : api.langPackage }}</a>
+				</li> 
+				<li class="QQ" (click)="setServiceInfo('qqQrcode','QQ')">
+					<a href="javascript:void(0)">{{"QQ" | getLang : api.langPackage : 1 }}</a>
+				</li>
+				<li class="wechat" (click)="setServiceInfo('wechatQrcode','Wechat')">
+					<a href="javascript:void(0)">{{"Wechat" | getLang : api.langPackage : 1 }}</a>
+				</li>
+				<li class="weibo" (click)="setServiceInfo('weiboQrcode','Weibo')">
+					<a href="javascript:void(0)">{{"Weibo" | getLang : api.langPackage : 1 }}</a>
+				</li>
+			</ul>
+		</div> -->
+	</div>
+	<!--
+		http://techqa.info/programming/question/35527456/Angular2-window-resize-event
+		-->
+	<!--<div class="newDetail" *ngIf="!globals.getShowLogin() && globals.getSelectRouterItem() == 'gametable'" [ngClass]="toggle == false ? 'toggle' : ''" (click)='toggle = !toggle' (window:resize)="onResize($event)">
+		<div class="title">
+			<span class="new">{{"New bets" | getLang : api.langPackage}}</span>
+			<div class="expand" [ngClass]="toggle == false ? 'less' : 'more'"></div>
+		</div>
+		<ul class="contentContainer">
+			<li class="content" *ngFor="let list of newDatails">
+				<span>{{ "$" | getLang : api.langPackage}}{{list.gold | cashAddCommas}}</span>
+				<span> - [{{ list.ptype | getLang : api.langPackage}}] </span>
+				<span>{{list.score | getLang : api.langPackage}}</span>
+				<div>{{'['+list.lid+']'}} {{list.ht+ "[" + ("Home" | getLang : api.langPackage) + "]"}} VS {{list.ct}}&nbsp;&nbsp;</div>
+			</li>
+		</ul>
+	</div>-->
+	<qrcode-dialog *ngIf="globals.serviceInfo"  [serviceInfo]="globals.serviceInfo" (dialogEmit)="dialogOn($event)"></qrcode-dialog>
+</div>

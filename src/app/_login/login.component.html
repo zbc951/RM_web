@@ -1,0 +1,70 @@
+<form class="logout_group"  *ngIf="globals.getShowLogin()">
+    <div class="logout_info">
+        <div class="mem_account">
+            <!--<label>帳號 :</label>-->
+            <label>{{"Account" | getLang : api.langPackage}} :</label>
+            <input class="mem_input" type="text" [(ngModel)]="username" name="username">
+        </div>
+        <div class="mem_password">
+            <label>{{"Password" | getLang : api.langPackage }} :</label>
+            <!--<label>{{"101" | getLang}} :</label>-->
+            <input class="mem_input pw" type="password" [(ngModel)]="password" name="password">
+        </div>
+        <!-- <div class="remember_pw" [ngClass]="globals.getNowLang() == 'en-us' ? 'remember_pw_english': '' " >
+            <input type="checkbox" id="test1"  [(ngModel)]="isRemember"  name="isRemember"/>
+            <label for="test1">{{"Stay signed in" | getLang : api.langPackage }}</label>
+        </div> -->
+    </div>
+    <div class="logout_btn">
+        <div class="btn_forget_g"    (click)="showChatlink()" >{{"Online" | getLang : api.langPackage}}</div> 
+        <!-- <div class="btn_forget" (click)="QQalert()">QQ{{"Customer service" | getLang : api.langPackage}}</div> -->
+        <div class="remember_pw" [ngClass]="globals.getNowLang() == 'en-us' ? 'remember_pw_english': '' " >
+            
+            <input type="checkbox" id="test1"  [(ngModel)]="isRemember"  name="isRemember" />
+            <label for="test1">{{"Stay signed in" | getLang : api.langPackage }}</label>
+        </div>
+        <!-- <label class="checkname">验证码:</label>
+        <input class="mem_input" type="text" [(ngModel)]="reloadCaptcha" name="Captcha">
+        <div class="reload" (click)="reload()"></div>
+        <div class="check">
+            <ul class="en">
+                <li class="en {{reloadKEY[0]}}"></li>
+                <li class="en {{reloadKEY[1]}}"></li>
+                <li class="en {{reloadKEY[2]}}"></li>
+                <li class="en {{reloadKEY[3]}}"></li>
+            </ul>
+        </div> -->
+        <button class="btn_login" (click)="login()">{{"Login" | getLang : api.langPackage }}</button>
+        <!-- <button class="btn_regist" (click)="globals.openRegister()">{{"Sign up" | getLang : api.langPackage }}</button> -->
+       
+        <!-- <div class="btn_regist">註冊</div> -->
+    </div>
+</form>
+<div class="login_group" *ngIf="!globals.getShowLogin()">
+    <div class="member_info" >
+        <div class="mem_money">
+            <label>{{"Balance" | getLang : api.langPackage }}</label>
+            <!-- 數字每3位數一個逗號，必須type="text"。 寫 [(ngModel)]="surplus | number" 無法用ngModel做pipe   -->
+            <input class="mem_input" type="text"  [ngModel]="surplus | number" (ngModelChange)="surplus=$event" name="surplus" readonly>
+            <div class="icon_reload" (click)="updateMoneyInfo()"></div>
+        </div>
+        <div class="mem_name" [ngSwitch]="globals.getIsIchat()">
+            <label *ngSwitchCase="false">{{"Account" | getLang : api.langPackage}}</label>
+            <label *ngSwitchCase="true">{{"昵称" | getLang : api.langPackage}}</label>
+            <input class="mem_input" type="text"  [(ngModel)]="username" name="username" readonly>
+        </div>
+    </div>
+    <div class="member_btn" *ngIf="globals.getShowLogout()">
+      
+        <div class="btn_discount" (click)="changePage(['discount'])"><div class="serial"></div>{{"Promotions" | getLang : api.langPackage}}</div>
+        <div class="btn_account_g"   (click)="showChatlink()" >{{"Online" | getLang : api.langPackage}}</div> 
+        <!-- <div class="btn_account" (click)="QQalert()">QQ{{"Customer service" | getLang : api.langPackage}}</div> -->
+        <div class="btn_wallet" (click)="changePage_membercenter(['membercenter','deposit'])">{{"deposit" | getLang : api.langPackage}}/{{"Withdraw" | getLang : api.langPackage}}</div>
+        <!--<div class="btn_wallet"  (click)="changePage(['membercenter','record'])">充值與提領</div>-->
+       
+            
+        <div class="btn_account" (click)="changePage_membercenter(['membercenter','userData'])">{{"My Account" | getLang : api.langPackage}}</div>
+        <div class="btn_logout" (click)="logout()" >{{"Logout" | getLang : api.langPackage}}</div>
+    </div>
+</div>
+

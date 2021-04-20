@@ -1,0 +1,85 @@
+<main class="center_member">
+	<!--提示彈窗-->
+    <!--<div *ngIf="!showDialog">
+        <div class="blackBg" ></div>
+        <div class="deposit_Mask">
+            <h1 class="de_subtitle">請您在新打開的頁面上完成付款</h1>
+            <p class="de_textdescript">待銀行付款完成，尚未返回支付成功頁面時，請勿關閉頁面避免打款失敗。</p>
+            <div class="de_btnpos">
+                <button btn="finish_dep">完成充值</button>
+                <button btn="re_dep">再充一笔</button>
+            </div>
+        </div>
+    </div>-->
+    <!--提示彈窗 條列-->
+     <div *ngIf="showDialog">
+        <div class="blackBg" ></div>
+        <div class="deposit_Mask" [ngSwitch]="showDialog.type">
+            <h1 class="de_subtitle">{{showDialog.title}}</h1>
+            <ol *ngSwitchCase="'list'">
+                <li *ngFor="let list of showDialog.data ">
+                    <span class="data_th">{{list[0]}}</span><span>{{list[1]}}</span>
+                </li>
+            </ol>
+            <p *ngSwitchDefault class="de_textdescript">{{showDialog.data}}</p>
+            <div class="de_btnpos">
+                <button btn="finish_dep" (click)="closeDialog()">{{ "Close" | getLang : api.langPackage}}</button>
+                <button btn="re_dep" *ngIf="showDialog.type == 'link'" (click)="globals.openLink(showDialog.link[0],showDialog.link[1])">{{"Open link" | getLang : api.langPackage}}</button>
+            </div>
+        </div>
+    </div> 
+	<!--提示彈窗End-->
+    <member-link  *ngIf="selectItem == 'memberLink'" (dialogEmit)="dialogToPage($event)"></member-link>
+    <ichat-atm  *ngIf="selectItem == 'ichat_ATM_in' || selectItem == 'ichat_ATM_out'" [ATMtype]="selectItem" (dialogEmit)="dialogToPage($event)"></ichat-atm>
+    <div class="main_center" [ngClass]="selectClass">
+        <div class="main_title">{{ "My Account" | getLang : api.langPackage}}</div>
+        <div class="main_content" [ngClass]="selectItem_deposit == 'deposit_serial' ? 'de_book_height': '' " >
+            <ul class="left_menu">
+                <li [class.active]="selectItem == 'deposit'" (click)="changeSelectItem('deposit');selectItem_deposit='deposit_default'">{{ "Deposit" | getLang : api.langPackage}}</li>
+                <li [class.active]="selectItem == 'withdraw'" (click)="changeSelectItem('withdraw');selectItem_withdraw='withdraw_default'">{{ "Withdraw" | getLang : api.langPackage}}</li>
+                <li [class.active]="selectItem == 'record'" (click)="changeSelectItem('record')">{{ "Records" | getLang : api.langPackage}}</li>
+                <li [class.active]="selectItem == 'bankCard'" (click)="changeSelectItem('bankCard')">{{ "Bank card" | getLang : api.langPackage}}</li>
+                <li [class.active]="selectItem == 'userData'" (click)="changeSelectItem('userData')">{{ "Personal info" | getLang : api.langPackage}}</li>
+                <li [class.active]="selectItem == 'betrecord'" (click)="changeSelectItem('betrecord')">{{ "Running record" | getLang : api.langPackage}}</li>
+                <li  (click)="openagPage()">{{ "New agent" | getLang : api.langPackage}}</li>
+                <!-- <li [class.active]="selectItem == 'memberLink'" (click)="changeSelectItem('memberLink')">{{ "Promotion link" | getLang : api.langPackage}}</li> -->
+                <!-- <li [class.active]="selectItem == 'problem'" (click)="changeSelectItem('problem')">{{"Help" | getLang : api.langPackage}}</li> -->
+            </ul>
+            <div class="right_area" [ngSwitch]="selectItem">
+
+                <div class="pay_ways" *ngSwitchCase="'deposit'">
+                    <!--<ul class="payItem_list">
+                        <li [class.active]="selectItem_deposit == 'deposit_serial'" (click)="selectItem_deposit='deposit_serial'">{{ "Serial" | getLang : api.langPackage}}</li>
+                         <li [class.active]="selectItem_deposit == 'deposit_wechat'" (click)="selectItem_deposit='deposit_wechat'">微信支付</li> -->
+                        <!--<li [class.active]="selectItem_deposit == 'deposit_speedyPay'" (click)="selectItem_deposit='deposit_speedyPay'">快捷支付</li>
+                        <li [class.active]="selectItem_deposit == 'deposit_postscript'" (click)="selectItem_deposit='deposit_postscript'">附言存款</li>-->
+                        <!-- <li [class.active]="selectItem_deposit == 'deposit_online'" (click)="selectItem_deposit='deposit_online'">在线支付</li>
+                        
+                        <li [class.active]="selectItem_deposit == 'deposit_online'" (click)="globals.openDepositLink();selectItem_deposit='deposit_serial'">其他支付平台</li> 
+                    </ul>-->
+                    <div class="paydetail_content" [ngSwitch]="selectItem_deposit">
+                        <!--<deposit-speedy-pay *ngSwitchCase="'deposit_speedyPay'"></deposit-speedy-pay>
+                        <deposit-postscript *ngSwitchCase="'deposit_postscript'"></deposit-postscript>-->
+                        <deposit-default *ngSwitchCase="'deposit_default'" (dialogEmit)="selectItem_deposit=$event"></deposit-default>
+                        <deposit-serial *ngSwitchCase="'deposit_serial'" (dialogEmit)="appDialogOn($event)" (goBackEmit)="selectItem_deposit='deposit_default'"></deposit-serial>
+                        <deposit-ichat *ngSwitchCase="'deposit_ichat'" (dialogEmit)="appDialogOn($event)" (goBackEmit)="selectItem_deposit='deposit_default'"></deposit-ichat>
+                        <!-- <deposit-online *ngSwitchCase="'deposit_online'" (dialogEmit)="appDialogOn($event)"></deposit-online>
+                        <deposit-wechat *ngSwitchCase="'deposit_wechat'" (dialogEmit)="appDialogOn($event)"></deposit-wechat> -->
+                    </div>
+                </div>
+                <div class="withdraw_ways" *ngSwitchCase="'withdraw'" [ngSwitch]="selectItem_withdraw">
+                    <withdraw-default *ngSwitchCase="'withdraw_default'" (dialogEmit)="selectItem_withdraw=$event"></withdraw-default>
+                    <withdraw-serial *ngSwitchCase="'withdraw_serial'" (dialogEmit)="appDialogOn($event)" (goBackEmit)="selectItem_withdraw='withdraw_default'"></withdraw-serial>
+                    <withdraw-ichat *ngSwitchCase="'withdraw_ichat'" (dialogEmit)="appDialogOn($event)" (goBackEmit)="selectItem_withdraw='withdraw_default'"></withdraw-ichat>
+                </div>
+
+                <record *ngSwitchCase="'record'"></record>
+                <betrecord *ngSwitchCase="'betrecord'"></betrecord>
+                <bank-card class="withdraw_ways" *ngSwitchCase="'bankCard'" (dialogEmit)="appDialogOn($event)"></bank-card>
+                <user-data *ngSwitchCase="'userData'"></user-data>
+                <!--<member-link *ngSwitchCase="'memberLink'"></member-link>-->
+                <problem *ngSwitchCase="'problem'"></problem>
+            </div>
+        </div>
+    </div>
+</main>

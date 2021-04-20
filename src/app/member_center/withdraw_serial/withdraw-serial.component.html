@@ -1,0 +1,91 @@
+<div class="reload">
+		<button (click)="goBack()">{{ "Previous page" | getLang : api.langPackage}}</button>
+</div>
+<ul class="bankinfo">
+	<li class="title">{{"Withdraw" | getLang : api.langPackage}}</li>
+	<li>
+		<h2>{{"Bank" | getLang : api.langPackage}}</h2>
+		<!--<input type="text" [ngModel]="bankData['mbank']" disabled>-->
+		<span>{{bankData['mbank']}}</span>
+	</li>
+	<li>
+		<h2>{{"Depositor" | getLang : api.langPackage}}</h2>
+		<!--<input type="text" [ngModel]="bankData['mbname']" disabled>-->
+		<span>{{bankData['mbname']}}</span>
+	</li>
+	<li>
+		<h2>{{"Account" | getLang : api.langPackage}}</h2>
+		<!--<input type="text" [ngModel]="bankData['mbaccount']" disabled>-->
+		<span>{{bankData['mbaccount']}}</span>
+	</li>
+	<li *ngIf="memberData && memberData.bountparty">
+		<h2>{{"activity" | getLang : api.langPackage}}</h2>
+		<!--<input type="text" [ngModel]="bankData['mbaccount']" disabled>-->
+		<span>{{ ((memberData.bountparty == 'Y')?'Participate in promotional activities':'No Participate in promotional activities')  | getLang : api.langPackage}}</span>
+	</li>
+	<li>
+		<h2>{{"Amount" | getLang : api.langPackage}}</h2>
+		<input type="number" [(ngModel)]="inputGold" [formControl]="inputGoldControl">
+		<span class="notice_txt">{{"The minimum amount is 100" | getLang : api.langPackage}}</span>
+		<span *ngIf="memberData &&memberData.NeedOrNotFee == 'N'">{{"No fee for this withdrawal" | getLang : api.langPackage}}!!</span>
+		<span *ngIf="memberData &&memberData.NeedOrNotFee != 'N'">{{"This withdrawal fee" | getLang : api.langPackage}}{{memberData.Fee}}%</span>
+		<div class="clearboth"></div>
+		<p class="errtips">{{erroMsg}}</p>
+	</li>
+	<li>
+		<h2>{{"Withdraw password" | getLang : api.langPackage}}</h2>
+		<input type="password" [(ngModel)]="safety" >
+		<span>{{"No password has been set, please use the login password to verify, if you need to modify, please contact customer service" | getLang : api.langPackage}}。</span>
+	</li>
+	<!--<li>
+		<h2>帳戶密碼</h2>
+		<input type="password">
+		<span>請輸入您的登錄密碼。</span>
+	</li>-->
+	<li>
+			<!--<button (click)="doWithdraw()" [disabled]="!selectedValue || !accountName || erroMsg || !inputGold">申請</button>-->
+			<button (click)="doWithdraw()" [ngClass]="( (bankData | json) =='{}' || erroMsg || !inputGold) ||!safety ? 'notclick_btn' : '' "
+			                               [disabled]="(bankData | json) =='{}' || erroMsg || !inputGold ||!safety">{{"OK" | getLang : api.langPackage}}</button>
+	</li>
+</ul>
+<div class="clearboth"></div>
+<div [ngSwitch]="globals.getNowLang()">
+	<div class="description" *ngSwitchCase="'en-us'">
+		<h1>Notice</h1>
+		<ul>
+			<li>In order to ensure the quality of the game on the platform and the safety of the flow of funds, with immediate effect, the amount of single withdrawal of more than 100,000, need to make an appointment in advance, the company will immediately for you to review and arrange the payment process, Please forgive me.</li>
+			<li>Each time you make a minimum of 100 points or more, please fill in the account number, if the account is provided wrong, I am afraid the company can not be responsible.</li>
+			<li>Your daily first withdrawal fee is free of charge, the second day after the withdrawal, the company will charge 5% of the amount of administrative expenses.</li>
+			<li>The first time you enter the bank account that is bound to the account, if you need to modify the withdrawal account, please contact customer service personnel to modify.</li>
+			<li>If you use this platform for any money laundering fraud, the Company will reserve the right to terminate the member service and freeze the member account.</li>
+		</ul>
+	</div>
+	<div class="description" *ngSwitchCase="'zh-tw'">
+		<h1>注意事項</h1>
+		<ul>
+			<li>為了確保客戶在平台上的遊戲品質以及資金流動安全性，即日起，單筆提款金額達10萬以上，需提前預約申請，本公司將立即為您審核並安排出款程序，如有不便，敬請見諒。</li>
+			<li>每次提出最少兌換點數為100點以上，請確認填寫帳號，若提供的帳號錯誤，恕本公司無法負責。</li>
+			<li>您的每日第一次提款免手續費，每日第二次以後的提款，本公司將收取提款金額的5％行政處理費用。</li>
+			<li>第一次輸入銀行帳戶即綁定該帳戶，如需修改提款帳戶，請聯繫客服人員修改。</li>
+			<li>如利用本平台進行任何洗錢詐騙行為，本公司將保留權力終止會員服務及凍結該會員帳號。</li>
+		</ul>
+	</div>
+	<div class="description" *ngSwitchCase="'zh-cn'">
+
+
+
+		<h1>注意事项</h1>
+		<ul>
+			<li>为了确保客户在平台上的游戏品质以及资金流动安全性，即日起，单笔提款金额达5万以上，需提前预约申请，本公司将立即为您审核并安排出款程序，如有不便，敬请见谅。</li>
+			<li>每次提出最少兑换点数为100点以上，请确认填写帐号，若提供的帐号错误，恕本公司无法负责。</li>
+			<li style="color: red;">
+				首储7倍流水，与再储3倍流水，符合其中一个条件者，享有每周五次提款免手续费。
+			  </li>
+			<li>每周第五次以后的提款，本公司将收取提款金额的5%行政处理费用。</li>
+			<li>当周的累计时间跟输赢报表相同,为星期天中午12:00-下星期天中午12:00。</li>
+
+			<li>第一次输入银行帐户即绑定该帐户，如需修改提款帐户，请联系客服人员修改。</li>
+			<li>如利用本平台进行任何洗钱诈骗行为，本公司将保留权力终止会员服务及冻结该会员帐号。</li>
+		</ul>
+	</div>
+</div>

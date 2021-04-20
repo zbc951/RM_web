@@ -1,0 +1,7 @@
+<header-toolbar ></header-toolbar>
+<router-outlet></router-outlet>
+<!--<footer-toolbar></footer-toolbar>-->
+<iframe class="iframe" *ngIf="token" width="100%" height="100%" frameborder="0" align="center" scrolling="no" [src]="url"></iframe>
+<div class="iframe_b" *ngIf="token" >
+    <div class="back_page" (click)="globals.setToken(false)">返回</div>
+</div>

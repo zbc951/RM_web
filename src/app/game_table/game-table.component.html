@@ -1,0 +1,199 @@
+<main class="game_list">
+    <div class="main_center gl">
+         <div class="main_title">
+            <div class="title">{{"Market" | getLang : api.langPackage}}</div>
+            <div class="title_btn" (click)="globals.openScoreLink()">{{"Live score" | getLang : api.langPackage}}</div>
+            <div class="newDetail" (click)="changePage(['betdetail'])">
+                <div class="dtitle">
+                    <span class="new">{{"New bets" | getLang : api.langPackage}}</span>
+                    <div class="expand"></div>
+                </div>
+                <ul class="contentContainer">
+                    <li class="content" *ngFor="let list of newDatails">
+                        <span>{{ "$" | getLang : api.langPackage}}{{list.gold | cashAddCommas}} </span>
+                        <span>[{{ list.bid | getLang : api.langPackage}}] </span>
+                        <span>[{{ list.ptype | getLang : api.langPackage}}] {{list.score | getLang : api.langPackage}}</span>
+                        <div>{{'['+list.lid+']'}} {{list.ht+ "[" + ("Home" | getLang : api.langPackage) + "]"}} VS {{list.ct}}&nbsp;&nbsp;</div>
+                    </li>
+                </ul>
+            </div>
+       </div>
+        <!--<div class="main_title">{{"Market" | getLang : api.langPackage}}</div>-->
+        <div class="main_content">
+            <!-- 全部列表 -->
+            <div class="game_list_menu">
+                <!-- 日期賽事列表 -->
+                <ul *ngFor="let date of gamelist_date"> 
+                    <li (click)="switchList(date, 'father')" [ngClass]="{'active': date == switchButton[0]}">
+                        <span>{{ date }} {{"Game" | getLang : api.langPackage}}</span>
+                        <div class="arrow">
+                            <span class="count">{{ (gamelist | classifyGameList:'_gdate':date)?.length == undefined ? 0 : (gamelist | classifyGameList:'_gdate':date)?.length}}</span>
+                            ►
+                        </div>
+                    </li>
+                    <li class="list_open">
+                        <ul *ngFor="let list of gamelist | classifyGameList:'_gdate':date" class="accordion_show" [ngClass]="{'accordion_close': date !== switchButton[0]}">
+                            <li (click)="getGameInfo(list)" [ngClass]="{'active': list.gid == gameItem.gid}">
+                                <!--<p>{{ list._gdate +' '+ list._gtime }}<span>{{ list.lid }}</span></p>-->
+                                <p>{{ list._gdate +' '+ list._gtime }}<span>{{ list.backTime }}</span></p>
+                                <div class="league">{{ list.lid }}</div>
+                                <div>{{ list.ht }} v {{ list.ct }}</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 全部賽事列表 -->
+                <ul>
+                    <li (click)="switchList('ALL', 'father')" [ngClass]="{'active': 'ALL' == switchButton[0]}">
+                        <span>{{"All game" | getLang : api.langPackage}}</span>
+                        <div class="arrow">
+                            <span class="count">{{gamelist?.length == undefined ? 0 : gamelist?.length}}</span>
+                            ►
+                        </div>
+                    </li>
+                    <li class="list_open">
+                        <ul *ngFor="let list of gamelist" class="accordion_show" [ngClass]="{'accordion_close': 'ALL' !== switchButton[0]}">
+                            <li (click)="getGameInfo(list)" [ngClass]="{'active': list.gid == gameItem.gid}">
+                                <!--<p>{{ list._gdate +' '+ list._gtime }}<span>{{ list.lid }}</span></p>-->
+                                <p>{{ list._gdate +' '+ list._gtime }}<span>{{ list.backTime }}</span></p>
+                                <div class="league">{{ list.lid }}</div>
+                                <div>{{ list.ht }} v {{ list.ct }}</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 聯盟賽事列表 -->
+                <ul class="list_union">
+					<li class="" (click)="switchList('league', 'father')" [ngClass]="{'active': 'league' == switchButton[0]}">
+                        <span>{{"League" | getLang : api.langPackage}}</span><div class="arrow">►</div>
+                    </li>
+				</ul>
+                <ul class="list_union accordion_show" *ngFor="let league of gamelist_lid" [ngClass]="{'accordion_close': 'league' !== switchButton[0]}">
+                    <li class="un" (click)="switchList('league', league)" [ngClass]="{'long': league.lid.length > 14 }">
+						<p class="name">{{ league.lid }}</p><span class="num">{{ league.count }}</span>
+					</li>
+                    <li class="list_open">
+						<ul *ngFor="let list of gamelist  | classifyGameList:'lid':league.lid" class="accordion_show" [ngClass]="{'accordion_close': league?.lid !== switchButton[1]?.lid }">
+							<li (click)="getGameInfo(list)" [ngClass]="{'active': list.gid == gameItem.gid}">
+								<!--<p>{{ list._gdate +' '+ list._gtime }}<span>{{ list.lid }}</span></p>-->
+                                <p>{{ list._gdate +' '+ list._gtime }}<span>{{ list.backTime }}</span></p>
+                                <div class="league">{{ list.lid }}</div>
+                                <div>{{ list.ht }} v {{ list.ct }}</div>
+							</li>
+						</ul>
+					</li>
+                </ul>
+            </div>
+            <!-- 請點選下注訊息 -->
+            <div class="game_list_group" *ngIf="!gameInfo">
+                <div class="glgroup_top"><div class="gl_top_left"><h1>← {{"Please choose games" | getLang : api.langPackage}}...</h1></div></div>
+            </div>
+            <!-- 主要內容 -->
+            <div class="game_list_group" *ngIf="gameInfo">
+                <!-- 賽事資訊 -->
+                <div class="glgroup_top" [ngClass]="{'long': gameItem.lid.length > 9 || gameItem.ht.length > 6 || gameItem.ct.length > 6}">
+					<div class="gl_top_left">
+						<h1>{{ gameItem.lid }}</h1>
+                            <div class="team">
+                            <span>{{ gameItem.ht }}</span>
+                            <span class="greenTag">({{"Home" | getLang : api.langPackage}})&nbsp;</span>
+                            <span> v {{ gameItem.ct }}  |  {{ gameItem._gdate }}  {{ gameItem._gtime }}</span>
+						</div>
+					</div>
+					<div class="gl_top_right">
+						<div class="text_fee">
+							<span>{{"Fee" | getLang : api.langPackage}}&nbsp;:&nbsp;</span>
+                            <span class="feeCss">5%</span>
+						</div>
+						<div (click)="updateGameInfo()" class="btn_reload" [hidden]="OpenRecordFile">
+							<p>{{"Update" | getLang : api.langPackage}} : <span>{{ updateInfoTiming }}</span></p>
+						</div>
+                        <div class="btn_record" (click)="getNewRecord(gameItem.gid)">{{((OpenRecordFile)? 'brack'  : "Battle record") | getLang : api.langPackage}}</div>
+					</div>
+				</div>
+                <!-- 賽事玩法 -->
+                <div class="glgroup_content" *ngIf="!OpenRecordFile">
+                    <div class="gl_content left" *ngFor="let ginfo of gameInfo; let even=even; let odd=odd;" [ngClass]="{right: odd, left: even}" >
+                        <div class="glc_title">
+							<!--<div class="title_name">{{ ginfo.ptype }}</div>-->
+                            <div class="title_name">{{ginfo.ptype | getLang : api.langPackage}}</div>
+							<div class="volume">{{"Volume" | getLang : api.langPackage}} : <span>{{ ginfo.gold | number}}</span></div>
+						</div>
+                        <div class="glc_item">
+							<div class="item_1">{{"Option" | getLang : api.langPackage}}</div>
+							<div class="item_2">{{"Profit" | getLang : api.langPackage}}%</div>
+							<div class="item_3">{{"Trading volume" | getLang : api.langPackage}}</div>
+						</div>
+                        <div class="glc_data_groug">
+                            <div class="glc_data" *ngFor="let odds of ginfo.table" >
+								<div class="data_1">{{ odds.score | getLang : api.langPackage}}</div>
+								<div class="data_2" >
+                                    <span *ngIf="odds.enable">{{ odds.win }}%</span>
+                                </div>
+								<div class="data_3 no_bet" [ngClass]="{'no_bet': odds.trade == 0 }" *ngIf="odds.enable" (click)="odds.trade != 0 && betRegister(gameItem, ginfo.ptype, odds)">
+                                    <span>
+                                        {{ "$" | getLang : api.langPackage}}{{ odds.trade | number}}
+									    <div class="btn_bet no_btn_bet" [ngClass]="{'no_btn_bet': odds.trade == 0 }">{{"Bet" | getLang : api.langPackage}}</div>   
+                                    </span>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gr_group"  *ngIf="OpenRecordFile">
+                    <div class="gr_item">
+                        <div class="item1">{{ "Game time" | getLang : api.langPackage}}</div>
+                        <div class="item2">{{ "Game" | getLang : api.langPackage}}</div>
+                        <div class="item3">{{ "PD" | getLang : api.langPackage}}</div>
+                        <div class="item4">{{ "PDHR" | getLang : api.langPackage}}</div>
+                        <!--<div class="item5">{{ "Total score" | getLang : api.langPackage}}</div>
+                        <div class="item6">{{ "First goal" | getLang : api.langPackage}}</div>-->
+                    </div>
+                    <div class="gr_data"  *ngFor="let list of recordFile ">
+                        <!--<div class="gr_data" *ngFor="let list of gameResult" >-->
+                        <div class="data1">{{list.gtime }}</div>
+                        <div class="data2">
+                            <span>[{{list.lname}}]</span><br>
+                            <span>{{list.tname_h}}</span>
+                            <span>[{{ "Home" | getLang : api.langPackage}}]</span>
+                            <span> VS </span>
+                            <span>{{list.tname_c }}</span>
+                        </div>
+                        <div class="data3">{{list.score}}</div>
+                        <div class="data4">{{list.score_hr}}</div>
+                        <!--<div class="data5">{{list.am}}</div>
+                        <div class="data6"></div>-->
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</main>
+<bet-dialog *ngIf="globals.betInfo"  [betInfo]="globals.betInfo" (dialogEmit)="appDialogOn($event)"></bet-dialog>
+<!--<style>
+    .accordion_show{
+        overflow: hidden;
+        max-height: 1000px;
+        transition: max-height 1s ease-in-out;
+
+        -webkit-transition: max-height 1s ease-in-out;
+        -moz-transition: max-height 1s ease-in-out;
+        -ms-transition: max-height 1s ease-in-out;
+        -o-transition: max-height 1s ease-in-out;
+    }
+    .accordion_close{
+        overflow: hidden;
+        max-height: 0px;
+        transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+
+        -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        -moz-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        -ms-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        -o-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    }
+</style>-->

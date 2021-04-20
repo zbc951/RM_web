@@ -1,0 +1,5 @@
+<div [ngSwitch]="globals.getNowLang()">
+    <rule-tw *ngSwitchCase="'zh-tw'"></rule-tw>
+    <rule-cn *ngSwitchCase="'zh-cn'"></rule-cn>
+    <rule-en *ngSwitchCase="'en-us'"></rule-en>
+</div>

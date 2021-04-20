@@ -1,0 +1,315 @@
+@charset "utf-8";
+
+main {
+	//各頁面style
+	&.center_member {
+		.mbtsrd {
+			.main_content {	
+				min-height: calc(100vh - 187px);		
+				.right_area {
+					.select_row {
+						@include gradient-gray1;
+						height: 60px;
+						border-radius: 10px 10px 0 0;
+						&:after {
+							content: '';
+							display: block;
+							clear: both;
+						}
+						select {
+							width: 120px;
+							padding: 5px; 
+							float: left;
+							border-radius: 5px;
+							margin: 15px;
+							@include gradient-gray2;
+						}
+						div {
+							float: right;
+							color: $color-gray11;
+							font-size: 22px;
+							margin: 15px 15px 0;
+							span {
+								@include btn-style6-reload;
+								&:hover{
+									cursor : pointer;
+								}
+							}
+						}
+					}
+					.mbtsrd_group {
+						>div {
+							font-size: $front16;				
+							color: $color-gray11;
+							text-align: center;
+							>div {
+								display: table-cell;
+							}
+							&.mbtsrd_item {
+								font-size: 18px;
+								font-weight: bold;
+								color: #fff;
+								background: #062744;
+								line-height: 47px;
+								.item0, .item1, .item2, .item3, .item4, .item5{
+									&::after {
+										@include vertical-line2;
+									}
+								}
+								.item0 {width: 17%;}
+								.item1 {width: 12%;}
+								.item2 {width: 10%;}
+								.item3 {width: 15%;}
+								.item4 {width: 15%;}
+								.item5 {width: 10%;}
+								.item6 {width: 21%;}
+							}
+							&.mbtsrd_data {
+								position: relative;
+								background: $color-gray5;
+								line-height: 56px;
+								color: $color-gray9;
+								&:nth-child(odd){
+									background-color: #eaeaea;
+								}
+								&::after {
+									@include level-line1;
+								}
+								.data0, .data1, .data2, .data3, .data4, .data5, .data6 {
+									position: relative;
+									min-height: 56px;
+									&::after {
+										@include vertical-line1;
+										height: 56px;
+										position: absolute;
+										top: 0;
+										right: 0;
+									}
+									&:last-child::after {
+										border: none;
+									}
+								}
+								.data0 {width: 17%;}
+								.data1 {width: 12%;line-height: 28px;}
+								.data2 {width: 10%; font-weight: bold;}
+								.data3 {width: 15%;}
+								.data4 {width: 15%;}
+								.data5 {width: 10%;font-weight: bold;}
+								.data6 {width: 21%;}
+							}
+							&.mbtsrd_total {
+								background: #F8F8FF;
+   		 						border-top: 2px solid #062744;
+								border-radius: 0 0 10px 10px;
+								line-height: 47px;
+								&::after {
+									@include level-line1;
+								}
+								.total {
+									width: 50%;
+									text-align: left;
+									&:first-child {
+										span:first-child {
+											color: $color-blue18;
+											&::before {background-color: $color-blue18;}
+										}
+									}
+									&:nth-child(2) {
+										span:first-child {
+											color: #eb4646;
+											&::before {background-color: #eb4646;}
+										}
+									}
+									span {
+										position: relative;
+										padding-left: 30px;
+										font-size: 18px;
+										font-weight: bold;
+										&:first-child {
+											&::before {
+												content: '';
+												display: block;
+												position: absolute;
+												top: 4px;
+												left: 20px;
+												width: 4px;
+												height: 16px;
+												background-color: #654;
+											}
+										}
+									}
+									.cash{
+										color: #000;
+									}
+								}
+							}
+							&:after {
+								content: '';
+								display: block;
+								clear: both;
+							}
+							div {
+								float: left;
+
+							}
+						}
+					}
+				}
+			}
+		}		
+	}
+
+
+	.right_area {
+		.select_row_bet {
+			background: #F8F8FF;
+		border-radius: 0 0 10px 10px;
+		line-height: 47px;
+		&::after {
+			@include level-line1;
+		}
+		.total {
+			width: 33%;
+			text-align: left;
+			float: left;
+			color: $color-blue18;
+			&::before {background-color: $color-blue18;}
+
+			span {
+				position: relative;
+				padding-left: 30px;
+				font-size: 18px;
+				font-weight: bold;
+				&:first-child {
+					&::before {
+						content: '';
+						display: block;
+						position: absolute;
+						top: 4px;
+						left: 20px;
+						width: 4px;
+						height: 16px;
+						background-color: #654;
+					}
+				}
+			}
+			.cash{
+				color: #000;
+			}
+		}
+		}
+		.mbtsrd_group_bet {
+			>div {
+				font-size: $front16;				
+				color: $color-gray11;
+				text-align: center;
+				>div {
+					display: table-cell;
+				}
+				&.mbtsrd_item {
+					font-size: 18px;
+					font-weight: bold;
+					color: #fff;
+					background: #062744;
+					line-height: 47px;
+					.item0, .item1, .item2, .item3, .item4, .item5{
+						&::after {
+							@include vertical-line2;
+						}
+					}
+					.item0 {width: 25%;}
+					.item1 {width: 25%;}
+					.item2 {width: 25%;}
+					.item3 {width: 25%;}
+
+				}
+				&.mbtsrd_data {
+					position: relative;
+					background: $color-gray5;
+					line-height: 56px;
+					color: $color-gray9;
+					&:nth-child(odd){
+						background-color: #eaeaea;
+					}
+					&::after {
+						@include level-line1;
+					}
+					.data0, .data1, .data2, .data3, .data4, .data5, .data6 {
+						position: relative;
+						min-height: 56px;
+						&::after {
+							@include vertical-line1;
+							height: 56px;
+							position: absolute;
+							top: 0;
+							right: 0;
+						}
+						&:last-child::after {
+							border: none;
+						}
+					}
+					.data0 {width: 25%;}
+					.data1 {width: 25%;}
+					.data2 {width: 25%;}
+					.data3 {width: 25%;}
+
+				}
+				&.mbtsrd_total {
+					background: #F8F8FF;
+						border-top: 2px solid #062744;
+					border-radius: 0 0 10px 10px;
+					line-height: 47px;
+					&::after {
+						@include level-line1;
+					}
+					.total {
+						width: 50%;
+						text-align: left;
+						&:first-child {
+							span:first-child {
+								color: $color-blue18;
+								&::before {background-color: $color-blue18;}
+							}
+						}
+						&:nth-child(2) {
+							span:first-child {
+								color: #eb4646;
+								&::before {background-color: #eb4646;}
+							}
+						}
+						span {
+							position: relative;
+							padding-left: 30px;
+							font-size: 18px;
+							font-weight: bold;
+							&:first-child {
+								&::before {
+									content: '';
+									display: block;
+									position: absolute;
+									top: 4px;
+									left: 20px;
+									width: 4px;
+									height: 16px;
+									background-color: #654;
+								}
+							}
+						}
+						.cash{
+							color: #000;
+						}
+					}
+				}
+				&:after {
+					content: '';
+					display: block;
+					clear: both;
+				}
+				div {
+					float: left;
+
+				}
+			}
+		}
+	}
+}

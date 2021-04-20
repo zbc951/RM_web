@@ -1,0 +1,210 @@
+@charset "utf-8";
+main {
+    //各頁面style
+    &.game_result {
+        .gr {
+            .main_content {
+                padding-bottom: 20px;
+                form {
+                    // padding: 0 20px 15px 70px;
+                    // line-height: 30px;
+                    // span {
+                    // 	float: left;
+                    // 	color: $color-gray4;
+                    // 	font-size: 16px;
+                    // 	font-weight: bold;
+                    // 	margin: 14px 10px 0px 0px;
+                    // }
+                    // div{ 
+                    // 	float: left;
+                    // 	}
+                    padding: 30px 20px;
+                    select {
+                        font-family: "Microsoft JhengHei";
+                        padding: 2px 40px 4px 40px;
+                        border: 1px solid #bdbdbd;
+                        color: $color-gray3;
+                        font-size: 16px;
+                        margin: 0 0 0 20px;
+                        option {
+                            font-size: 14px;
+                        }
+                    }
+                    input {
+                        float: left;
+                        width: 150px;
+                        height: 34px;
+                        text-align: center;
+                        outline: none;
+                        font-size: $front15;
+                        border-radius: 5px;
+                        border: 1px solid #b4b4b4;
+                        margin-right: 15px;
+                        color: #5a5a5a;
+                        @include gradient-gray2;
+                        &:nth-child(4) {
+                            @include gradient-gray2up;
+                            border: 1px solid #fff;
+                        }
+                    }
+                    button {
+                        float: left;
+                        @include btn-style10;
+                        width: 110px;
+                        height: 38px;
+                        margin-right: 15px;
+                    }
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                    .searchDate {
+                        float: left;
+                    }
+                    span {
+                        float: left;
+                        line-height: 38px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        margin-right: 15px;
+                        color: #062744;
+                        &.keyWord {
+                            color: #fff;
+                        }
+                    }
+                    .icon_search {
+                        float: left;
+                        height: 38px;
+                        width: 38px;
+                        background: url(../img/icon-search.png) center center no-repeat;
+                        position: relative;
+                    }
+                }
+                .gr_group {
+                    margin: 0 20px 50px;
+                    border: 1px solid #e1e1e1;
+                    border-bottom: none;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    &:after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                    .gr_item {
+                        background: #062744;
+                        border-radius: 10px 10px 0 0;
+                        border-bottom: 1px solid $color-gray10;
+                        height: 47px;
+                        line-height: 47px;
+                        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+                        .item1,
+                        .item2,
+                        .item3,
+                        .item4,
+                        .item5,
+                        .item6 {
+                            color: #fff;
+                            font-size: 18px;
+                            float: left;
+                            text-align: center;
+                            &::after {
+                                @include vertical-line2;
+                            }
+                        }
+                        .item1 {
+                            width: 230px;
+                        }
+                        .item2 {
+                            width: 800px;
+                        }
+                        .item3 {
+                            width: 120px;
+                        }
+                        .item4 {
+                            width: 120px;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                        .item5 {
+                            width: 120px;
+                        }
+                        .item6 {
+                            width: 150px;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                    }
+                    .gr_data {
+                        color: $color-gray11;
+                        font-size: 16px;
+                        background: #f3f3f3;
+                        &:nth-child(odd) {
+                            background-color: #fafafa;
+                        }
+                        &:last-child {
+                            border-radius: 0 0 10px 10px;
+                            border-bottom: 1px solid $color-gray10;
+                        }
+                        &::after {
+                            @include level-line1;
+                        }
+                        .data1,
+                        .data2,
+                        .data3,
+                        .data4,
+                        .data5,
+                        .data6 {
+                            float: left;
+                            position: relative;
+                            text-align: center;
+                            line-height: 56px;
+                            &::after {
+                                @include vertical-line1;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                height: 56px;
+                            }
+                        }
+                        .data1 {
+                            width: 230px;
+                            line-height: 28px;
+                        }
+                        .data2 {
+                            width: 800px;
+                            line-height: 28px;
+                            span:nth-child(5) {
+                                color: #1394e8;
+                            }
+                        }
+                        .data3 {
+                            width: 120px;
+                            color: #c58d0d;
+                        }
+                        .data4 {
+                            width: 120px;
+                            color: #c58d0d;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                        .data5 {
+                            width: 120px;
+                            color: #dc0b0b;
+                        }
+                        .data6 {
+                            width: 150px;
+                            &::after {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

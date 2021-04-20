@@ -1,0 +1,99 @@
+<main class="bet_detail ">
+    <div class="main_center bd">
+        <div class="main_title">{{ "Details" | getLang : api.langPackage}}</div>
+        <div class="main_content">
+            <!--<div class="searchWord">
+				<span>{{ "关键字" | getLang : api.langPackage}} :</span>
+				<div class="search_input">
+					<input  type="text" #searchWord>
+					<div class="icon_search"></div>
+				</div>
+			</div>-->
+            <div class="reload">
+                <span style="font-size: 20px;">{{ "Tip: The cancel button disappears after 5 minutes" | getLang : api.langPackage}}</span>
+                <button (click)="reload()">{{ "Reload" | getLang : api.langPackage}}</button>
+            </div>
+            <div class="bd_group">
+                <div class="bd_item">
+                    <div class="item1">{{ "No." | getLang : api.langPackage}}</div>
+                    <div class="item2">{{ "Bet time" | getLang : api.langPackage}}</div>
+                    <div class="item3">{{ "Game time" | getLang : api.langPackage}}</div>
+                    <div class="item4">{{ "Game" | getLang : api.langPackage}}</div>
+                    <div class="item5">{{ "Bet content" | getLang : api.langPackage}}</div>
+                    <div class="item6">{{ "Stake" | getLang : api.langPackage}}</div>
+                    <div class="item7">{{ "Profit" | getLang : api.langPackage}}%</div>
+                    <div class="item8">{{ "Estimate" | getLang : api.langPackage}}</div>
+                    <div class="item9" *ngIf="betdetail?.length">{{"Features"| getLang : api.langPackage }}</div>
+                </div>
+                <!--<div class="bd_data" *ngFor="let list of ( betdetail | searchFilter : searchWord.value ) " >-->
+                <div class="bd_data" *ngFor="let list of betdetail">
+                    <div class="data1">{{list.bid}}</div>
+                    <div class="data2">{{list.btime}}</div>
+                    <div class="data3">{{list.stime}}</div>
+                    <div class="data4">
+                        <span class="gameCancel" *ngIf="list.detailed_content.gameCancel">{{ "Match cancel" | getLang : api.langPackage}}</span>
+                        <span>{{'['+list.lid+']'}}</span><br/>
+                        <span>{{list.ht+ "[" + ("Home" | getLang : api.langPackage) + "]"}}</span>
+                        <span *ngIf="!list.detailed_content.gameCancel">&nbsp;{{list.detailed_content.hr}}</span>
+                        <span>&nbsp;&nbsp;VS&nbsp;&nbsp;{{list.ct}}</span>
+                        <span *ngIf="!list.detailed_content.gameCancel">&nbsp;{{list.detailed_content.cr}}</span>
+                    </div>
+                    <div class="data5">
+                        <span>{{ list.ptype | getLang : api.langPackage}} {{list.score | getLang : api.langPackage}}</span> <br/>
+                        <span>{{ "Fee" | getLang : api.langPackage}} : <span class="orange">5%</span></span>
+                    </div>
+                    <div class="data6">{{list.gold | cashAddCommas }}</div>
+                    <div class="data7">{{list.profit+'%'}}</div>
+                    <div class="data8" [style.color]="!list.detailed_content.gameCancel && list.estimateGold > 0 ? '#009e24':'#ff1a00'">{{ !list.detailed_content.gameCancel ? (list.estimateGold | numberToCash | cashAddCommas ) : '赛事取消' }}</div>
+                    <div class="data9" (click)="cancellation(list)" *ngIf="list.revoke == 'Y'"><span>{{ "Withdrawal" | getLang : api.langPackage}}</span></div>
+                </div>
+                <div class="bd_result">
+                    <div class="result1">{{ "Total" | getLang : api.langPackage}}:&nbsp;&nbsp;{{betdetail?.length}}&nbsp;&nbsp;{{ "records" | getLang : api.langPackage}}</div>
+                    <div class="result2">{{allGold | cashAddCommas }}</div>
+                    <div class="result3">-</div>
+                    <div class="result4 blue" [style.color]="allEstimateGold > 0 ? '#13ff48' : '#ff1a00'">{{allEstimateGold | numberToCash | cashAddCommas}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+<main class="bet_dialog" *ngIf="openMsg">
+    <div class="main_center_dialog bdi_applyOK">
+        <h1>{{ "Withdrawal" | getLang : api.langPackage}}</h1>
+        <ul>
+            <li><span class="data_th">{{ "No." | getLang : api.langPackage}}</span><span>{{MsgData.bid}}</span></li>
+            <li><span class="data_th">{{ "Bet content" | getLang : api.langPackage}}</span><span>{{ MsgData.ptype | getLang : api.langPackage}} {{MsgData.score | getLang : api.langPackage}}</span></li>
+            <li><span class="data_th">{{ "Stake" | getLang : api.langPackage}}</span><span>{{MsgData.gold | cashAddCommas }}</span></li>
+            <li><span class="data_th data_game">{{ "Game" | getLang : api.langPackage}}</span>
+                <span> <span class="gameCancel" *ngIf="MsgData.detailed_content.gameCancel">{{ "Games cancel" | getLang : api.langPackage}}</span>
+                <span>{{'['+MsgData.lid+']'}}</span><br/>
+                <span>{{MsgData.ht+ "[" + ("Home" | getLang : api.langPackage) + "]"}}</span>
+                <span *ngIf="!MsgData.detailed_content.gameCancel">&nbsp;{{MsgData.detailed_content.hr}}</span>
+                <span>&nbsp;&nbsp;VS&nbsp;&nbsp;{{MsgData.ct}}</span>
+                <span *ngIf="!MsgData.detailed_content.gameCancel">&nbsp;{{MsgData.detailed_content.cr}}</span></span>
+            </li>
+        </ul>
+        <div class="cancel_div">
+            <button class="cancel_button_left" (click)="closedMsg()">{{ "Close" | getLang : api.langPackage}}</button>
+            <button class="cancel_button_right" (click)="SendOutCancellation()">{{ "determine" | getLang : api.langPackage}}</button>
+        </div>
+
+    </div>
+</main>
+
+<main class="bet_dialog" *ngIf="OpenCancellation">
+    <div class="main_center_dialog bdi_applyOK" style="min-height: 200px;">
+        <h1>{{ "Withdrawal" | getLang : api.langPackage}}</h1>
+        <ul>
+            <li><span class="data_th">{{ "Status" | getLang : api.langPackage}}:</span><span>{{ CancellationMsg }}</span></li>
+
+        </ul>
+        <div class="cancel_div">
+            <button class="cancel_button_right" style="width: 100%;" (click)="closedCancellation()">{{ "determine" | getLang : api.langPackage}}</button>
+        </div>
+
+    </div>
+</main>

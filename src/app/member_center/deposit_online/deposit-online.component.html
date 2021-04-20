@@ -1,0 +1,29 @@
+<!-- <h1 class="book_h1">选择存款银行</h1>
+<ul class="banklist">
+	<li *ngFor="let list of bank">
+		<label>
+			  <input type="radio" name="{{list['class']}}" (click)="selectedBank=list['value']" [checked]="selectedBank == list['value'] ">    
+			 <div [ngClass]="list['class']"></div> 
+		</label>
+	</li>
+</ul>
+<ul class="steplist step_book">
+	<li>
+		<button class="copy" type="button" ngxClipboard [cbContent]="selectedBank[1]">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Bank" | getLang : api.langPackage}}</h2>
+		<span>{{selectedBank[1]}}</span>
+	</li>
+	<li class="higher">
+		<button class="copy" type="button" ngxClipboard [cbContent]="inputGold">{{"Copy" | getLang : api.langPackage}}</button>
+		<h2>{{"Amount" | getLang : api.langPackage}}</h2>
+		<input type="number" [(ngModel)]="inputGold" [formControl]="goldInputControl">
+		<p class="errtips">{{erroMsg}}</p>
+		<p class="notice_txt">
+			<span class="nt_range">单笔存款金额100元 ~ 3,000元，每日次数不限制。(浏灠器请允许显示弹跳窗口)</span>
+		</p>
+	</li>
+	<li>
+		<button (click)="doDepositOnline()" [ngClass]="(erroMsg || !inputGold || !selectedBank ) ? 'notclick_btn' : 'bookbtn_ok'" 
+									 [disabled]=" erroMsg || !inputGold || !selectedBank ">{{"OK" | getLang : api.langPackage}}</button>
+	</li>
+</ul> -->

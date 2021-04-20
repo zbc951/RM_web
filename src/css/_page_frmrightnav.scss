@@ -1,0 +1,393 @@
+@charset "utf-8";
+
+
+//各頁面style
+.frm_rightnav {
+	width: 100%;
+	.right_sidenav {
+		width: 40px;
+		position: fixed;
+		z-index: 999;
+		top: 380px;
+		right: 10px;
+		transition: 0.5s ease;
+		overflow: visible;
+		.sidenavContainer {
+			position: relative;
+			min-height: 70px;
+			margin-bottom: 10px;
+			.sidenavIcon {
+				cursor: pointer;
+				z-index: 1;
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				transform: rotate(45deg);
+				box-shadow: 0 0 6px #c8a55f;
+				background: #fff;
+				box-shadow: 0 0 2px 2px #0080d8 inset;
+				&::before {
+					content: '';
+					display: block;
+					background:url('../img/rightservice-icon2.png') no-repeat;
+					background-position: 0 4px;
+					transform: rotate(-45deg);
+					width: 30px;
+					height: 45px;
+					margin: 0 0 0 8px;
+				}
+				&.others {
+					&::before {
+						background-position: 0 -42px;
+					}
+				}
+				&:hover ~ .count {
+					 top: 20px;
+					 border-radius: 50% 50% 50% 0;
+				}
+				&:hover ~ ul {
+					right: 171px;
+					opacity: 1;
+					width: 150px;
+					height: 100%;
+					li {
+						height: 20px;
+						padding: 15px;
+						width: 100%;
+					}
+				}
+			}
+			.count {
+				position: absolute;
+				right: 50px;
+				top: -10px;
+				z-index: 99;
+				border-radius: 50% 50% 0 50%;
+				background-color: $color-purple3;
+				border: 1px solid #fff;
+				padding: 3px;
+				color: #ffffff;
+				text-align: center;
+				font-size: 16px;
+				min-width: 18px;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+				transition: 0.2s ease;
+			}
+			.detail {
+				position: relative;
+				opacity: 0;
+				width: 0;
+				height: 0;
+				top: 14px;
+				padding: 15px 0;
+				right: 21px;
+				transition: 0.5s ease;
+				&:hover {
+					right: 171px;
+					opacity: 1;
+					width: 150px;
+					height: 100%;
+					li {
+						height: 20px;
+						padding: 15px;
+						width: 100%;
+					}
+				}
+				&:hover ~ .count {
+					top: 20px;
+					border-radius: 50% 50% 50% 0;
+				}
+				li {
+					cursor: pointer;
+					overflow: hidden;
+					width: 0;
+					height: 0;
+					padding: 0;
+					font-size: 16px;
+					font-weight: bold;
+					border: 1px solid rgba(255,255,255,0.8);
+					border-bottom: 0;
+					background: rgba(4, 32, 62, 0.75);
+					transition: 0.1s ease;
+					&:first-child {
+						border-radius: 10px 10px 0 0;
+						/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+50 */
+						background: rgba(255,255,255,0.3); /* Old browsers */
+						background: -moz-linear-gradient(-35deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 30%); /* FF3.6-15 */
+						background: -webkit-linear-gradient(-35deg, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 30%); /* Chrome10-25,Safari5.1-6 */
+						background: linear-gradient(155deg, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 30%),linear-gradient(135deg, rgba(5, 26, 51, 0.65) 0%, rgba(4, 32, 62, 0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+					}
+					&:last-child {
+						border-radius: 0 0 10px 10px;
+						border-bottom: 1px solid rgba(255,255,255,0.8);
+						/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+50 */
+						background: rgba(255,255,255,0.3); /* Old browsers */
+						background: -moz-linear-gradient(-35deg, rgba(255,255,255,0.2) 70%, rgba(255,255,255,0.7) 100%); /* FF3.6-15 */
+						background: -webkit-linear-gradient(-35deg, rgba(255,255,255,0.2) 70%,rgba(255,255,255,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+						background: linear-gradient(155deg, rgba(255,255,255,0) 70%,rgba(255,255,255,0.7) 100%),linear-gradient(135deg, rgba(4, 32, 62, 0.65) 0%, rgba(5, 26, 51, 0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+					}
+					a {
+						color: #fff;
+						text-decoration: none;
+					}
+					&:before {
+						content: '';
+						display: block;
+						float: left;
+						width: 30px;
+						height: 30px;
+						background: url('../img/rightservice-icon2.png') no-repeat;
+						margin: -7px 20px 0 0;
+					}
+					&.reaction {
+						&:before {
+							background-position: 0 -90px;
+						}
+					}
+					&.promote {
+						&:before {
+							background-position: 0 -120px;
+						}
+					}
+					&.online {
+						&:before {
+							background-position: 0 -150px;
+						}
+					}
+					&.QQ {
+						&:before {
+							background-position: 0 -180px;
+						}
+					}
+					&.wechat {
+						&:before {
+							background-position: 0 -210px;
+						}
+					}
+					&.weibo {
+							&:before {
+								background-position: 0 -240px;
+							}
+					}
+					&:hover {
+						background: rgba(0, 107, 177, .9);
+					}
+				}
+			}
+		}
+	}
+	.qrcode_dialog {
+		width: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		position: fixed; 
+		z-index: 9999; 
+		top: 0px;
+		height: 100%;
+				//彈跳視窗置中
+		.main_center_dialog {
+			width: 420px;
+			height: 420px;
+			margin: 0 auto;
+			background: #fff;
+			position: relative;
+    		top: calc(50% - 250px);
+			border-radius: 20px;
+			text-align: center;
+			.bdi_top {
+				font-size: 24px;
+				font-weight: bold;
+				color: #fff;
+				padding: 15px;
+				text-align: left;
+				background: #062744;
+				border-radius: 10px 10px 0 0;
+				border-top: 1px solid #1c5588;
+			}
+			.close{
+				width: 40px;
+    			height: 40px;
+				position: absolute;
+				background: url('../img/ic_close_white_24dp_1x.png') no-repeat;
+				right: 0;
+				top: 15px;
+				cursor: pointer;
+			}
+			.box{
+				.qqQrcode, .wechatQrcode, .weiboQrcode {
+					width: 300px;
+					height: 300px;
+					margin: 0 auto;
+				}
+				.qqQrcode{
+					background: url('../img/qq_qrcode.png') center center no-repeat;
+				}
+				.wechatQrcode{
+					background: url('../img/wechat_qrcode.png') center center no-repeat;
+				}
+				.weiboQrcode{
+					background: url('../img/weibo_qrcode.png') center center no-repeat;
+				}
+				.content{
+					font-size: 25px;
+					font-weight: bold;
+					color: $color-purple5;
+				}
+				button {
+                    @include btn-style5;
+					@include gradient-purple4;
+                    width: 300px;
+					margin: 0px auto;
+					padding: 8px 0;
+					&:hover {
+						background: $color-purple1;
+					}
+                }
+			}
+
+		}
+	}
+
+	// .newDetail{
+	// 	background: rgba(0, 0, 0, 0.85);
+	// 	max-width: 500px;
+	// 	max-height: 207px;
+	// 	min-height: 60px;
+	// 	width: 250px;
+	// 	position: fixed;
+	// 	z-index: 997;
+	// 	right: 10px;
+	// 	cursor: pointer;
+	// 	top: 127px;
+	// 	overflow: hidden;
+	// 	color: #ffffff;
+	// 	border-radius: 4px;
+	// 	transition: all 0.2s ease-in-out;
+	// 	-moz-transition: all 0.2s ease-in-out;
+	// 	-ms-transition: all 0.2s ease-in-out;
+	// 	-o-transition: all 0.2s ease-in-out;
+	// 	-webkit-transition: all 0.2s ease-in-out;
+	// 	div{
+	// 		font-weight: bold;
+	// 		white-space: nowrap;
+	// 		span{
+	// 			padding: 0px;
+	// 		}
+	// 	}
+	// 	.title{
+	// 		font-size: 16px;
+	// 		border-bottom: 2px solid $color-gold1;
+	// 		padding: 6px 10px;
+	// 		color: #ffffff;
+	// 		transition: all 0.2s ease-in-out;
+	// 		-moz-transition: all 0.2s ease-in-out;
+	// 		-ms-transition: all 0.2s ease-in-out;
+	// 		-o-transition: all 0.2s ease-in-out;
+	// 		-webkit-transition: all 0.2s ease-in-out;
+	// 		.new {
+	// 			&::before {
+	// 				content: '';
+	// 				display: block;
+	// 				float: left;
+	// 				width: 16px;
+	// 				height: 16px;
+	// 				background: url('../img/ic_menu_white_18dp_1x.png') center center no-repeat;
+	// 				background-size: contain;
+	// 				margin: -1px 10px 0 0;
+	// 			}
+	// 		}
+	// 		.expand{
+	// 			width: 26px;
+	// 			height: 26px;
+	// 			transition: 0.2s ease;
+	// 			position: absolute;
+	// 			right: 10px;
+    // 			top: 0;
+	// 			background: url('../img/ic_expand_less_white_18dp_2x.png') center center no-repeat;
+	// 			&.more{
+	// 				transform: rotate(180deg);
+	// 			}
+	// 		}
+	// 	}
+	// 	.contentContainer {
+	// 		width: 100%;
+	// 		position: relative;
+	// 		@include scrollbar_purple1;
+
+	// 		li.content{
+	// 			font-weight: normal;
+	// 			font-size: 15px;
+	// 			line-height: 20px;
+	// 			border-bottom: 1px solid transparent;
+	// 			border-image: linear-gradient(to right, rgba(220,220,220,0) 2%, rgba(220,220,220,.8) 30% , rgba(220,220,220,.8) 70%, rgba(220,220,220,0) 98%);
+	// 			border-image-slice: 1;
+	// 			padding: 8px 12px;
+	// 			transition: all 0.2s ease-in-out;
+	// 			-moz-transition: all 0.2s ease-in-out;
+	// 			-ms-transition: all 0.2s ease-in-out;
+	// 			-o-transition: all 0.2s ease-in-out;
+	// 			-webkit-transition: all 0.2s ease-in-out;
+	// 			&:last-child {
+	// 				border-bottom: 0;
+	// 			}
+	// 			span {
+	// 				padding: 5px 0;
+	// 				&:nth-child(1) {
+	// 					color: $color-purple3;
+	// 				}
+	// 				&:nth-child(2) {
+	// 					color: $color-orange1;
+	// 				}
+	// 				&:nth-child(3) {
+	// 					color: $color-orange1;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	&.toggle{
+	// 		max-width: 300px;
+	// 		max-height: 60px;
+	// 		.title {
+	// 			padding: 1px 10px;
+	// 			.expand{
+	// 				top: -4px;
+	// 				background: url('../img/ic_expand_less_white_18dp_2x.png') center center no-repeat;
+	// 				&.more{
+	// 					transform: rotate(180deg);
+	// 				}
+	// 			}
+	// 		}
+	// 		.contentContainer {
+	// 			&::-webkit-scrollbar {
+    //     			height: 0px;
+	// 			}
+	// 			li.content{
+	// 				line-height: 20px;
+	// 				padding: 0 12px;
+	// 				span {
+	// 					padding: 0;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	
+	// @media screen and (min-width: 1800px) {
+	// 	.newDetail {
+	// 		right: 16px;
+	// 		max-width: calc(50vw - 682px);
+	// 		&.toggle {
+	// 			max-width: calc(50vw - 682px);
+	// 		}
+	// 		.contentContainer {
+	// 			&::-webkit-scrollbar {
+    //     			height: 8px;
+	// 			}
+	// 		}
+	// 	}
+	// }
+}	
+
