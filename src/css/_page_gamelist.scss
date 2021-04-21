@@ -12,34 +12,26 @@ main {
 				.title {
 					float: left;
 					margin: 0 100px 0 0;
-					color: #1A1A33;
+					color: #a2805c;
 					font-size: 20px;
 					letter-spacing: 3px;
 				}
 				.title_btn {
 					float: left;
-					line-height: 30px;
+					line-height: 33px;
 					text-align: center;
 					border-radius: 5px;
-					padding: 3px 6px;
-					margin: 10px 0 0 74px;
+					padding: 3px 18px 3px 23px;
+					margin: 9px 0 0 74px;
 					color: #fff;
-					border-bottom: 3px solid #062744;
-					background: linear-gradient(to bottom, #0093d4 0%, #0c5f84 100%);
+					background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+					border-bottom: 3px solid #929ab7;
+					box-shadow: 0px 2px 5px 0px #00000060;
 					cursor: pointer;
-					&:hover, &.active {
-						background: #062744;
-    					border-bottom: 1px solid #181861;
-					}
-					&::before {
-						content: '';
-						display: block;
-						float: left;
-						width: 24px;
-						height: 32px;
-						margin: 0 4px 0 0;
-						background: url('../img/http_white.png') center center no-repeat;
-						background-size: contain;
+					&:hover,&:active,&.active {
+						background: #4c5473;
+						border-bottom: 1px solid #929ab7;
+						transform: translateY(3px);
 					}
 				}
 				.newDetail{
@@ -73,7 +65,7 @@ main {
 					.dtitle{
 						font-size: 14px;
 						width: calc(100% - 12px);
-						background: #EEEEF5;
+						background: #f0f3fa;
 						border-bottom: 1px solid #DADAE0;
 						padding: 0 10px;
 						color: #1A1A33;
@@ -83,19 +75,29 @@ main {
 						-o-transition: all 0.2s ease-in-out;
 						-webkit-transition: all 0.2s ease-in-out;
 						span.new {
-							background: url('../img/ic_menu_white_18dp_1x.png') left center no-repeat;
-							background-size: contain;
 							padding: 0 26px 0 26px;
+							position: relative;
+							color: #a78b6e;
+							&::before {
+								content: "";
+								position: absolute;
+								top: 5px;
+								left: 0px;
+								width: 14px;
+								height: 10px;
+								background: url('../img/new/newListIC.png') no-repeat;
+							}
 						}
 						.expand{
-							width: 26px;
-							height: 26px;
+							width: 19px;
+							height: 9px;
 							transition: 0.2s ease;
 							position: absolute;
 							right: 10px;
-							top: 0;
-							background: url('../img/ic_expand_less_white_18dp_2x.png') center center no-repeat;
+							top: 7px;
+							background: url('../img/new/newListIC_2.png') no-repeat;
 							transform: rotate(0);
+							transform-origin: bottom;
 						}
 					}
 					.contentContainer {
@@ -117,6 +119,7 @@ main {
 							-ms-transition: all 0.2s ease-in-out;
 							-o-transition: all 0.2s ease-in-out;
 							-webkit-transition: all 0.2s ease-in-out;
+							background: #fff;
 							&:last-child {
 								border-bottom: 0;
 							}
@@ -127,7 +130,7 @@ main {
 									color: #cc8e00;
 								}
 								&:nth-child(2) {
-									color: #1380c7;
+									color: #7584bd;
 								}
 								&:nth-child(3) {
 									color: #DC2217;
@@ -178,7 +181,8 @@ main {
 								height: 50px;
 								font-size: 16px;
 								color: #525966;
-								background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%);
+								background: linear-gradient(to top,#fafdff 0%,#f0f5ff 32%,#fafdff 69%,#fafdff 100%);
+								border-bottom: solid 2px #c9a887;
 								span {
 									font-weight: bold;
 									line-height: 50px;
@@ -196,15 +200,16 @@ main {
 										margin: 0px 15px 0px 0px;
 									}
 								}
-								&:hover, &.active {
-									box-shadow: 0 0 6px #076756 inset;
-									background: linear-gradient(to bottom, #028cb9 0%, #00bac7 40%, #12d8ba 100%);
-									border-bottom: 1px solid #64fff1;
+								&:hover,&:active,&.active {
+									background: #fff;
 									span {
-										color: #fff;
+										color: #ba9772;
 									}
 									.arrow {
-										color: #fff;
+										color: #ba9772;
+										.count {
+											color: #ba9772;
+										}
 									}
 								}
 							}
@@ -220,7 +225,7 @@ main {
 										height: 80px;
 										font-size: 16px;
 										font-weight: bold;
-										border-bottom: 1px solid #64fff1;
+										border-bottom: 2px solid #e2c3a3;
 										background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%);
 										cursor: pointer;
 										p {
@@ -235,7 +240,7 @@ main {
 											}
 										}
 										span,div {
-											color: #58929c;
+											color: #9d7d5e;
 											padding: 0px 0 0 10px;
 											line-height: 20px;
 											font-weight: bold;
@@ -248,17 +253,17 @@ main {
 											color: #114169;
 											font-weight: 700;
 										}
-										&:hover, &.active {
+										&:hover,&:active,&.active {
 											color: #fff;
-											background: linear-gradient(to bottom, #09756b 0%, #0a9084 40%, #0bcdbe 100%);
+											background: linear-gradient(to top, #bd9872 0%, #a3805b 100%);
 											p {
-												color: #fff;
+												color: #f2e2d0;
 												span {
-													color: $color-white;
+													color: #f2e2d0;
 												}
 											}
 											span,div {
-												color: #fff;
+												color: #f2e2d0;
 												font-weight: bold;
 											}
 											.league{
@@ -286,7 +291,7 @@ main {
 								cursor: pointer;
 								height: 50px;
 								border-bottom: 1px solid #e3e3e3;
-								background: linear-gradient(to bottom, #1394e8 0%, #15578e 50%, #114169 100%);
+								background: linear-gradient(to bottom, #929ab7 0%,#6c7490 100%);
 								box-shadow: 0 0 0 rgba(#000, 0);
 								p {
 									color: $color-white;
@@ -301,9 +306,14 @@ main {
 								.arrow {
 									color: #ffffff;
 								}
-								&:hover, &.active {
-									background: #062744;
-									box-shadow: 0 0 0 rgba(#000, 0);
+								&:hover,&:active,&.active {
+									background: linear-gradient(to top,#646d8c 0%,#485273 100%);
+									span {
+										color: #fff;
+									}
+									.arrow {
+										color: #fff;
+									}
 								}
 								&.un_active {
 									background: #f1b48d;
@@ -318,7 +328,7 @@ main {
 									}
 								}
 								&.un {
-									background: #1b588c;
+									background: #7b83a0;
 									padding: 0 20px 0 20px;
 									font-weight: bold;
 									p { 
@@ -328,10 +338,10 @@ main {
 									}
 									span {
 										float: right;
-										color: #75c8ff;
+										color: #fff;
 									}
-									&:hover {
-										background: #1394e8;
+									&:hover,&:active,&.active {
+										background: linear-gradient(to bottom,#5f6886 0%,#7b83a0 100%);
 										p { color: $color-white;}
 										span { color: $color-white;}
 									}
@@ -356,9 +366,24 @@ main {
 									border-bottom: none;
 									ul {
 										li {
-											&:hover,
-											&.active {
-												background: #113a5d;
+											border-bottom: solid 2px #c7d0f0;
+											p {
+												color: #b8bdd1;
+											}
+											div {
+												color: #7b83a0;
+												&.league {
+													color: #000;
+												}
+											}
+											&:hover,&:active,&.active {
+												background: #929ab7;
+												p {
+													color: #fff;
+												}
+												div {
+													color: #fff
+												}
 											}
 										}
 									}
@@ -393,10 +418,11 @@ main {
 					//float: left;
 					width: 1060px;
 					padding: 0 0px 5px 0px;
+					background: #fff;
 					//height: 720px;
 					//overflow-x: hidden;
 					.glgroup_top {
-						background: #062744;
+						background: #d2b494;
 						height: 30px;
 						width: 100%;
 						padding: 15px 0;
@@ -418,7 +444,7 @@ main {
 							margin: 0 0 0 40px;
 							h1 {
 								position: relative;
-								color: #fff;
+								color: #252525;
 								font-size: 26px;
 								font-weight: bold;
 								float: left;
@@ -431,8 +457,8 @@ main {
 									left: -16px;
 									bottom: 6px;
 									width: 3px;
-									height: 16px;
-									background-color: #00efad;
+									height: 18px;
+									background-color: #fff;
 								}
 							}
 							div.team {
@@ -444,12 +470,12 @@ main {
 								}
 							}
 							span {
-								color: #fff;
+								color: #464d64;
 								font-size: 20px;
 								float: left;
 								line-height: 30px;
 								&.greenTag {
-									color: #00efad;
+									color: #fff;
 								}
 							}
 						}
@@ -460,12 +486,14 @@ main {
 								span{
 									line-height: 30px;
 									float: left;
-									color: #fff;
+									color: #464d64;
 									font-size: 16px;
 								}
 								.feeCss{
 									margin-right: 10px;
-									color: #ffce3d;
+									font-weight: bold;
+									font-size: 18px;
+									color: #ffffff;
 								}
 							}
 							.btn_reload {
@@ -475,16 +503,10 @@ main {
 								@include btn-style3;
 								border-radius: 5px;
 								padding: 0 15px 0 15px;
-								p {
-									color: #000;
-									span {
-										color: #0707c5;
-									}
-								}
 							}
 							.btn_record {
 								float: left;
-								line-height: 26px;
+								line-height: 28px;
 								margin: 0 10px 0 0;
 								@include btn-style4;
 								padding: 0 12px 0 12px;
@@ -500,9 +522,9 @@ main {
 						.gl_content {
 							width: 484px;
 							float: left;
-							border: 1px solid #a2b0bb;
+							border: solid 1px #d6b898;
 							border-radius: 10px;
-							box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+							box-shadow: 0px 0px 8px #eeeff3;
 							//border-bottom: none;
 							&.right {
 								margin: 0 0 0 16px;
@@ -518,24 +540,24 @@ main {
 								height: 55px;
 								line-height: 55px;
 								.title_name {
-									color: $color-gray4;
+									color: #7b5e43;
 									font-size: 20px;
 									font-weight: bold;
 									float: left;
 									padding: 0 0 0 15px;
 								}
 								.volume {
-									color: $color-gray4;
+									color: #010101;
 									font-size: 16px;
 									float: right;
 									padding: 0 15px 0 0;
 									span {
-										color: #FC5130;
+										color: #d3321d;
 									}
 								}
 							}
 							.glc_item {
-								background: #062744;
+								background: #929ab7;
 								color: #fff;
 								font-size: 18px;
 								line-height: 50px;
@@ -572,12 +594,12 @@ main {
 									font-size: 17px;
 									line-height: 50px;
 									text-align: center;
-									background: $color-gray5;
+									background: #fff;
 									&::after {
 										@include level-line1;
 									}
 									&:nth-child(even) {
-										background-color:#eaeaea;
+										background-color:#f1f4fa;
 									}
 									&:last-child {
 										border-radius: 0 0 10px 10px;
@@ -596,7 +618,7 @@ main {
 									.data_2 {
 										width: 23%;
 										float: left;
-										color: #EA4444;
+										color: #aa7f51;
 										&::after {
 											@include vertical-line1;
 										}
@@ -639,7 +661,7 @@ main {
 							clear: both;
 						}
 						.gr_item {
-							background: #062744;
+						    background: #929ab7;
 							border-radius: 10px 10px 0 0;
 							border-bottom: 1px solid $color-gray10;
 							height: 47px;

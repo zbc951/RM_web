@@ -23,13 +23,9 @@ main {
 				border: 1px solid #B8B8CC;
 				border-bottom: 0;
 				letter-spacing: 0;
-				@include gradient-gray2;
-				&:hover {
-					@include gradient-gray2up;
-				}
-				&.active,
-				&:active {
-					background: $color-blue18;
+				background: linear-gradient(to bottom, #ffffff 5%, #b4bbd6 80%, #eff0f6 100%);
+				&:hover,&.active,&:active {
+				    background: linear-gradient(to bottom, #4C5473 0%, #929AB7 100%);
 					color: #fff;
 				}
 			}
@@ -43,7 +39,7 @@ main {
 		.rule {
 			.main_content {
 				padding: 0 0 50px 0;
-				background: $color-blue18;
+				background: #fff;
 				.us_category {
 					padding: 30px 30px 0 68px;
 					&:after {
@@ -57,18 +53,11 @@ main {
 						height: 38px;
 						text-align: center;
 						@include btn-style4;
-						@include gradient-gray2;
-						color: #006abb;
+						background: linear-gradient(to bottom, #DEC38A 0%, #BB8E5D 100%);
+						color: #fff;
 						margin-right: 15px;
-						&:hover {
-							@include gradient-gray2up;
-						}
-						&.active {
-							background: linear-gradient(to bottom, #19a4ff 1%, #1268b1 100%);
-							color: $color-white;
-							&:hover {
-								background: linear-gradient(to bottom, #1268b1 0%, #19a4ff 100%);
-							}
+						&:hover,&:active,&.active {
+							background: linear-gradient(to bottom, #82562B 0%, #BD9D5C 100%);
 						}
 					}
 				}
@@ -76,18 +65,18 @@ main {
 					width: 1200px;
     				margin: 0px auto 0px auto;
 					.red{
-							color: #ffcd2b;
+							color: #c39059;
 							font-weight: bold;
 						}
 					h1 {
 						font-size: 24px;
-						color: #fff;
+						color: #3a3a3a;
 						font-weight: bold;
 						padding: 50px 0px 15px 0;
 					}
 					h2 {
 						font-size: 20px;
-						color: #fff;
+						color: #3a3a3a;
 						font-weight: bold;
 						line-height: 36px;
 					}
@@ -97,7 +86,7 @@ main {
 						list-style-type: decimal;
 						margin-left: 40px;
 						li {
-							color: #fff;
+							color: #3a3a3a;
 							padding: 0 0 0 32px;
     						text-indent: -13px;
 							border-bottom: 1px solid transparent;
@@ -110,7 +99,7 @@ main {
 					p {
 						font-size: 16px;
 						line-height: 30px;
-						color: $color-white;
+						color: #3a3a3a;
 						font-weight: bold;
 					}
 					.img1-1, .img1-2, .img2-1, .img2-2, .img3-1, .img3-2 {

@@ -7,6 +7,7 @@ main {
                 height: calc(100% - 231px);
                 //min-height: 719px;
                 padding-bottom: 20px;
+                background: #fff;
                 .searchWord {
                     float: left;
                     margin: 0px 0px 0px 70px;
@@ -49,9 +50,10 @@ main {
                 }
                 .reload {
                     padding: 15px 20px;
+                    color: #505050;
                     button {
                         @include btn-style6-reload;
-                        width: 140px;
+                        width: 100px;
                     }
                     &::after {
                         content: '';
@@ -66,7 +68,7 @@ main {
                     border-bottom: 1px solid #89b1ca;
                     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
                     .bd_item {
-                        background: #062744;
+                        background: #929ab7;
                         // border-bottom: 1px solid $color-gray10;
                         border-radius: 10px 10px 0 0;
                         height: 47px;
@@ -233,7 +235,7 @@ main {
                         }
                     }
                     .bd_result {
-                        background: #226896;
+                        background: #e8d4bf;
                         border-top: 2px solid #fff;
                         border-radius: 0 0 10px 10px;
                         height: 50px;
@@ -246,7 +248,7 @@ main {
                         .result6,
                         .result7,
                         .result8 {
-                            color: $color-white;
+                            color: #8a653f;
                             font-size: 16px;
                             font-weight: bold;
                             float: left;
@@ -260,7 +262,6 @@ main {
                         }
                         .result2 {
                             width: 80px;
-                            color: #ffffff;
                         }
                         .result3 {
                             width: 80px;
@@ -272,7 +273,8 @@ main {
                             }
                         }
                         .blue {
-                            color: #1fffb8;
+                            color: #2b4190;
+                            margin-left: 16px;
                         }
                     }
                 }

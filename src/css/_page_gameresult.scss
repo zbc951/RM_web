@@ -5,6 +5,7 @@ main {
         .gr {
             .main_content {
                 padding-bottom: 20px;
+                background: #fff;
                 form {
                     // padding: 0 20px 15px 70px;
                     // line-height: 30px;
@@ -44,7 +45,6 @@ main {
                         @include gradient-gray2;
                         &:nth-child(4) {
                             @include gradient-gray2up;
-                            border: 1px solid #fff;
                         }
                     }
                     button {
@@ -70,7 +70,7 @@ main {
                         margin-right: 15px;
                         color: #062744;
                         &.keyWord {
-                            color: #fff;
+                            color: #505050;
                         }
                     }
                     .icon_search {
@@ -79,6 +79,7 @@ main {
                         width: 38px;
                         background: url(../img/icon-search.png) center center no-repeat;
                         position: relative;
+                        cursor: pointer;
                     }
                 }
                 .gr_group {
@@ -93,7 +94,7 @@ main {
                         clear: both;
                     }
                     .gr_item {
-                        background: #062744;
+                        background: #929ab7;
                         border-radius: 10px 10px 0 0;
                         border-bottom: 1px solid $color-gray10;
                         height: 47px;
@@ -123,7 +124,7 @@ main {
                             width: 120px;
                         }
                         .item4 {
-                            width: 120px;
+                            width: 148px;
                             &::after {
                                 border: none;
                             }
@@ -139,11 +140,11 @@ main {
                         }
                     }
                     .gr_data {
-                        color: $color-gray11;
+                        color: #3a3a3a;
                         font-size: 16px;
-                        background: #f3f3f3;
+                        background: #fff;
                         &:nth-child(odd) {
-                            background-color: #fafafa;
+                            background-color: #f7f7f7;
                         }
                         &:last-child {
                             border-radius: 0 0 10px 10px;
@@ -178,16 +179,16 @@ main {
                             width: 800px;
                             line-height: 28px;
                             span:nth-child(5) {
-                                color: #1394e8;
+                                color: #4e86ad;
                             }
                         }
                         .data3 {
                             width: 120px;
-                            color: #c58d0d;
+                            color: #bb8d23;
                         }
                         .data4 {
-                            width: 120px;
-                            color: #c58d0d;
+                            width: 148px;
+                            color: #bb8d23;
                             &::after {
                                 border: none;
                             }

@@ -33,12 +33,12 @@
             <span>{{ "Fee" | getLang : api.langPackage}}:</span><span>5%</span></div>
         <div class="detail_data6">{{list.gold  | cashAddCommas }}</div>
         <div class="detail_data7">{{list.profit+'%'}}</div>
-        <div class="detail_data8" *ngIf="list.result != 'NC'" [style.color]="!list.detailed_content.gameCancel && list.win > 0 ? '#13ff48':'#ff1a00'">{{ !list.detailed_content.gameCancel ? (list.win | numberToCash | cashAddCommas ) : ( list.detailed_content.text | getLang : api.langPackage) }}</div>
+        <div class="detail_data8" *ngIf="list.result != 'NC'">{{ !list.detailed_content.gameCancel ? (list.win | numberToCash | cashAddCommas ) : ( list.detailed_content.text | getLang : api.langPackage) }}</div>
         <div class="detail_data8" *ngIf="list.result =='NC'">{{ "Withdrawal" | getLang : api.langPackage}}</div>    
     </div>
     <div class="content_td_result">
         <div class="result1">{{ "Total" | getLang : api.langPackage}}<span>{{thisweek?.length}}</span>{{ "records" | getLang : api.langPackage}}</div>
         <div class="result2">{{allGold | cashAddCommas}}</div>
-        <div class="result3 blue" [style.color]="allWin > 0 ? '#13ff48':'#ff1a00'">{{allWin | numberToCash | cashAddCommas }}</div>
+        <div class="result3 blue">{{allWin | numberToCash | cashAddCommas }}</div>
     </div>
 </div>

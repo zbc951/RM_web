@@ -51,7 +51,7 @@
                     <div class="result1">{{ "Total" | getLang : api.langPackage}}:&nbsp;&nbsp;{{betdetail?.length}}&nbsp;&nbsp;{{ "records" | getLang : api.langPackage}}</div>
                     <div class="result2">{{allGold | cashAddCommas }}</div>
                     <div class="result3">-</div>
-                    <div class="result4 blue" [style.color]="allEstimateGold > 0 ? '#13ff48' : '#ff1a00'">{{allEstimateGold | numberToCash | cashAddCommas}}</div>
+                    <div class="result4 blue">{{allEstimateGold | numberToCash | cashAddCommas}}</div>
                 </div>
             </div>
         </div>

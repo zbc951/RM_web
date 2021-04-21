@@ -5,6 +5,7 @@ main {
         .bhs {
             padding-bottom: 20px;
             .main_content {
+                background: #fff;
                 form {
                     padding: 30px 20px;
                     * {
@@ -12,7 +13,7 @@ main {
                         margin-right: 15px;
                     }
                     span {
-                        color: $color-white;
+                        color: #505050;
                         font-size: 16px;
                         font-weight: bold;
                         float: left;
@@ -39,7 +40,7 @@ main {
                         border: 1px solid #b4b4b4;
                         border-radius: 5px;
                         padding: 3px 18px;
-                        color: #6e195a;
+                        color: #6e4919;
                         &.date_ytd {
                             margin-left: 25px;
                         }
@@ -49,10 +50,12 @@ main {
                         @include btn-style10;
                         width: 110px;
                         height: 38px;
+                        border: solid 1px #d69500;
+                        color: #fff
                     }
                     button.reload_btn {
                         @include btn-style6-reload;
-                        width: 140px;
+                        width: 100px;
                     }
                     &::after {
                         content: '';
@@ -81,7 +84,7 @@ main {
                         line-height: 55px;
                         width: 100%;
                         h1 {
-                            color: $color-gray4;
+                            color: #a2805c;
                             font-size: 20px;
                             font-weight: bold;
                             float: left;
@@ -90,7 +93,7 @@ main {
                     }
                     .bhs_group {
                         .bhs_item {
-                            background: #062744;
+                            background: #929ab7;
                             border-bottom: 1px solid $color-gray10;
                             height: 47px;
                             line-height: 47px;
@@ -111,7 +114,7 @@ main {
                             }
                         }
                         .bhs_data {
-                            color: $color-white;
+                            color: #3a3a3a;
                             font-size: 16px;
                             background: $color-gray5;
                             width: calc(100% - 1px);
@@ -130,7 +133,7 @@ main {
                                     position: absolute;
                                     width: 28px;
                                     height: 28px;
-                                    background: url('../img/ic_expand_less_black_18dp_2x.png') center center no-repeat;
+                                    background: url('../img/new/arrow_perple.png') center center no-repeat;
                                     background-size: contain;
                                     transform: rotate(180deg);
                                     top: 10px;
@@ -154,20 +157,18 @@ main {
                                     height: 50px;
                                 }
                                 &.data1 {
-                                    color: #0088e0;
-                                    text-decoration: underline;
+                                    color: #39455b;
                                     position: relative;
                                     .count {
                                         position: absolute;
                                         right: 22px;
                                         top: 13px;
-                                        background-color: #d69500;
-                                        border: 1px solid #fff74d;
+                                        background: #405480;
                                         border-radius: 50%;
                                         line-height: 24px;
                                         width: 24px;
                                         color: #fff;
-                                        box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.4);
+                                        box-shadow: 1px 3px 6px #c3c3c3;
                                     }
                                 }
                                 &.data2 {
@@ -212,8 +213,8 @@ main {
                                         // }
                                     }
                                     &.content_th {
-                                        background: linear-gradient(to bottom, #309fea 0%, #19598a 100%);
-                                        color: #ffffff;
+                                        background: linear-gradient(to bottom, #fff0c4 0%, #dcb287 100%);
+                                        color: #382715;
                                         border-radius: 10px 10px 0 0;
                                         border-bottom: 1px solid #e6e6e6;
                                         font-size: 18px;
@@ -227,10 +228,10 @@ main {
                                         }
                                     }
                                     &.content_td {
-                                        background: #062744;
+                                        background: #fff;
                                         line-height: 22px;
                                         &:nth-child(odd) {
-                                            background-color: #093358;
+                                            background-color: #f7f7f7;
                                         }
                                         >div {
                                             &:last-child::after {
@@ -257,9 +258,9 @@ main {
                                         }
                                     }
                                     &.content_td_result {
-                                        background: linear-gradient(to bottom, #1e72ad 0%, #134a73 100%);
+                                        background: #e8d4bf;
                                         border-radius: 0 0 10px 10px;
-                                        border-top: 2px solid #3285c1;
+                                        border-top: solid 2px #c9a887;
                                         &::after {
                                             @include level-line1;
                                             height: auto;
@@ -276,12 +277,12 @@ main {
                                             span {
                                                 margin: 0 10px;
                                                 font-size: 20px;
-                                                color: $color-blue16;
+                                                color: #5f89b5;
                                             }
                                         }
                                         .result2 {
                                             width: 95px;
-                                            color: $color-gold7;
+                                            color: #543f29;
                                         }
                                         .result3 {
                                             width: 175px;
@@ -290,7 +291,7 @@ main {
                                             }
                                         }
                                         .blue {
-                                            color: $color-purple3;
+                                            color: #258100;
                                         }
                                     }
                                     .detail_item1,
@@ -309,7 +310,7 @@ main {
                                     .detail_data4 {
                                         width: 438px;
                                         .score {
-                                            color: #4fdac5;
+                                            color: #984d00;
                                         }
                                         .vs {
                                             color: $color-blue15;
@@ -343,22 +344,22 @@ main {
                                     .detail_data5 {
                                         span {
                                             &:nth-child(1) {
-                                                color: $color-green1;
+                                                color: #668ee4;
                                                 margin-right: 10px;
                                             }
                                             &:nth-child(2) {
-                                                color: $color-green1;
+                                                color: #668ee4;
                                             }
                                             &:nth-child(4) {
-                                                color: $color-gray12;
+                                                color: #7689a4;
                                             }
                                             &:nth-child(5) {
-                                                color: $color-gold6;
+                                                color: #ff0e0e;
                                             }
                                         }
                                     }
                                     .detail_data6 {
-                                        color: $color-gold7;
+                                        color: #ff0e0e;
                                     }
                                     .gameCancel {
                                         color: red;
@@ -380,9 +381,9 @@ main {
                             }
                         }
                         .bhs_result {
-                            background: #F8F8FF;
+                            background: #e8d4bf;
                             border-radius: 0 0 10px 10px;
-                            border-top: 2px solid #062744;
+                            border-top: 2px solid #fff;
                             &::after {
                                 @include level-line1;
                                 height: auto;
@@ -398,7 +399,7 @@ main {
                                 line-height: 46px;
                                 width: (100% / 4);
                                 font-weight: bold;
-                                color: #062744;
+                                color: #865119;
                                 &::after {
                                     @include vertical-line2;
                                     height: 46px;

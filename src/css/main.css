@@ -99,8 +99,7 @@ button {
 html,
 body {
   font-family: "\5FAE\8EDF\6B63\9ED1\9AD4","Microsoft JhengHei","MingLiU","sans-serif","Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  background: #062744; }
+  color: #ffffff; }
 
 body {
   height: 100%;
@@ -109,16 +108,26 @@ body {
   left: 0;
   width: 100%;
   overflow-y: hidden; }
+  body .bg {
+    width: 100%;
+    min-width: 1500px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: url("../img/new/bg.jpg") no-repeat top center;
+    background-size: cover;
+    z-index: -999; }
 
 header {
-  background: #062744;
+  background: linear-gradient(to right, #bd9872 0%, #e9ccad 26%, #d3b494 41%, #bd9872 60%, #f5e6bc 80%, #e9ccad 91%);
   height: 125px;
   width: 100%;
   min-width: 1500px;
   position: relative;
   top: 0;
   z-index: 999;
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.3); }
   header::before {
     content: "";
     display: block;
@@ -129,10 +138,9 @@ header {
     position: absolute;
     clear: both; }
   header .top {
-    background: #041c31;
     width: 100%;
     height: 30px;
-    border-bottom: 1px solid #103a5f; }
+    background: url("../img/new/headerTop.jpg") no-repeat top center; }
     header .top::after {
       content: "";
       width: 100%;
@@ -145,18 +153,18 @@ header {
       clear: both; }
     header .top .time {
       line-height: 30px;
-      color: #fff;
+      color: #bd9874;
       font-size: 14px;
       float: left;
       padding: 0 0 0 10px; }
     header .top .language {
-      color: #006fa2;
+      color: #009944;
       position: absolute;
       z-index: 999;
       top: 0;
       right: 10px;
       cursor: pointer;
-      padding: 6px 0 2px;
+      padding: 9px 0 2px;
       width: 100px;
       height: 18px;
       background-color: #fff;
@@ -214,7 +222,7 @@ header {
       line-height: 30px;
       margin-right: 130px;
       font-size: 16px;
-      color: #fff;
+      color: #bd9874;
       width: calc(100% - 450px);
       height: 100%;
       cursor: pointer; }
@@ -222,30 +230,39 @@ header {
     height: 95px; }
     header .down .logo {
       float: left;
-      background: url(../img/header/logo.png) no-repeat;
+      background: #000;
       width: 229px;
       height: 70px;
       margin: 12px 0 0 40px;
       background-size: contain; }
     header .down .menu {
-      float: left; }
+      float: left;
+      font-size: 0px; }
       header .down .menu span {
         position: relative;
         display: inline-block;
-        padding: 0 8px;
+        padding: 0 12px;
         height: 100%;
         line-height: 95px;
         font-size: 20px;
         font-weight: bold;
         color: #fff;
         cursor: pointer; }
-        header .down .menu span:hover, header .down .menu span.active {
-          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(58, 160, 220, 0.62) 97%, #ffffff 97%); }
+        header .down .menu span:hover, header .down .menu span:active, header .down .menu span.active {
+          background: linear-gradient(to top, #efd3b4 0%, #a5825c 100%); }
+          header .down .menu span:hover::before, header .down .menu span:active::before, header .down .menu span.active::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            background: #fff;
+            width: 100%;
+            height: 4px; }
         header .down .menu span .count {
           border: 1px solid #fff;
           border-radius: 50% 50% 50% 0;
           padding: 3px;
-          background: #c58d0d;
+          background: #405480;
           position: absolute;
           z-index: 99;
           right: -10px;
@@ -266,8 +283,8 @@ header {
         float: right; }
         header .down .login_group .member_info label {
           float: left;
-          color: #fff;
-          line-height: 28px;
+          color: #35353b;
+          line-height: 32px;
           font-weight: 700;
           margin: 0 10px 0 0; }
         header .down .login_group .member_info .mem_input {
@@ -299,8 +316,8 @@ header {
           right: 1px;
           border-radius: 0 5px 5px 0;
           float: left;
-          background: linear-gradient(to bottom, #1394e8 0%, #155b96 100%);
-          width: 24px;
+          background: linear-gradient(to bottom, #a28363 0%, #b09272 100%);
+          width: 30px;
           height: 30px;
           margin: 6px 0 0 -20px;
           cursor: pointer; }
@@ -308,14 +325,14 @@ header {
             content: '';
             display: block;
             position: absolute;
-            top: 7px;
-            right: 4px;
-            background: url(../img/header/icon_reload.png) no-repeat;
-            width: 16px;
-            height: 15px;
+            top: 5px;
+            right: 7px;
+            background: url("../img/new/reIC.png") no-repeat;
+            width: 17px;
+            height: 20px;
             transition: all 0.2s ease-out; }
           header .down .login_group .member_info .icon_reload:hover::before {
-            transform: rotate(-120deg); }
+            transform: rotate(120deg); }
         header .down .login_group .member_info .mem_money {
           position: relative;
           float: left;
@@ -335,99 +352,114 @@ header {
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #0181d4;
-          border: 2px solid #22a8ff;
           border-radius: 5px;
-          padding: 6px 15px;
+          padding: 8px 15px;
           text-align: center;
           font-weight: bold;
-          background: #fff;
-          padding: 8px 15px;
+          background: linear-gradient(to top, #ffffff 0%, #f5ede1 46%, #ffffff 100%);
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          border: solid 1px #64472b;
+          color: #926c46;
           float: left;
           margin: 6px 12px 0 0;
-          border: 0;
-          color: #fff;
-          background: linear-gradient(to bottom, #f1d05a 0%, #bb7d08 99%);
+          background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
           /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05b464', endColorstr='#00ff87',GradientType=0 );
           /* IE6-9 */
           font-size: 13px; }
-          header .down .login_group .member_btn .btn_wallet:hover {
-            color: #fff;
-            background: #0b3c65; }
-          header .down .login_group .member_btn .btn_wallet:hover {
-            color: #fff;
-            background: #8a5d16; }
+          header .down .login_group .member_btn .btn_wallet:hover, header .down .login_group .member_btn .btn_wallet:active, header .down .login_group .member_btn .btn_wallet.active {
+            background: linear-gradient(to top, #636f99 0%, #495377 100%);
+            border-color: #fff;
+            color: #fff; }
         header .down .login_group .member_btn .btn_account {
           min-width: 50px;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #FFFFFF;
-          background: linear-gradient(to bottom, #19a4ff 0%, #1268b1 100%);
-          border: 0;
           border-radius: 5px;
           padding: 8px 15px;
           text-align: center;
           font-weight: bold;
+          background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+          border: solid 1px #617399;
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          color: #926c46;
           float: left;
           font-size: 13px;
           margin: 6px 10px 0 0; }
-          header .down .login_group .member_btn .btn_account:hover {
-            background: #00609e; }
+          header .down .login_group .member_btn .btn_account:hover, header .down .login_group .member_btn .btn_account:active, header .down .login_group .member_btn .btn_account.active {
+            background: linear-gradient(to top, #5681dd 0%, #436dc6 100%);
+            border-color: #3f496f;
+            color: #fff; }
         header .down .login_group .member_btn .btn_account_g {
           min-width: 50px;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #FFFFFF;
-          background: linear-gradient(to bottom, #50c133 0%, #268f0b 100%);
-          border: 0;
           border-radius: 5px;
           padding: 8px 15px;
           text-align: center;
           font-weight: bold;
+          background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+          border: solid 1px #617399;
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          color: #926c46;
           float: left;
           font-size: 13px;
           margin: 6px 10px 0 0; }
-          header .down .login_group .member_btn .btn_account_g:hover {
-            background: linear-gradient(to bottom, #135c00 0%, #248b0a 100%); }
+          header .down .login_group .member_btn .btn_account_g:hover, header .down .login_group .member_btn .btn_account_g:active, header .down .login_group .member_btn .btn_account_g.active {
+            background: linear-gradient(to top, #5681dd 0%, #436dc6 100%);
+            border-color: #3f496f;
+            color: #fff; }
         header .down .login_group .member_btn .btn_logout {
           min-width: 50px;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #0181d4;
-          border: 2px solid #22a8ff;
           border-radius: 5px;
-          padding: 6px 15px;
+          padding: 8px 15px;
           text-align: center;
           font-weight: bold;
-          background: #fff;
+          background: linear-gradient(to top, #ffffff 0%, #f5ede1 46%, #ffffff 100%);
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          border: solid 1px #64472b;
+          color: #926c46;
           float: left;
           font-size: 13px;
           margin: 6px 0px 0 0; }
-          header .down .login_group .member_btn .btn_logout:hover {
-            color: #fff;
-            background: #0b3c65; }
+          header .down .login_group .member_btn .btn_logout:hover, header .down .login_group .member_btn .btn_logout:active, header .down .login_group .member_btn .btn_logout.active {
+            background: linear-gradient(to top, #636f99 0%, #495377 100%);
+            border-color: #fff;
+            color: #fff; }
         header .down .login_group .member_btn .btn_discount {
           min-width: 50px;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #FFFFFF;
-          background: linear-gradient(to bottom, #be0f55 0%, #cd0a55 100%);
-          border: 0;
           border-radius: 5px;
           padding: 8px 15px;
           text-align: center;
           font-weight: bold;
+          background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+          border: solid 1px #617399;
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          color: #926c46;
+          background: linear-gradient(to top, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
           float: left;
           font-size: 13px;
-          margin: 6px 10px 0 0; }
-          header .down .login_group .member_btn .btn_discount:hover {
-            background: #cd0a55; }
+          margin: 6px 10px 0 0;
+          border: solid 1px #617399;
+          color: #926c46;
+          box-shadow: 0px 2px 5px 0px #ae9b87; }
+          header .down .login_group .member_btn .btn_discount:hover, header .down .login_group .member_btn .btn_discount:active, header .down .login_group .member_btn .btn_discount.active {
+            background: #cd0a55;
+            color: #fff; }
+          header .down .login_group .member_btn .btn_discount:hover, header .down .login_group .member_btn .btn_discount:active, header .down .login_group .member_btn .btn_discount.active {
+            background: linear-gradient(to top, #bd4d4d 0%, #8c0000 100%);
+            color: #fff;
+            border-color: #ffc3c3; }
           header .down .login_group .member_btn .btn_discount .serial {
+            display: none;
             float: left;
             width: 24px;
             height: 17px;
@@ -443,8 +475,8 @@ header {
         margin: 1px 0 0; }
         header .down .logout_group .logout_info label {
           float: left;
-          color: #fff;
-          line-height: 28px;
+          color: #35353b;
+          line-height: 32px;
           font-weight: 700;
           margin: 0 10px 0 0; }
         header .down .logout_group .logout_info .mem_input {
@@ -504,16 +536,16 @@ header {
             top: 0;
             width: 1.25em;
             height: 1.25em;
-            border: 2px solid #ccc;
+            border: solid 1px #af8f6d;
             background: #fff;
             border-radius: 4px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+            box-shadow: 0px 0px 5px 2px #e5e6ea inset; }
           header .down .logout_group .logout_info .remember_pw [type="checkbox"]:not(:checked) + label:after,
           header .down .logout_group .logout_info .remember_pw [type="checkbox"]:checked + label:after {
             content: '✔';
             position: absolute;
-            top: 4px;
-            left: 4px;
+            top: 3px;
+            left: 3px;
             font-size: 1.3em;
             line-height: 0.8;
             color: #ff4d7f;
@@ -539,7 +571,7 @@ header {
           header .down .logout_group .logout_info .remember_pw label:hover:before {
             border: 2px solid; }
           header .down .logout_group .logout_info .remember_pw label {
-            color: #fff; }
+            color: #35353b; }
           header .down .logout_group .logout_info .remember_pw input {
             width: 2em;
             height: 2em; }
@@ -551,83 +583,86 @@ header {
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #0181d4;
-          border: 2px solid #22a8ff;
           border-radius: 5px;
-          padding: 6px 15px;
+          padding: 8px 15px;
           text-align: center;
           font-weight: bold;
-          background: #fff;
+          background: linear-gradient(to top, #ffffff 0%, #f5ede1 46%, #ffffff 100%);
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          border: solid 1px #64472b;
+          color: #926c46;
           float: left;
           width: 115px;
           margin: 6px 12px 0 0; }
-          header .down .logout_group .logout_btn .btn_login:hover {
-            color: #fff;
-            background: #0b3c65; }
+          header .down .logout_group .logout_btn .btn_login:hover, header .down .logout_group .logout_btn .btn_login:active, header .down .logout_group .logout_btn .btn_login.active {
+            background: linear-gradient(to top, #636f99 0%, #495377 100%);
+            border-color: #fff;
+            color: #fff; }
         header .down .logout_group .logout_btn .btn_forget {
           min-width: 50px;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #FFFFFF;
-          background: linear-gradient(to bottom, #19a4ff 0%, #1268b1 100%);
-          border: 0;
           border-radius: 5px;
           padding: 8px 15px;
           text-align: center;
           font-weight: bold;
+          background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+          border: solid 1px #617399;
+          box-shadow: 0px 2px 5px 0px #9a846e;
+          color: #926c46;
           float: left;
           padding: 10px 15px;
           width: 70px;
           margin: 6px 12px 0 0; }
-          header .down .logout_group .logout_btn .btn_forget:hover {
-            background: #00609e; }
+          header .down .logout_group .logout_btn .btn_forget:hover, header .down .logout_group .logout_btn .btn_forget:active, header .down .logout_group .logout_btn .btn_forget.active {
+            background: linear-gradient(to top, #5681dd 0%, #436dc6 100%);
+            border-color: #3f496f;
+            color: #fff; }
         header .down .logout_group .logout_btn .btn_forget_g {
           min-width: 50px;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #FFFFFF;
-          background: linear-gradient(to bottom, #50c133 0%, #268f0b 100%);
-          border: 0;
           border-radius: 5px;
           padding: 8px 15px;
           text-align: center;
           font-weight: bold;
+          background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+          border: solid 1px #617399;
+          box-shadow: 0px 2px 5px 0px #ae9b87;
+          color: #926c46;
           float: left;
-          padding: 10px 15px;
+          padding: 10px 15px 11px;
           width: 70px;
           margin: 6px 12px 0 0; }
-          header .down .logout_group .logout_btn .btn_forget_g:hover {
-            background: linear-gradient(to bottom, #135c00 0%, #248b0a 100%); }
+          header .down .logout_group .logout_btn .btn_forget_g:hover, header .down .logout_group .logout_btn .btn_forget_g:active, header .down .logout_group .logout_btn .btn_forget_g.active {
+            background: #617399;
+            color: #fff;
+            border-color: #fff; }
         header .down .logout_group .logout_btn .btn_regist {
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #fff;
-          background: #015556;
+          color: #000;
+          background: #ccd6dd;
           /* Old browsers */
-          background: -moz-linear-gradient(top, #07b585 1%, #015556 100%);
-          /* FF3.6-15 */
-          background: -webkit-linear-gradient(top, #07b585 1%, #015556 100%);
-          /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(to bottom, #07b585 1%, #015556 100%);
-          /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-          background: linear-gradient(to bottom, #07b585 0%, #015556 100%);
+          background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6767FF', endColorstr='#5252CC',GradientType=0 );
           /* IE6-9 */
           border-radius: 5px;
           padding: 8px 25px;
           text-align: center;
           font-weight: bold;
+          border: 1px solid #cccccc;
           float: left;
           width: 115px;
           margin: 6px 0 0 0;
           border: 1px solid #0dffc4; }
-          header .down .logout_group .logout_btn .btn_regist:hover {
-            color: #fff;
-            background: #08423b;
-            /* Old browsers */ }
+          header .down .logout_group .logout_btn .btn_regist:hover, header .down .logout_group .logout_btn .btn_regist:active, header .down .logout_group .logout_btn .btn_regist.active {
+            background: linear-gradient(to top, #fff0c4 0%, #dcb287 100%);
+            border: 1px solid #d6b898;
+            color: #543f18; }
         header .down .logout_group .logout_btn .remember_pw {
           float: left;
           width: 115px;
@@ -657,16 +692,16 @@ header {
             top: 0;
             width: 1.25em;
             height: 1.25em;
-            border: 2px solid #ccc;
+            border: solid 1px #af8f6d;
             background: #fff;
             border-radius: 4px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+            box-shadow: 0px 0px 5px 2px #e5e6ea inset; }
           header .down .logout_group .logout_btn .remember_pw [type="checkbox"]:not(:checked) + label:after,
           header .down .logout_group .logout_btn .remember_pw [type="checkbox"]:checked + label:after {
             content: '✔';
             position: absolute;
-            top: 4px;
-            left: 4px;
+            top: 3px;
+            left: 3px;
             font-size: 1.3em;
             line-height: 0.8;
             color: #ff4d7f;
@@ -692,7 +727,7 @@ header {
           header .down .logout_group .logout_btn .remember_pw label:hover:before {
             border: 2px solid; }
           header .down .logout_group .logout_btn .remember_pw label {
-            color: #fff; }
+            color: #35353b; }
           header .down .logout_group .logout_btn .remember_pw input {
             width: 2em;
             height: 2em; }
@@ -826,7 +861,6 @@ header {
                 background-position: 0 -135px; }
 
 main {
-  background: #041c31 url("../img/main_bg.png") center center no-repeat;
   background-size: cover;
   font-size: 50px;
   width: 100%;
@@ -852,13 +886,11 @@ main {
     margin: 0 auto;
     position: relative;
     min-height: 100%;
-    background: #114169;
-    border-left: 1px solid #b2b2b2;
-    border-right: 1px solid #b2b2b2; }
+    background: #fff; }
     main .main_center .main_title {
       position: relative;
       z-index: 1;
-      color: #0093d4;
+      color: #a2805c;
       font-size: 25px;
       font-weight: bold;
       height: 60px;
@@ -868,17 +900,9 @@ main {
       font-size: 20px;
       letter-spacing: 3px;
       box-shadow: 0 0 10px rgba(50, 0, 70, 0.4);
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f5f0f0+50,ffffff+100 */
-      background: #ffffff;
-      /* Old browsers */
-      background: -moz-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
-      /* IE6-9 */ }
+      background: linear-gradient(to bottom, #ffffff 0%, #e7ecf7 48%, #ffffff 100%);
+      border: solid 3px #bfc3da;
+      border-top-width: 0px; }
   main .bind_login {
     margin: -30px 10px 0 0;
     position: relative; }
@@ -984,7 +1008,7 @@ footer {
 main.game_list .gl .main_title {
   position: relative;
   z-index: 1;
-  color: #0093d4;
+  color: #a2805c;
   font-size: 25px;
   font-weight: bold;
   height: 60px;
@@ -994,47 +1018,30 @@ main.game_list .gl .main_title {
   font-size: 20px;
   letter-spacing: 3px;
   box-shadow: 0 0 10px rgba(50, 0, 70, 0.4);
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f5f0f0+50,ffffff+100 */
-  background: #ffffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
-  /* IE6-9 */
+  background: linear-gradient(to bottom, #ffffff 0%, #e7ecf7 48%, #ffffff 100%);
   padding-right: 0; }
   main.game_list .gl .main_title .title {
     float: left;
     margin: 0 100px 0 0;
-    color: #1A1A33;
+    color: #a2805c;
     font-size: 20px;
     letter-spacing: 3px; }
   main.game_list .gl .main_title .title_btn {
     float: left;
-    line-height: 30px;
+    line-height: 33px;
     text-align: center;
     border-radius: 5px;
-    padding: 3px 6px;
-    margin: 10px 0 0 74px;
+    padding: 3px 18px 3px 23px;
+    margin: 9px 0 0 74px;
     color: #fff;
-    border-bottom: 3px solid #062744;
-    background: linear-gradient(to bottom, #0093d4 0%, #0c5f84 100%);
+    background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+    border-bottom: 3px solid #929ab7;
+    box-shadow: 0px 2px 5px 0px #00000060;
     cursor: pointer; }
-    main.game_list .gl .main_title .title_btn:hover, main.game_list .gl .main_title .title_btn.active {
-      background: #062744;
-      border-bottom: 1px solid #181861; }
-    main.game_list .gl .main_title .title_btn::before {
-      content: '';
-      display: block;
-      float: left;
-      width: 24px;
-      height: 32px;
-      margin: 0 4px 0 0;
-      background: url("../img/http_white.png") center center no-repeat;
-      background-size: contain; }
+    main.game_list .gl .main_title .title_btn:hover, main.game_list .gl .main_title .title_btn:active, main.game_list .gl .main_title .title_btn.active {
+      background: #4c5473;
+      border-bottom: 1px solid #929ab7;
+      transform: translateY(3px); }
   main.game_list .gl .main_title .newDetail {
     position: absolute;
     right: -1px;
@@ -1064,7 +1071,7 @@ main.game_list .gl .main_title {
     main.game_list .gl .main_title .newDetail .dtitle {
       font-size: 14px;
       width: calc(100% - 12px);
-      background: #EEEEF5;
+      background: #f0f3fa;
       border-bottom: 1px solid #DADAE0;
       padding: 0 10px;
       color: #1A1A33;
@@ -1074,18 +1081,27 @@ main.game_list .gl .main_title {
       -o-transition: all 0.2s ease-in-out;
       -webkit-transition: all 0.2s ease-in-out; }
       main.game_list .gl .main_title .newDetail .dtitle span.new {
-        background: url("../img/ic_menu_white_18dp_1x.png") left center no-repeat;
-        background-size: contain;
-        padding: 0 26px 0 26px; }
+        padding: 0 26px 0 26px;
+        position: relative;
+        color: #a78b6e; }
+        main.game_list .gl .main_title .newDetail .dtitle span.new::before {
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 0px;
+          width: 14px;
+          height: 10px;
+          background: url("../img/new/newListIC.png") no-repeat; }
       main.game_list .gl .main_title .newDetail .dtitle .expand {
-        width: 26px;
-        height: 26px;
+        width: 19px;
+        height: 9px;
         transition: 0.2s ease;
         position: absolute;
         right: 10px;
-        top: 0;
-        background: url("../img/ic_expand_less_white_18dp_2x.png") center center no-repeat;
-        transform: rotate(0); }
+        top: 7px;
+        background: url("../img/new/newListIC_2.png") no-repeat;
+        transform: rotate(0);
+        transform-origin: bottom; }
     main.game_list .gl .main_title .newDetail .contentContainer {
       width: 100%;
       position: relative;
@@ -1102,7 +1118,8 @@ main.game_list .gl .main_title {
         -moz-transition: all 0.2s ease-in-out;
         -ms-transition: all 0.2s ease-in-out;
         -o-transition: all 0.2s ease-in-out;
-        -webkit-transition: all 0.2s ease-in-out; }
+        -webkit-transition: all 0.2s ease-in-out;
+        background: #fff; }
         main.game_list .gl .main_title .newDetail .contentContainer li.content:last-child {
           border-bottom: 0; }
         main.game_list .gl .main_title .newDetail .contentContainer li.content span {
@@ -1111,7 +1128,7 @@ main.game_list .gl .main_title {
           main.game_list .gl .main_title .newDetail .contentContainer li.content span:nth-child(1) {
             color: #cc8e00; }
           main.game_list .gl .main_title .newDetail .contentContainer li.content span:nth-child(2) {
-            color: #1380c7; }
+            color: #7584bd; }
           main.game_list .gl .main_title .newDetail .contentContainer li.content span:nth-child(3) {
             color: #DC2217; }
           main.game_list .gl .main_title .newDetail .contentContainer li.content span:nth-child(4) {
@@ -1148,13 +1165,14 @@ main.game_list .gl .main_content {
       background-color: #F5F5F5; }
     main.game_list .gl .main_content .game_list_menu::-webkit-scrollbar-thumb {
       background-color: #b4b4b4;
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent)); }
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, #929ab7), color-stop(0.5, #838aa7), to(#636c8e)); }
     main.game_list .gl .main_content .game_list_menu > ul > li:first-child {
       cursor: pointer;
       height: 50px;
       font-size: 16px;
       color: #525966;
-      background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%); }
+      background: linear-gradient(to top, #fafdff 0%, #f0f5ff 32%, #fafdff 69%, #fafdff 100%);
+      border-bottom: solid 2px #c9a887; }
       main.game_list .gl .main_content .game_list_menu > ul > li:first-child span {
         font-weight: bold;
         line-height: 50px;
@@ -1169,14 +1187,14 @@ main.game_list .gl .main_content {
         main.game_list .gl .main_content .game_list_menu > ul > li:first-child .arrow .count {
           color: #525966;
           margin: 0px 15px 0px 0px; }
-      main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active {
-        box-shadow: 0 0 6px #076756 inset;
-        background: linear-gradient(to bottom, #028cb9 0%, #00bac7 40%, #12d8ba 100%);
-        border-bottom: 1px solid #64fff1; }
-        main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover span, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active span {
-          color: #fff; }
-        main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover .arrow, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active .arrow {
-          color: #fff; }
+      main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover, main.game_list .gl .main_content .game_list_menu > ul > li:first-child:active, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active {
+        background: #fff; }
+        main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover span, main.game_list .gl .main_content .game_list_menu > ul > li:first-child:active span, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active span {
+          color: #ba9772; }
+        main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover .arrow, main.game_list .gl .main_content .game_list_menu > ul > li:first-child:active .arrow, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active .arrow {
+          color: #ba9772; }
+          main.game_list .gl .main_content .game_list_menu > ul > li:first-child:hover .arrow .count, main.game_list .gl .main_content .game_list_menu > ul > li:first-child:active .arrow .count, main.game_list .gl .main_content .game_list_menu > ul > li:first-child.active .arrow .count {
+            color: #ba9772; }
     main.game_list .gl .main_content .game_list_menu > ul > li.list_open {
       height: auto;
       border-bottom: none; }
@@ -1186,7 +1204,7 @@ main.game_list .gl .main_content {
         height: 80px;
         font-size: 16px;
         font-weight: bold;
-        border-bottom: 1px solid #64fff1;
+        border-bottom: 2px solid #e2c3a3;
         background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%);
         cursor: pointer; }
         main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li p {
@@ -1199,7 +1217,7 @@ main.game_list .gl .main_content {
             float: none;
             padding: 0 0 0 10px; }
         main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li div {
-          color: #58929c;
+          color: #9d7d5e;
           padding: 0px 0 0 10px;
           line-height: 20px;
           font-weight: bold;
@@ -1210,24 +1228,24 @@ main.game_list .gl .main_content {
         main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li .league {
           color: #114169;
           font-weight: 700; }
-        main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active {
+        main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:active, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active {
           color: #fff;
-          background: linear-gradient(to bottom, #09756b 0%, #0a9084 40%, #0bcdbe 100%); }
-          main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover p, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active p {
-            color: #fff; }
-            main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover p span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active p span {
-              color: #fff; }
-          main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover div, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active div {
-            color: #fff;
+          background: linear-gradient(to top, #bd9872 0%, #a3805b 100%); }
+          main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover p, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:active p, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active p {
+            color: #f2e2d0; }
+            main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover p span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:active p span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active p span {
+              color: #f2e2d0; }
+          main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover div, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:active span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:active div, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active span, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active div {
+            color: #f2e2d0;
             font-weight: bold; }
-          main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover .league, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active .league {
+          main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:hover .league, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li:active .league, main.game_list .gl .main_content .game_list_menu > ul > li.list_open ul li.active .league {
             color: #fff;
             font-weight: bold; }
     main.game_list .gl .main_content .game_list_menu > ul.list_union li {
       cursor: pointer;
       height: 50px;
       border-bottom: 1px solid #e3e3e3;
-      background: linear-gradient(to bottom, #1394e8 0%, #15578e 50%, #114169 100%);
+      background: linear-gradient(to bottom, #929ab7 0%, #6c7490 100%);
       box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
       main.game_list .gl .main_content .game_list_menu > ul.list_union li p {
         color: #fff;
@@ -1239,9 +1257,12 @@ main.game_list .gl .main_content {
         padding: 0 0 0 15px; }
       main.game_list .gl .main_content .game_list_menu > ul.list_union li .arrow {
         color: #ffffff; }
-      main.game_list .gl .main_content .game_list_menu > ul.list_union li:hover, main.game_list .gl .main_content .game_list_menu > ul.list_union li.active {
-        background: #062744;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      main.game_list .gl .main_content .game_list_menu > ul.list_union li:hover, main.game_list .gl .main_content .game_list_menu > ul.list_union li:active, main.game_list .gl .main_content .game_list_menu > ul.list_union li.active {
+        background: linear-gradient(to top, #646d8c 0%, #485273 100%); }
+        main.game_list .gl .main_content .game_list_menu > ul.list_union li:hover span, main.game_list .gl .main_content .game_list_menu > ul.list_union li:active span, main.game_list .gl .main_content .game_list_menu > ul.list_union li.active span {
+          color: #fff; }
+        main.game_list .gl .main_content .game_list_menu > ul.list_union li:hover .arrow, main.game_list .gl .main_content .game_list_menu > ul.list_union li:active .arrow, main.game_list .gl .main_content .game_list_menu > ul.list_union li.active .arrow {
+          color: #fff; }
       main.game_list .gl .main_content .game_list_menu > ul.list_union li.un_active {
         background: #f1b48d;
         padding: 0 20px 0 20px; }
@@ -1252,7 +1273,7 @@ main.game_list .gl .main_content {
           float: right;
           color: #ececec; }
       main.game_list .gl .main_content .game_list_menu > ul.list_union li.un {
-        background: #1b588c;
+        background: #7b83a0;
         padding: 0 20px 0 20px;
         font-weight: bold; }
         main.game_list .gl .main_content .game_list_menu > ul.list_union li.un p {
@@ -1261,12 +1282,12 @@ main.game_list .gl .main_content {
           line-height: 50px; }
         main.game_list .gl .main_content .game_list_menu > ul.list_union li.un span {
           float: right;
-          color: #75c8ff; }
-        main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:hover {
-          background: #1394e8; }
-          main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:hover p {
+          color: #fff; }
+        main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:hover, main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:active, main.game_list .gl .main_content .game_list_menu > ul.list_union li.un.active {
+          background: linear-gradient(to bottom, #5f6886 0%, #7b83a0 100%); }
+          main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:hover p, main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:active p, main.game_list .gl .main_content .game_list_menu > ul.list_union li.un.active p {
             color: #fff; }
-          main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:hover span {
+          main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:hover span, main.game_list .gl .main_content .game_list_menu > ul.list_union li.un:active span, main.game_list .gl .main_content .game_list_menu > ul.list_union li.un.active span {
             color: #fff; }
         main.game_list .gl .main_content .game_list_menu > ul.list_union li.un.long {
           height: 80px;
@@ -1283,8 +1304,20 @@ main.game_list .gl .main_content {
       main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open {
         height: auto;
         border-bottom: none; }
-        main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:hover, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li.active {
-          background: #113a5d; }
+        main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li {
+          border-bottom: solid 2px #c7d0f0; }
+          main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li p {
+            color: #b8bdd1; }
+          main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li div {
+            color: #7b83a0; }
+            main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li div.league {
+              color: #000; }
+          main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:hover, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:active, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li.active {
+            background: #929ab7; }
+            main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:hover p, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:active p, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li.active p {
+              color: #fff; }
+            main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:hover div, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li:active div, main.game_list .gl .main_content .game_list_menu > ul.list_union li.list_open ul li.active div {
+              color: #fff; }
     main.game_list .gl .main_content .game_list_menu > ul.list_union.accordion_show .accordion_show:not(.accordion_close) {
       max-height: 200px; }
     main.game_list .gl .main_content .game_list_menu .accordion_show {
@@ -1300,7 +1333,8 @@ main.game_list .gl .main_content {
     width: 65px;
     overflow-y: scroll;
     width: 1060px;
-    padding: 0 0px 5px 0px; }
+    padding: 0 0px 5px 0px;
+    background: #fff; }
     main.game_list .gl .main_content .game_list_group::-webkit-scrollbar-track {
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       background-color: #F5F5F5; }
@@ -1309,9 +1343,9 @@ main.game_list .gl .main_content {
       background-color: #F5F5F5; }
     main.game_list .gl .main_content .game_list_group::-webkit-scrollbar-thumb {
       background-color: #b4b4b4;
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent)); }
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, #929ab7), color-stop(0.5, #838aa7), to(#636c8e)); }
     main.game_list .gl .main_content .game_list_group .glgroup_top {
-      background: #062744;
+      background: #d2b494;
       height: 30px;
       width: 100%;
       padding: 15px 0; }
@@ -1328,7 +1362,7 @@ main.game_list .gl .main_content {
         margin: 0 0 0 40px; }
         main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_left h1 {
           position: relative;
-          color: #fff;
+          color: #252525;
           font-size: 26px;
           font-weight: bold;
           float: left;
@@ -1341,8 +1375,8 @@ main.game_list .gl .main_content {
             left: -16px;
             bottom: 6px;
             width: 3px;
-            height: 16px;
-            background-color: #00efad; }
+            height: 18px;
+            background-color: #fff; }
         main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_left div.team {
           float: left; }
           main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_left div.team::after {
@@ -1350,12 +1384,12 @@ main.game_list .gl .main_content {
             display: block;
             clear: both; }
         main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_left span {
-          color: #fff;
+          color: #464d64;
           font-size: 20px;
           float: left;
           line-height: 30px; }
           main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_left span.greenTag {
-            color: #00efad; }
+            color: #fff; }
       main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right {
         float: right; }
         main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .text_fee {
@@ -1363,11 +1397,13 @@ main.game_list .gl .main_content {
           main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .text_fee span {
             line-height: 30px;
             float: left;
-            color: #fff;
+            color: #464d64;
             font-size: 16px; }
           main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .text_fee .feeCss {
             margin-right: 10px;
-            color: #ffce3d; }
+            font-weight: bold;
+            font-size: 18px;
+            color: #ffffff; }
         main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload {
           float: left;
           line-height: 28px;
@@ -1375,33 +1411,29 @@ main.game_list .gl .main_content {
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #6c6c6c;
-          background: linear-gradient(to bottom, #fafafa 0%, #fff 50%, #d3d3d3 100%);
           padding: 0 18px;
+          background: linear-gradient(to top, #ffffff 0%, #e7ecf7 48%, #ffffff 100%);
+          border: solid 1px #64472b;
+          color: #8b643d;
           border-radius: 5px;
           padding: 0 15px 0 15px; }
-          main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload:hover {
-            background: #f0f0f0; }
-          main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload p {
-            color: #000; }
-            main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload p span {
-              color: #0707c5; }
+          main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload:hover, main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload:active, main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_reload.active {
+            background: #ae8c67;
+            color: #fff; }
         main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_record {
           float: left;
-          line-height: 26px;
+          line-height: 28px;
           margin: 0 10px 0 0;
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #ffffff;
-          border: 1px solid #cbcbcb;
           border-radius: 5px;
           padding: 0 18px;
-          background: #1394e8;
+          background: linear-gradient(to top, #a28362 0%, #876745 100%);
+          border: solid 1px #715435;
+          color: #ffffff;
           padding: 0 12px 0 12px; }
-          main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_record:hover {
-            background: #062744; }
-          main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_record:active {
+          main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_record:hover, main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_record:active, main.game_list .gl .main_content .game_list_group .glgroup_top .gl_top_right .btn_record.active {
             background: #062744; }
     main.game_list .gl .main_content .game_list_group .glgroup_content {
       height: 100%;
@@ -1412,9 +1444,9 @@ main.game_list .gl .main_content {
       main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content {
         width: 484px;
         float: left;
-        border: 1px solid #a2b0bb;
+        border: solid 1px #d6b898;
         border-radius: 10px;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4); }
+        box-shadow: 0px 0px 8px #eeeff3; }
         main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content.right {
           margin: 0 0 0 16px;
           margin: 0 0 0 10px \9\0;
@@ -1438,20 +1470,20 @@ main.game_list .gl .main_content {
           height: 55px;
           line-height: 55px; }
           main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_title .title_name {
-            color: #444444;
+            color: #7b5e43;
             font-size: 20px;
             font-weight: bold;
             float: left;
             padding: 0 0 0 15px; }
           main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_title .volume {
-            color: #444444;
+            color: #010101;
             font-size: 16px;
             float: right;
             padding: 0 15px 0 0; }
             main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_title .volume span {
-              color: #FC5130; }
+              color: #d3321d; }
         main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_item {
-          background: #062744;
+          background: #929ab7;
           color: #fff;
           font-size: 18px;
           line-height: 50px;
@@ -1498,14 +1530,14 @@ main.game_list .gl .main_content {
             font-size: 17px;
             line-height: 50px;
             text-align: center;
-            background: #f7f7f7; }
+            background: #fff; }
             main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data::after {
               content: ' ';
               display: block;
               width: 100%;
               clear: both; }
             main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data:nth-child(even) {
-              background-color: #eaeaea; }
+              background-color: #f1f4fa; }
             main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data:last-child {
               border-radius: 0 0 10px 10px; }
               main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data:last-child::after {
@@ -1523,7 +1555,7 @@ main.game_list .gl .main_content {
             main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_2 {
               width: 23%;
               float: left;
-              color: #EA4444; }
+              color: #aa7f51; }
               main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_2::after {
                 content: ' ';
                 display: block;
@@ -1540,18 +1572,17 @@ main.game_list .gl .main_content {
                 cursor: pointer;
                 font-size: 15px;
                 font-family: "Microsoft JhengHei";
-                color: #fff;
-                border: 1px solid #cbcbcb;
                 border-radius: 5px;
-                padding: 2px 18px;
-                background: #1394e8;
+                padding: 3px 18px;
+                background: linear-gradient(135deg, #e6c197 0%, #cea983 100%);
+                border: solid 1px #fff;
+                color: #fff;
                 font-size: 14px;
                 line-height: 24px;
                 margin: 10px 10px 0 0; }
-                main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .btn_bet:hover {
-                  background: #062744; }
-                main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .btn_bet:active {
-                  background: #062744; }
+                main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .btn_bet:hover, main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .btn_bet:active, main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .btn_bet.active {
+                  background: linear-gradient(to top, #d2b494 0%, #886745 100%);
+                  color: #fff; }
               main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .no_btn_bet {
                 cursor: not-allowed; }
                 main.game_list .gl .main_content .game_list_group .glgroup_content .gl_content .glc_data_groug .glc_data .data_3 .no_btn_bet:hover {
@@ -1569,7 +1600,7 @@ main.game_list .gl .main_content {
         display: block;
         clear: both; }
       main.game_list .gl .main_content .game_list_group .gr_group .gr_item {
-        background: #062744;
+        background: #929ab7;
         border-radius: 10px 10px 0 0;
         border-bottom: 1px solid #e1e1e1;
         height: 47px;
@@ -1677,7 +1708,8 @@ main.game_list .gl .main_content {
             border: none; }
 
 main.game_result .gr .main_content {
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  background: #fff; }
   main.game_result .gr .main_content form {
     padding: 30px 20px; }
     main.game_result .gr .main_content form select {
@@ -1703,10 +1735,6 @@ main.game_result .gr .main_content {
       /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
       background: #dcdcdc;
       /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -1722,25 +1750,23 @@ main.game_result .gr .main_content {
         background: linear-gradient(to bottom, #ccd6dd 5%, #ffffff 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-        /* IE6-9 */
-        border: 1px solid #fff; }
+        /* IE6-9 */ }
     main.game_result .gr .main_content form button {
       float: left;
       cursor: pointer;
       font-size: 15px;
       font-family: "Microsoft JhengHei";
-      color: #fff;
-      border: 1px solid #cbcbcb;
       border-radius: 5px;
-      padding: 2px 18px;
-      background: #1394e8;
+      padding: 3px 18px;
+      background: linear-gradient(135deg, #e6c197 0%, #cea983 100%);
+      border: solid 1px #fff;
+      color: #fff;
       width: 110px;
       height: 38px;
       margin-right: 15px; }
-      main.game_result .gr .main_content form button:hover {
-        background: #062744; }
-      main.game_result .gr .main_content form button:active {
-        background: #062744; }
+      main.game_result .gr .main_content form button:hover, main.game_result .gr .main_content form button:active, main.game_result .gr .main_content form button.active {
+        background: linear-gradient(to top, #d2b494 0%, #886745 100%);
+        color: #fff; }
     main.game_result .gr .main_content form::after {
       content: '';
       display: block;
@@ -1755,13 +1781,14 @@ main.game_result .gr .main_content {
       margin-right: 15px;
       color: #062744; }
       main.game_result .gr .main_content form span.keyWord {
-        color: #fff; }
+        color: #505050; }
     main.game_result .gr .main_content form .icon_search {
       float: left;
       height: 38px;
       width: 38px;
       background: url(../img/icon-search.png) center center no-repeat;
-      position: relative; }
+      position: relative;
+      cursor: pointer; }
   main.game_result .gr .main_content .gr_group {
     margin: 0 20px 50px;
     border: 1px solid #e1e1e1;
@@ -1773,7 +1800,7 @@ main.game_result .gr .main_content {
       display: block;
       clear: both; }
     main.game_result .gr .main_content .gr_group .gr_item {
-      background: #062744;
+      background: #929ab7;
       border-radius: 10px 10px 0 0;
       border-bottom: 1px solid #e1e1e1;
       height: 47px;
@@ -1809,7 +1836,7 @@ main.game_result .gr .main_content {
       main.game_result .gr .main_content .gr_group .gr_item .item3 {
         width: 120px; }
       main.game_result .gr .main_content .gr_group .gr_item .item4 {
-        width: 120px; }
+        width: 148px; }
         main.game_result .gr .main_content .gr_group .gr_item .item4::after {
           border: none; }
       main.game_result .gr .main_content .gr_group .gr_item .item5 {
@@ -1819,11 +1846,11 @@ main.game_result .gr .main_content {
         main.game_result .gr .main_content .gr_group .gr_item .item6::after {
           border: none; }
     main.game_result .gr .main_content .gr_group .gr_data {
-      color: #777777;
+      color: #3a3a3a;
       font-size: 16px;
-      background: #f3f3f3; }
+      background: #fff; }
       main.game_result .gr .main_content .gr_group .gr_data:nth-child(odd) {
-        background-color: #fafafa; }
+        background-color: #f7f7f7; }
       main.game_result .gr .main_content .gr_group .gr_data:last-child {
         border-radius: 0 0 10px 10px;
         border-bottom: 1px solid #e1e1e1; }
@@ -1864,13 +1891,13 @@ main.game_result .gr .main_content {
         width: 800px;
         line-height: 28px; }
         main.game_result .gr .main_content .gr_group .gr_data .data2 span:nth-child(5) {
-          color: #1394e8; }
+          color: #4e86ad; }
       main.game_result .gr .main_content .gr_group .gr_data .data3 {
         width: 120px;
-        color: #c58d0d; }
+        color: #bb8d23; }
       main.game_result .gr .main_content .gr_group .gr_data .data4 {
-        width: 120px;
-        color: #c58d0d; }
+        width: 148px;
+        color: #bb8d23; }
         main.game_result .gr .main_content .gr_group .gr_data .data4::after {
           border: none; }
       main.game_result .gr .main_content .gr_group .gr_data .data5 {
@@ -1883,7 +1910,8 @@ main.game_result .gr .main_content {
 
 main.bet_detail .bd .main_content {
   height: calc(100% - 231px);
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  background: #fff; }
   main.bet_detail .bd .main_content .searchWord {
     float: left;
     margin: 0px 0px 0px 70px; }
@@ -1919,23 +1947,23 @@ main.bet_detail .bd .main_content {
       bottom: 3px;
       right: 5px; }
   main.bet_detail .bd .main_content .reload {
-    padding: 15px 20px; }
+    padding: 15px 20px;
+    color: #505050; }
     main.bet_detail .bd .main_content .reload button {
       padding: 8px 20px;
       float: right;
-      color: #fff;
       font-family: "Microsoft JhengHei";
       font-size: 14px;
-      border: 1px solid #96d5ff;
       border-radius: 5px;
-      background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+      background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+      border: none;
+      box-shadow: 0px 2px 5px 0px #00000060;
+      color: #fff;
       cursor: pointer;
-      width: 140px; }
-      main.bet_detail .bd .main_content .reload button:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7; }
-      main.bet_detail .bd .main_content .reload button:active {
-        background: #062744; }
+      width: 100px; }
+      main.bet_detail .bd .main_content .reload button:hover, main.bet_detail .bd .main_content .reload button:active, main.bet_detail .bd .main_content .reload button.active {
+        background: #4c5473;
+        transform: translateY(3px); }
     main.bet_detail .bd .main_content .reload::after {
       content: '';
       display: block;
@@ -1947,7 +1975,7 @@ main.bet_detail .bd .main_content {
     border-bottom: 1px solid #89b1ca;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4); }
     main.bet_detail .bd .main_content .bd_group .bd_item {
-      background: #062744;
+      background: #929ab7;
       border-radius: 10px 10px 0 0;
       height: 47px;
       line-height: 47px;
@@ -2104,7 +2132,7 @@ main.bet_detail .bd .main_content {
         main.bet_detail .bd .main_content .bd_group .bd_data .data9::after {
           border: none; }
     main.bet_detail .bd .main_content .bd_group .bd_result {
-      background: #226896;
+      background: #e8d4bf;
       border-top: 2px solid #fff;
       border-radius: 0 0 10px 10px;
       height: 50px;
@@ -2117,7 +2145,7 @@ main.bet_detail .bd .main_content {
       main.bet_detail .bd .main_content .bd_group .bd_result .result6,
       main.bet_detail .bd .main_content .bd_group .bd_result .result7,
       main.bet_detail .bd .main_content .bd_group .bd_result .result8 {
-        color: #fff;
+        color: #8a653f;
         font-size: 16px;
         font-weight: bold;
         float: left;
@@ -2138,8 +2166,7 @@ main.bet_detail .bd .main_content {
       main.bet_detail .bd .main_content .bd_group .bd_result .result1 {
         width: 1008px; }
       main.bet_detail .bd .main_content .bd_group .bd_result .result2 {
-        width: 80px;
-        color: #ffffff; }
+        width: 80px; }
       main.bet_detail .bd .main_content .bd_group .bd_result .result3 {
         width: 80px; }
       main.bet_detail .bd .main_content .bd_group .bd_result .result4 {
@@ -2147,11 +2174,13 @@ main.bet_detail .bd .main_content {
         main.bet_detail .bd .main_content .bd_group .bd_result .result4::after {
           border: none; }
       main.bet_detail .bd .main_content .bd_group .bd_result .blue {
-        color: #1fffb8; }
+        color: #2b4190;
+        margin-left: 16px; }
 
 main.bulletin_billboard .bb .main_content {
   height: calc(100% - 231px);
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  background: #fff; }
   main.bulletin_billboard .bb .main_content .reload {
     padding: 15px 20px 15px 20px; }
     main.bulletin_billboard .bb .main_content .reload::after {
@@ -2161,18 +2190,17 @@ main.bulletin_billboard .bb .main_content {
     main.bulletin_billboard .bb .main_content .reload button {
       padding: 8px 20px;
       float: right;
-      color: #fff;
       font-family: "Microsoft JhengHei";
       font-size: 14px;
-      border: 1px solid #96d5ff;
       border-radius: 5px;
-      background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+      background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+      border: none;
+      box-shadow: 0px 2px 5px 0px #00000060;
+      color: #fff;
       cursor: pointer; }
-      main.bulletin_billboard .bb .main_content .reload button:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7; }
-      main.bulletin_billboard .bb .main_content .reload button:active {
-        background: #062744; }
+      main.bulletin_billboard .bb .main_content .reload button:hover, main.bulletin_billboard .bb .main_content .reload button:active, main.bulletin_billboard .bb .main_content .reload button.active {
+        background: #4c5473;
+        transform: translateY(3px); }
   main.bulletin_billboard .bb .main_content .bb_group {
     margin: 0 20px; }
     main.bulletin_billboard .bb .main_content .bb_group .bb_data {
@@ -2194,7 +2222,7 @@ main.bulletin_billboard .bb .main_content {
         height: 100%;
         border-radius: 5px 0 0 5px; }
       main.bulletin_billboard .bb .main_content .bb_group .bb_data:nth-child(odd) .left {
-        background-color: #0099ff; }
+        background-color: #90661f; }
       main.bulletin_billboard .bb .main_content .bb_group .bb_data:nth-child(even) .left {
         background-color: #c9931e; }
       main.bulletin_billboard .bb .main_content .bb_group .bb_data .data1, main.bulletin_billboard .bb .main_content .bb_group .bb_data .data2 {
@@ -2222,8 +2250,8 @@ main.bet_dialog {
   main.bet_dialog .main_center_dialog {
     width: 800px;
     margin: 0 auto;
-    background: #2aa6dc;
-    border: 1px solid #73d3ff;
+    background: #fff;
+    border: solid 1px #d6b898;
     position: relative;
     top: calc(50% - 250px); }
   main.bet_dialog .bdi_group {
@@ -2231,9 +2259,8 @@ main.bet_dialog {
     main.bet_dialog .bdi_group .bdi_top {
       position: relative;
       line-height: 57px;
-      background: #062744;
-      border-radius: 10px 10px 0 0;
-      border-top: 1px solid #1c5588; }
+      background: linear-gradient(to right, #d2b494, #cc9e6d);
+      border-radius: 10px 10px 0 0; }
       main.bet_dialog .bdi_group .bdi_top::after {
         content: '';
         display: block;
@@ -2241,7 +2268,7 @@ main.bet_dialog {
       main.bet_dialog .bdi_group .bdi_top .title {
         float: left;
         padding-left: 20px;
-        color: #fff;
+        color: #000;
         font-size: 20px;
         font-weight: bold;
         letter-spacing: 3px; }
@@ -2256,8 +2283,8 @@ main.bet_dialog {
           margin: 0px 25px 0px 0px; }
           main.bet_dialog .bdi_group .bdi_top .topInfo .BalanceInfo label {
             float: left;
-            color: #fff;
-            line-height: 28px;
+            color: #35353b;
+            line-height: 32px;
             font-weight: 700;
             margin: 0 10px 0 0;
             line-height: 36px; }
@@ -2301,8 +2328,9 @@ main.bet_dialog {
           color: #fff;
           margin: 0px 10px 0px 0px;
           border-bottom: 3px solid #062744;
-          background: linear-gradient(to bottom, #0093d4 0%, #0c5f84 100%);
-          border: 1px solid #89dbff; }
+          background: linear-gradient(to bottom, #4c5473 0%, #929ab7 100%);
+          border-bottom: 3px solid #929ab7;
+          box-shadow: 0px 2px 5px 0px #00000060; }
           main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo:hover, main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo.active {
             color: #fff;
             border-bottom: 3px solid #aa8750;
@@ -2317,18 +2345,10 @@ main.bet_dialog {
             /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2b973', endColorstr='#aa8755',GradientType=0 );
             /* IE6-9 */ }
-          main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo:hover, main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo.active {
-            background: #031525;
-            border: 1px solid #2b89b2; }
-          main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo::before {
-            content: '';
-            display: block;
-            float: left;
-            width: 24px;
-            height: 32px;
-            margin: 0 4px 0 0;
-            background: url("../img/http_white.png") center center no-repeat;
-            background-size: contain; }
+          main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo:hover, main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo:active, main.bet_dialog .bdi_group .bdi_top .topInfo .otherInfo.active {
+            background: #4c5473;
+            border-bottom: 1px solid #929ab7;
+            transform: translateY(3px); }
       main.bet_dialog .bdi_group .bdi_top .close {
         width: 26px;
         height: 26px;
@@ -2339,21 +2359,11 @@ main.bet_dialog {
         top: -10px;
         cursor: pointer; }
     main.bet_dialog .bdi_group .bdi_content {
-      border: 1px solid #7bd5ff;
+      border: solid 1px #d6b898;
       border-radius: 10px;
       margin: 20px 20px 0; }
       main.bet_dialog .bdi_group .bdi_content .bdi_title {
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f5f0f0+50,ffffff+100 */
-        background: #ffffff;
-        /* Old browsers */
-        background: -moz-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
-        /* IE6-9 */
+        background: #f7f7f7;
         line-height: 55px;
         border-radius: 10px 10px 0 0; }
         main.bet_dialog .bdi_group .bdi_content .bdi_title::after {
@@ -2367,22 +2377,22 @@ main.bet_dialog {
           padding: 0 0 0 15px;
           float: left; }
         main.bet_dialog .bdi_group .bdi_content .bdi_title .title_2 {
-          color: #0091d0;
+          color: #464d64;
           font-size: 18px;
           font-weight: bold;
           padding: 0 0 0 15px;
           float: left; }
           main.bet_dialog .bdi_group .bdi_content .bdi_title .title_2 span {
-            color: #aa8750; }
+            color: #464d64; }
             main.bet_dialog .bdi_group .bdi_content .bdi_title .title_2 span:nth-child(2) {
-              color: #444444; }
+              color: #098ec9; }
       main.bet_dialog .bdi_group .bdi_content .bdi_info {
         font-size: 18px;
         line-height: 50px;
         text-align: center;
-        color: #fff;
+        color: #382715;
         padding: 0 20px;
-        background: linear-gradient(to bottom, #028ecc 0%, #051e33 100%);
+        background: linear-gradient(to bottom, #fff0c4 0%, #dcb287 100%);
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.2) inset; }
         main.bet_dialog .bdi_group .bdi_content .bdi_info::after {
           content: '';
@@ -2400,13 +2410,13 @@ main.bet_dialog {
             animation-duration: 0.3s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
-            color: #faaf3c;
+            color: #ff0000;
             font-weight: bold;
             font-size: 20px; }
         main.bet_dialog .bdi_group .bdi_content .bdi_info .info_2 {
           float: left; }
           main.bet_dialog .bdi_group .bdi_content .bdi_info .info_2 span {
-            color: #faaf3c;
+            color: #ff0000;
             font-weight: bold;
             font-size: 20px; }
         main.bet_dialog .bdi_group .bdi_content .bdi_info .info_3 {
@@ -2420,8 +2430,8 @@ main.bet_dialog {
       main.bet_dialog .bdi_group .bdi_content .bdi_data_groug .bdi_name {
         height: 55px;
         line-height: 55px;
-        background: #051e33;
-        border-top: 1px solid #045783; }
+        background: #929ab7;
+        border-top: 1px solid #d6b898; }
         main.bet_dialog .bdi_group .bdi_content .bdi_data_groug .bdi_name > div {
           float: left;
           width: 33.33333%;
@@ -2468,18 +2478,15 @@ main.bet_dialog {
             vertical-align: text-bottom;
             margin-top: 12px;
             border-radius: 5px;
-            border: 1px solid #cccccc;
+            border: 1px solid #4c5471;
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
             background: #dcdcdc;
             /* Old browsers */
-            background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-            /* Chrome10-25,Safari5.1-6 */
             background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
             /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-            /* IE6-9 */ }
+            /* IE6-9 */
+            background: linear-gradient(to top, #ffffff 5%, #ccd6dd 100%); }
         main.bet_dialog .bdi_group .bdi_content .bdi_data_groug .bdi_data .data_2 {
           color: #ff0000; }
         main.bet_dialog .bdi_group .bdi_content .bdi_data_groug .bdi_data .data_3 {
@@ -2489,7 +2496,7 @@ main.bet_dialog {
             border: none; }
     main.bet_dialog .bdi_group .tip {
       position: absolute;
-      color: #ffbe28;
+      color: #fd3535;
       font-size: 17px;
       font-weight: bold;
       left: 20px; }
@@ -2518,10 +2525,6 @@ main.bet_dialog {
           /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
           background: #dcdcdc;
           /* Old browsers */
-          background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-          /* FF3.6-15 */
-          background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-          /* Chrome10-25,Safari5.1-6 */
           background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
           /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -2531,25 +2534,16 @@ main.bet_dialog {
           color: #000; }
           main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_1:nth-child(4n) {
             margin-right: 0; }
-          main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_1:hover {
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ccd6dd+5,ffffff+100 */
-            background: #ccd6dd;
-            /* Old browsers */
-            background: -moz-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, #ccd6dd 5%, #ffffff 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-            /* IE6-9 */
-            border: 1px solid #035077; }
+          main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_1:hover, main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_1:active, main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_1.active {
+            background: linear-gradient(to top, #fff0c4 0%, #dcb287 100%);
+            border: 1px solid #d6b898;
+            color: #543f18; }
         main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_2 {
-          background: linear-gradient(to bottom, #099cdc 0%, #05233c 100%);
+          background: linear-gradient(to bottom, #dec38a 0%, #bb8e5d 100%);
           float: right;
           color: #fff; }
-          main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_2:hover {
-            background: #051e33; }
+          main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_2:hover, main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_2:active, main.bet_dialog .bdi_group .bdi_button_group .money_button .btn_2.active {
+            background: linear-gradient(to bottom, #82562B 0%, #BD9D5C 100%); }
       main.bet_dialog .bdi_group .bdi_button_group .money_input {
         padding: 20px 20px 45px;
         width: calc(100% - 40px);
@@ -2582,34 +2576,26 @@ main.bet_dialog {
             cursor: pointer;
             font-size: 15px;
             font-family: "Microsoft JhengHei";
-            color: #fff;
-            background: #015556;
+            color: #000;
+            background: #ccd6dd;
             /* Old browsers */
-            background: -moz-linear-gradient(top, #07b585 1%, #015556 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, #07b585 1%, #015556 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, #07b585 1%, #015556 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            background: linear-gradient(to bottom, #07b585 0%, #015556 100%);
+            background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6767FF', endColorstr='#5252CC',GradientType=0 );
             /* IE6-9 */
             border-radius: 5px;
             padding: 8px 25px;
             text-align: center;
             font-weight: bold;
+            border: 1px solid #cccccc;
             float: left;
             line-height: 22px;
             margin: 14px 0 0 20px;
             padding: 5px;
-            width: 105px;
-            border: 1px solid #8bf0ff; }
-            main.bet_dialog .bdi_group .bdi_button_group .money_input form .btn_1:hover {
-              color: #fff;
-              background: #08423b;
-              /* Old browsers */ }
-            main.bet_dialog .bdi_group .bdi_button_group .money_input form .btn_1:hover {
-              background: #08423b; }
+            width: 105px; }
+            main.bet_dialog .bdi_group .bdi_button_group .money_input form .btn_1:hover, main.bet_dialog .bdi_group .bdi_button_group .money_input form .btn_1:active, main.bet_dialog .bdi_group .bdi_button_group .money_input form .btn_1.active {
+              background: linear-gradient(to top, #fff0c4 0%, #dcb287 100%);
+              border: 1px solid #d6b898;
+              color: #543f18; }
             main.bet_dialog .bdi_group .bdi_button_group .money_input form .btn_1.disable {
               background: #ccc;
               border: none;
@@ -2651,14 +2637,9 @@ main.bet_dialog {
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
           /* IE6-9 */
           border: 0; }
-          main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_cancel:hover,
-          main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok:hover {
-            background: #051e33;
-            color: #ffffff;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset; }
         main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_cancel {
           border-radius: 0 0 0 10px;
-          color: #999999;
+          color: #999;
           position: relative; }
           main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_cancel::after {
             content: '';
@@ -2669,15 +2650,20 @@ main.bet_dialog {
             width: 1px;
             height: 100%;
             border-right: 1px solid #999999; }
+          main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_cancel:hover, main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_cancel:active, main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_cancel.active {
+            background: #f7f7f7;
+            color: #000; }
         main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok {
           border-radius: 0 0 10px 0;
-          color: #004279; }
+          color: #2d210e;
+          background: linear-gradient(to bottom, #fff0c4 0%, #dcb287 100%); }
           main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok.disable {
             color: #888888;
-            background: #999999; }
-            main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok.disable:hover {
-              color: #888888;
-              box-shadow: 0 0 0 rgba(0, 0, 0, 0) inset; }
+            background: #999999;
+            pointer-events: none; }
+          main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok:hover, main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok:active, main.bet_dialog .bdi_group .bdi_button_group .confirm_button .btn_ok.active {
+            background: linear-gradient(to top, #d2c399 0%, #c59d74 50%);
+            color: #fff; }
   main.bet_dialog .bdi_applyOK {
     width: 500px;
     min-height: 360px;
@@ -2685,7 +2671,7 @@ main.bet_dialog {
     main.bet_dialog .bdi_applyOK h1 {
       font-size: 26px;
       color: #fff;
-      background: #062744;
+      background: #7689a4;
       padding: 16px 20px;
       border-radius: 10px 10px 0 0;
       text-align: center; }
@@ -2701,7 +2687,7 @@ main.bet_dialog {
         main.bet_dialog .bdi_applyOK ul li:last-child {
           border-bottom: 0; }
         main.bet_dialog .bdi_applyOK ul li span {
-          color: #003280;
+          color: #5b7198;
           display: inline-block;
           padding: 15px 0 15px 15px; }
           main.bet_dialog .bdi_applyOK ul li span.data_th {
@@ -2751,17 +2737,7 @@ main.bet_dialog {
       padding: 10px 50px 10px 50px;
       border-radius: 3px;
       border-bottom: 3px solid #0067bf;
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+10,dcdcdc+50,ffffff+90 */
-      background: #ffffff;
-      /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 10%, #dcdcdc 50%, #ffffff 90%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 10%, #dcdcdc 50%, #ffffff 90%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ffffff 10%, #dcdcdc 50%, #ffffff 90%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
-      /* IE6-9 */
+      background: linear-gradient(to right, #efd3b4 0%, #ceaf8f 100%);
       border: 0;
       border-top: 1px solid #999999;
       font-size: 22px;
@@ -2772,7 +2748,7 @@ main.bet_dialog {
       border-radius: 0 0 10px 10px;
       position: absolute;
       bottom: 0;
-      color: #004279; }
+      color: #fff; }
       main.bet_dialog .bdi_applyOK button:hover {
         color: #0075da;
         background: #f7f7f7;
@@ -2780,428 +2756,424 @@ main.bet_dialog {
       main.bet_dialog .bdi_applyOK button:hover {
         border: 0;
         border-top: 1px solid #62cfff;
-        background: #041c31;
-        color: #ffffff;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset; }
+        background: #8b643d;
+        color: #ffffff; }
 
 main.bet_history .bhs {
   padding-bottom: 20px; }
-  main.bet_history .bhs .main_content form {
-    padding: 30px 20px; }
-    main.bet_history .bhs .main_content form * {
-      height: 30px;
-      margin-right: 15px; }
-    main.bet_history .bhs .main_content form span {
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      float: left;
-      line-height: 30px;
-      margin: 4px 15px 0 0; }
-    main.bet_history .bhs .main_content form input {
-      float: left;
-      width: 150px;
-      height: 36px;
-      text-align: center;
-      outline: none;
-      font-size: 15px;
-      border-radius: 5px;
-      border: 1px solid #b4b4b4;
-      color: #5a5a5a;
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
-      background: #dcdcdc;
-      /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-      /* IE6-9 */ }
-    main.bet_history .bhs .main_content form div {
-      float: left;
-      line-height: 30px;
-      text-align: center;
-      cursor: pointer;
-      font-size: 15px;
-      font-family: "Microsoft JhengHei";
-      color: #6c6c6c;
-      background: linear-gradient(to bottom, #fafafa 0%, #fff 50%, #d3d3d3 100%);
-      padding: 0 18px;
-      border: 1px solid #b4b4b4;
-      border-radius: 5px;
-      padding: 3px 18px;
-      color: #6e195a; }
-      main.bet_history .bhs .main_content form div:hover {
-        background: #f0f0f0; }
-      main.bet_history .bhs .main_content form div.date_ytd {
-        margin-left: 25px; }
-    main.bet_history .bhs .main_content form button {
-      float: left;
-      cursor: pointer;
-      font-size: 15px;
-      font-family: "Microsoft JhengHei";
-      color: #fff;
-      border: 1px solid #cbcbcb;
-      border-radius: 5px;
-      padding: 2px 18px;
-      background: #1394e8;
-      width: 110px;
-      height: 38px; }
-      main.bet_history .bhs .main_content form button:hover {
-        background: #062744; }
-      main.bet_history .bhs .main_content form button:active {
-        background: #062744; }
-    main.bet_history .bhs .main_content form button.reload_btn {
-      padding: 8px 20px;
-      float: right;
-      color: #fff;
-      font-family: "Microsoft JhengHei";
-      font-size: 14px;
-      border: 1px solid #96d5ff;
-      border-radius: 5px;
-      background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
-      cursor: pointer;
-      width: 140px; }
-      main.bet_history .bhs .main_content form button.reload_btn:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7; }
-      main.bet_history .bhs .main_content form button.reload_btn:active {
-        background: #062744; }
-    main.bet_history .bhs .main_content form::after {
-      content: '';
-      display: block;
-      clear: both; }
-  main.bet_history .bhs .main_content .reload {
-    padding: 15px 20px 15px 20px;
-    height: 30px; }
-    main.bet_history .bhs .main_content .reload button {
-      padding: 8px 20px;
-      float: right;
-      color: #fff;
-      font-family: "Microsoft JhengHei";
-      font-size: 14px;
-      border: 1px solid #96d5ff;
-      border-radius: 5px;
-      background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
-      cursor: pointer; }
-      main.bet_history .bhs .main_content .reload button:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7; }
-      main.bet_history .bhs .main_content .reload button:active {
-        background: #062744; }
-  main.bet_history .bhs .main_content .form_datalist {
-    width: 1300px;
-    border: 1px solid #a2b0bb;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
-    margin: 0 auto 40px; }
-    main.bet_history .bhs .main_content .form_datalist .title {
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f5f0f0+50,ffffff+100 */
-      background: #ffffff;
-      /* Old browsers */
-      background: -moz-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
-      /* IE6-9 */
-      border-radius: 10px 10px 0 0;
-      border-bottom: none;
-      height: 55px;
-      line-height: 55px;
-      width: 100%; }
-      main.bet_history .bhs .main_content .form_datalist .title h1 {
-        color: #444444;
-        font-size: 20px;
+  main.bet_history .bhs .main_content {
+    background: #fff; }
+    main.bet_history .bhs .main_content form {
+      padding: 30px 20px; }
+      main.bet_history .bhs .main_content form * {
+        height: 30px;
+        margin-right: 15px; }
+      main.bet_history .bhs .main_content form span {
+        color: #505050;
+        font-size: 16px;
         font-weight: bold;
         float: left;
-        padding: 0 0 0 15px; }
-    main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item {
-      background: #062744;
-      border-bottom: 1px solid #e1e1e1;
-      height: 47px;
-      line-height: 47px; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item > div {
-        color: #ffffff;
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 50px;
+        line-height: 30px;
+        margin: 4px 15px 0 0; }
+      main.bet_history .bhs .main_content form input {
         float: left;
+        width: 150px;
+        height: 36px;
         text-align: center;
-        width: 25%; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item > div::after {
-          content: '';
-          display: block;
-          height: 50px;
-          float: right;
-          border-right: 1px solid transparent;
-          border-image: linear-gradient(to bottom, rgba(206, 206, 230, 0) 25%, rgba(206, 206, 230, 0.3) 25%, rgba(206, 206, 230, 0.3) 75%, rgba(206, 206, 230, 0) 75%);
-          border-image-slice: 1; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item > div:last-child::after {
-          border: none; }
-    main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data {
-      color: #fff;
-      font-size: 16px;
-      background: #f7f7f7;
-      width: calc(100% - 1px); }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data:nth-child(odd) {
-        background-color: #eaeaea; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data::after {
-        content: ' ';
+        outline: none;
+        font-size: 15px;
+        border-radius: 5px;
+        border: 1px solid #b4b4b4;
+        color: #5a5a5a;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
+        background: #dcdcdc;
+        /* Old browsers */
+        background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
+        /* IE6-9 */ }
+      main.bet_history .bhs .main_content form div {
+        float: left;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 15px;
+        font-family: "Microsoft JhengHei";
+        padding: 0 18px;
+        background: linear-gradient(to top, #ffffff 0%, #e7ecf7 48%, #ffffff 100%);
+        border: solid 1px #64472b;
+        color: #8b643d;
+        border: 1px solid #b4b4b4;
+        border-radius: 5px;
+        padding: 3px 18px;
+        color: #6e4919; }
+        main.bet_history .bhs .main_content form div:hover, main.bet_history .bhs .main_content form div:active, main.bet_history .bhs .main_content form div.active {
+          background: #ae8c67;
+          color: #fff; }
+        main.bet_history .bhs .main_content form div.date_ytd {
+          margin-left: 25px; }
+      main.bet_history .bhs .main_content form button {
+        float: left;
+        cursor: pointer;
+        font-size: 15px;
+        font-family: "Microsoft JhengHei";
+        border-radius: 5px;
+        padding: 3px 18px;
+        background: linear-gradient(135deg, #e6c197 0%, #cea983 100%);
+        border: solid 1px #fff;
+        color: #fff;
+        width: 110px;
+        height: 38px;
+        border: solid 1px #d69500;
+        color: #fff; }
+        main.bet_history .bhs .main_content form button:hover, main.bet_history .bhs .main_content form button:active, main.bet_history .bhs .main_content form button.active {
+          background: linear-gradient(to top, #d2b494 0%, #886745 100%);
+          color: #fff; }
+      main.bet_history .bhs .main_content form button.reload_btn {
+        padding: 8px 20px;
+        float: right;
+        font-family: "Microsoft JhengHei";
+        font-size: 14px;
+        border-radius: 5px;
+        background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+        border: none;
+        box-shadow: 0px 2px 5px 0px #00000060;
+        color: #fff;
+        cursor: pointer;
+        width: 100px; }
+        main.bet_history .bhs .main_content form button.reload_btn:hover, main.bet_history .bhs .main_content form button.reload_btn:active, main.bet_history .bhs .main_content form button.reload_btn.active {
+          background: #4c5473;
+          transform: translateY(3px); }
+      main.bet_history .bhs .main_content form::after {
+        content: '';
         display: block;
-        width: 100%;
         clear: both; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.active {
-        position: relative;
+    main.bet_history .bhs .main_content .reload {
+      padding: 15px 20px 15px 20px;
+      height: 30px; }
+      main.bet_history .bhs .main_content .reload button {
+        padding: 8px 20px;
+        float: right;
+        font-family: "Microsoft JhengHei";
+        font-size: 14px;
+        border-radius: 5px;
+        background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+        border: none;
+        box-shadow: 0px 2px 5px 0px #00000060;
+        color: #fff;
         cursor: pointer; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.active::before {
-          content: '';
-          display: block;
-          position: absolute;
-          width: 28px;
-          height: 28px;
-          background: url("../img/ic_expand_less_black_18dp_2x.png") center center no-repeat;
-          background-size: contain;
-          transform: rotate(180deg);
-          top: 10px;
-          right: 22px;
-          transition: 0.3s ease; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.active.open::before {
-          transform: rotate(0deg); }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div {
-        float: left;
-        text-align: center;
-        font-weight: bold;
-        line-height: 50px;
-        width: 25%; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div::after {
+        main.bet_history .bhs .main_content .reload button:hover, main.bet_history .bhs .main_content .reload button:active, main.bet_history .bhs .main_content .reload button.active {
+          background: #4c5473;
+          transform: translateY(3px); }
+    main.bet_history .bhs .main_content .form_datalist {
+      width: 1300px;
+      border: 1px solid #a2b0bb;
+      border-radius: 10px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+      margin: 0 auto 40px; }
+      main.bet_history .bhs .main_content .form_datalist .title {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f5f0f0+50,ffffff+100 */
+        background: #ffffff;
+        /* Old browsers */
+        background: -moz-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #ffffff 0%, #F4F2EF 50%, #ffffff 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+        /* IE6-9 */
+        border-radius: 10px 10px 0 0;
+        border-bottom: none;
+        height: 55px;
+        line-height: 55px;
+        width: 100%; }
+        main.bet_history .bhs .main_content .form_datalist .title h1 {
+          color: #a2805c;
+          font-size: 20px;
+          font-weight: bold;
+          float: left;
+          padding: 0 0 0 15px; }
+      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item {
+        background: #929ab7;
+        border-bottom: 1px solid #e1e1e1;
+        height: 47px;
+        line-height: 47px; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item > div {
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 50px;
+          float: left;
+          text-align: center;
+          width: 25%; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item > div::after {
+            content: '';
+            display: block;
+            height: 50px;
+            float: right;
+            border-right: 1px solid transparent;
+            border-image: linear-gradient(to bottom, rgba(206, 206, 230, 0) 25%, rgba(206, 206, 230, 0.3) 25%, rgba(206, 206, 230, 0.3) 75%, rgba(206, 206, 230, 0) 75%);
+            border-image-slice: 1; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_item > div:last-child::after {
+            border: none; }
+      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data {
+        color: #3a3a3a;
+        font-size: 16px;
+        background: #f7f7f7;
+        width: calc(100% - 1px); }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data:nth-child(odd) {
+          background-color: #eaeaea; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data::after {
           content: ' ';
           display: block;
-          border-left: 1px solid #e6e6e6;
-          height: 50px;
-          float: right;
-          height: 50px; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data1 {
-          color: #0088e0;
-          text-decoration: underline;
-          position: relative; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data1 .count {
-            position: absolute;
-            right: 22px;
-            top: 13px;
-            background-color: #d69500;
-            border: 1px solid #fff74d;
-            border-radius: 50%;
-            line-height: 24px;
-            width: 24px;
-            color: #fff;
-            box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.4); }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data2 {
-          color: #2d1e73; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data3 {
-          color: #2d2d2d; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data4 {
-          color: #cd0a55; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div:last-child::after {
-          border: none; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content {
-        background: #dcdcdc;
-        margin: 0 20px 20px;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
-        border-radius: 10px;
-        display: inline-block;
-        width: calc(100% - 40px);
-        border: 1px solid #fff; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content::after {
-          display: none; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div {
           width: 100%;
-          display: inline-block; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div::after {
-            display: none; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div > div {
-            float: left;
-            height: 100%;
-            min-height: 50px;
-            line-height: 56px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_th {
-            background: linear-gradient(to bottom, #309fea 0%, #19598a 100%);
-            color: #ffffff;
-            border-radius: 10px 10px 0 0;
-            border-bottom: 1px solid #e6e6e6;
-            font-size: 18px; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_th > div::after {
-              content: '';
-              display: block;
-              height: 50px;
-              float: right;
-              border-right: 1px solid transparent;
-              border-image: linear-gradient(to bottom, rgba(206, 206, 230, 0) 25%, rgba(206, 206, 230, 0.3) 25%, rgba(206, 206, 230, 0.3) 75%, rgba(206, 206, 230, 0) 75%);
-              border-image-slice: 1; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_th > div:last-child::after {
-              border: none; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td {
-            background: #062744;
-            line-height: 22px; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td:nth-child(odd) {
-              background-color: #093358; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td > div:last-child::after {
-              border: none; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td div {
-              position: relative; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td div::after {
-              border-right: 1px solid #094477;
-              border-left: 1px solid #041c31;
+          clear: both; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.active {
+          position: relative;
+          cursor: pointer; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.active::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: url("../img/new/arrow_perple.png") center center no-repeat;
+            background-size: contain;
+            transform: rotate(180deg);
+            top: 10px;
+            right: 22px;
+            transition: 0.3s ease; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.active.open::before {
+            transform: rotate(0deg); }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div {
+          float: left;
+          text-align: center;
+          font-weight: bold;
+          line-height: 50px;
+          width: 25%; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div::after {
+            content: ' ';
+            display: block;
+            border-left: 1px solid #e6e6e6;
+            height: 50px;
+            float: right;
+            height: 50px; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data1 {
+            color: #39455b;
+            position: relative; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data1 .count {
               position: absolute;
-              height: 100%;
-              top: 0;
-              right: 0; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td div.detail_data8::after {
+              right: 22px;
+              top: 13px;
+              background: #405480;
+              border-radius: 50%;
+              line-height: 24px;
+              width: 24px;
+              color: #fff;
+              box-shadow: 1px 3px 6px #c3c3c3; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data2 {
+            color: #2d1e73; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data3 {
+            color: #2d2d2d; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div.data4 {
+            color: #ff0e0e; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data > div:last-child::after {
+            border: none; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content {
+          background: #dcdcdc;
+          margin: 0 20px 20px;
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+          border-radius: 10px;
+          display: inline-block;
+          width: calc(100% - 40px);
+          border: 1px solid #fff; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content::after {
+            display: none; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div {
+            width: 100%;
+            display: inline-block; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div::after {
               display: none; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td::after {
-              content: ' ';
-              display: block;
-              width: 100%;
-              clear: both;
-              height: auto; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result {
-            background: linear-gradient(to bottom, #1e72ad 0%, #134a73 100%);
-            border-radius: 0 0 10px 10px;
-            border-top: 2px solid #3285c1; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result::after {
-              content: ' ';
-              display: block;
-              width: 100%;
-              clear: both;
-              height: auto; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result div::after {
-              border-right: 1px solid #ffffff;
-              border-left: 1px solid #dedede; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result1 {
-              width: 983px;
-              text-align: left;
-              padding-left: 38px;
-              box-sizing: border-box; }
-              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result1 span {
-                margin: 0 10px;
-                font-size: 20px;
-                color: #1dccff; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result2 {
-              width: 95px;
-              color: #ffc926; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result3 {
-              width: 175px; }
-              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result3::after {
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div > div {
+              float: left;
+              height: 100%;
+              min-height: 50px;
+              line-height: 56px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_th {
+              background: linear-gradient(to bottom, #fff0c4 0%, #dcb287 100%);
+              color: #382715;
+              border-radius: 10px 10px 0 0;
+              border-bottom: 1px solid #e6e6e6;
+              font-size: 18px; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_th > div::after {
+                content: '';
+                display: block;
+                height: 50px;
+                float: right;
+                border-right: 1px solid transparent;
+                border-image: linear-gradient(to bottom, rgba(206, 206, 230, 0) 25%, rgba(206, 206, 230, 0.3) 25%, rgba(206, 206, 230, 0.3) 75%, rgba(206, 206, 230, 0) 75%);
+                border-image-slice: 1; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_th > div:last-child::after {
                 border: none; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .blue {
-              color: #cd0a55; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item1,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data1 {
-            width: 90px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item2,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data2 {
-            width: 130px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item3,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data3 {
-            width: 130px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item4,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4 {
-            width: 438px; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item4 .score,
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4 .score {
-              color: #4fdac5; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item4 .vs,
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4 .vs {
-              color: #4e86ad; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item5,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 {
-            width: 195px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item6,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data6 {
-            width: 95px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item7,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data7 {
-            width: 75px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item8,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data8 {
-            width: 95px; }
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item8::after,
-            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data8::after {
-              border: none; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data2,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data3,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4,
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 {
-            line-height: 28px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(1) {
-            color: #a7e9df;
-            margin-right: 10px; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(2) {
-            color: #a7e9df; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(4) {
-            color: #dedede; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(5) {
-            color: #ffc30e; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data6 {
-            color: #ffc926; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .gameCancel {
-            color: red;
-            margin: 0px 20px 0px 0px;
-            font-weight: bold;
-            -webkit-animation-name: DoOpacity;
-            /* Safari 4.0 - 8.0 */
-            -webkit-animation-duration: 0.4s;
-            /* Safari 4.0 - 8.0 */
-            animation-name: DoOpacity;
-            animation-duration: 0.4s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate; }
-          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data8 {
-            color: #cd0a55; }
-    main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result {
-      background: #F8F8FF;
-      border-radius: 0 0 10px 10px;
-      border-top: 2px solid #062744; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result::after {
-        content: ' ';
-        display: block;
-        width: 100%;
-        clear: both;
-        height: auto; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result div::after {
-        border-right: 1px solid #ffffff;
-        border-left: 1px solid #dedede; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result > div {
-        float: left;
-        text-align: center;
-        font-size: 18px;
-        line-height: 46px;
-        width: 25%;
-        font-weight: bold;
-        color: #062744; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result > div::after {
-          content: '';
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td {
+              background: #fff;
+              line-height: 22px; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td:nth-child(odd) {
+                background-color: #f7f7f7; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td > div:last-child::after {
+                border: none; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td div {
+                position: relative; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td div::after {
+                border-right: 1px solid #094477;
+                border-left: 1px solid #041c31;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                right: 0; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td div.detail_data8::after {
+                display: none; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td::after {
+                content: ' ';
+                display: block;
+                width: 100%;
+                clear: both;
+                height: auto; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result {
+              background: #e8d4bf;
+              border-radius: 0 0 10px 10px;
+              border-top: solid 2px #c9a887; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result::after {
+                content: ' ';
+                display: block;
+                width: 100%;
+                clear: both;
+                height: auto; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result div::after {
+                border-right: 1px solid #ffffff;
+                border-left: 1px solid #dedede; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result1 {
+                width: 983px;
+                text-align: left;
+                padding-left: 38px;
+                box-sizing: border-box; }
+                main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result1 span {
+                  margin: 0 10px;
+                  font-size: 20px;
+                  color: #5f89b5; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result2 {
+                width: 95px;
+                color: #543f29; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result3 {
+                width: 175px; }
+                main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .result3::after {
+                  border: none; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div.content_td_result .blue {
+                color: #258100; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item1,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data1 {
+              width: 90px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item2,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data2 {
+              width: 130px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item3,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data3 {
+              width: 130px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item4,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4 {
+              width: 438px; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item4 .score,
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4 .score {
+                color: #984d00; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item4 .vs,
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4 .vs {
+                color: #4e86ad; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item5,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 {
+              width: 195px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item6,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data6 {
+              width: 95px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item7,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data7 {
+              width: 75px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item8,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data8 {
+              width: 95px; }
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_item8::after,
+              main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data8::after {
+                border: none; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data2,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data3,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data4,
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 {
+              line-height: 28px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(1) {
+              color: #668ee4;
+              margin-right: 10px; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(2) {
+              color: #668ee4; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(4) {
+              color: #7689a4; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data5 span:nth-child(5) {
+              color: #ff0e0e; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data6 {
+              color: #ff0e0e; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .gameCancel {
+              color: red;
+              margin: 0px 20px 0px 0px;
+              font-weight: bold;
+              -webkit-animation-name: DoOpacity;
+              /* Safari 4.0 - 8.0 */
+              -webkit-animation-duration: 0.4s;
+              /* Safari 4.0 - 8.0 */
+              animation-name: DoOpacity;
+              animation-duration: 0.4s;
+              animation-iteration-count: infinite;
+              animation-direction: alternate; }
+            main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_data.content > div .detail_data8 {
+              color: #ff0e0e; }
+      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result {
+        background: #e8d4bf;
+        border-radius: 0 0 10px 10px;
+        border-top: 2px solid #fff; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result::after {
+          content: ' ';
           display: block;
-          height: 50px;
-          float: right;
-          border-right: 1px solid transparent;
-          border-image: linear-gradient(to bottom, rgba(206, 206, 230, 0) 25%, rgba(206, 206, 230, 0.3) 25%, rgba(206, 206, 230, 0.3) 75%, rgba(206, 206, 230, 0) 75%);
-          border-image-slice: 1;
-          height: 46px; }
-        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result > div:last-child::after {
+          width: 100%;
+          clear: both;
+          height: auto; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result div::after {
+          border-right: 1px solid #ffffff;
+          border-left: 1px solid #dedede; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result > div {
+          float: left;
+          text-align: center;
+          font-size: 18px;
+          line-height: 46px;
+          width: 25%;
+          font-weight: bold;
+          color: #865119; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result > div::after {
+            content: '';
+            display: block;
+            height: 50px;
+            float: right;
+            border-right: 1px solid transparent;
+            border-image: linear-gradient(to bottom, rgba(206, 206, 230, 0) 25%, rgba(206, 206, 230, 0.3) 25%, rgba(206, 206, 230, 0.3) 75%, rgba(206, 206, 230, 0) 75%);
+            border-image-slice: 1;
+            height: 46px; }
+          main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result > div:last-child::after {
+            border: none; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result .result1 {
+          text-align: center;
+          padding-left: 10px;
+          box-sizing: border-box; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result .result4::after {
           border: none; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result .result1 {
-        text-align: center;
-        padding-left: 10px;
-        box-sizing: border-box; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result .result4::after {
-        border: none; }
-      main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result .blue {
-        color: #f30c0c; }
+        main.bet_history .bhs .main_content .form_datalist .bhs_group .bhs_result .blue {
+          color: #f30c0c; }
 
 main.center_member .main_content {
   padding: 0px;
@@ -3273,18 +3245,17 @@ main.center_member .mbif .main_content .right_area .reload {
   main.center_member .mbif .main_content .right_area .reload button {
     padding: 8px 20px;
     float: right;
-    color: #fff;
     font-family: "Microsoft JhengHei";
     font-size: 14px;
-    border: 1px solid #96d5ff;
     border-radius: 5px;
-    background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+    background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+    border: none;
+    box-shadow: 0px 2px 5px 0px #00000060;
+    color: #fff;
     cursor: pointer; }
-    main.center_member .mbif .main_content .right_area .reload button:hover {
-      background: #062744;
-      border: 1px solid #4bb2f7; }
-    main.center_member .mbif .main_content .right_area .reload button:active {
-      background: #062744; }
+    main.center_member .mbif .main_content .right_area .reload button:hover, main.center_member .mbif .main_content .right_area .reload button:active, main.center_member .mbif .main_content .right_area .reload button.active {
+      background: #4c5473;
+      transform: translateY(3px); }
 
 main.center_member .mbif .main_content .right_area h1 {
   font-size: 20px;
@@ -3392,9 +3363,10 @@ main.center_member .mbif .main_content .right_area ul {
       cursor: pointer;
       font-size: 15px;
       font-family: "Microsoft JhengHei";
-      color: #6c6c6c;
-      background: linear-gradient(to bottom, #fafafa 0%, #fff 50%, #d3d3d3 100%);
       padding: 0 18px;
+      background: linear-gradient(to top, #ffffff 0%, #e7ecf7 48%, #ffffff 100%);
+      border: solid 1px #64472b;
+      color: #8b643d;
       padding: 0 8px;
       border: 1px solid #e1e1e1;
       border-radius: 5px;
@@ -3402,8 +3374,9 @@ main.center_member .mbif .main_content .right_area ul {
       float: left;
       margin: 0 3px 0;
       color: #006bb1; }
-      main.center_member .mbif .main_content .right_area ul.info li button:hover {
-        background: #f0f0f0; }
+      main.center_member .mbif .main_content .right_area ul.info li button:hover, main.center_member .mbif .main_content .right_area ul.info li button:active, main.center_member .mbif .main_content .right_area ul.info li button.active {
+        background: #ae8c67;
+        color: #fff; }
       main.center_member .mbif .main_content .right_area ul.info li button.apply_ok {
         color: #fff;
         background: #FC5130; }
@@ -3512,10 +3485,6 @@ main.center_member .mbtsrd .main_content {
       /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
       background: #dcdcdc;
       /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -3528,18 +3497,17 @@ main.center_member .mbtsrd .main_content {
       main.center_member .mbtsrd .main_content .right_area .select_row div span {
         padding: 8px 20px;
         float: right;
-        color: #fff;
         font-family: "Microsoft JhengHei";
         font-size: 14px;
-        border: 1px solid #96d5ff;
         border-radius: 5px;
-        background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+        background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+        border: none;
+        box-shadow: 0px 2px 5px 0px #00000060;
+        color: #fff;
         cursor: pointer; }
-        main.center_member .mbtsrd .main_content .right_area .select_row div span:hover {
-          background: #062744;
-          border: 1px solid #4bb2f7; }
-        main.center_member .mbtsrd .main_content .right_area .select_row div span:active {
-          background: #062744; }
+        main.center_member .mbtsrd .main_content .right_area .select_row div span:hover, main.center_member .mbtsrd .main_content .right_area .select_row div span:active, main.center_member .mbtsrd .main_content .right_area .select_row div span.active {
+          background: #4c5473;
+          transform: translateY(3px); }
         main.center_member .mbtsrd .main_content .right_area .select_row div span:hover {
           cursor: pointer; }
   main.center_member .mbtsrd .main_content .right_area .mbtsrd_group > div {
@@ -3847,19 +3815,17 @@ main.center_member .deposit_Mask {
       cursor: pointer;
       font-size: 15px;
       font-family: "Microsoft JhengHei";
-      color: #ffffff;
-      border: 1px solid #cbcbcb;
       border-radius: 5px;
       padding: 0 18px;
-      background: #1394e8;
+      background: linear-gradient(to top, #a28362 0%, #876745 100%);
+      border: solid 1px #715435;
+      color: #ffffff;
       border-radius: 4px;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       width: 150px;
       height: 40px; }
-      main.center_member .deposit_Mask .de_btnpos button:hover {
-        background: #062744; }
-      main.center_member .deposit_Mask .de_btnpos button:active {
+      main.center_member .deposit_Mask .de_btnpos button:hover, main.center_member .deposit_Mask .de_btnpos button:active, main.center_member .deposit_Mask .de_btnpos button.active {
         background: #062744; }
       main.center_member .deposit_Mask .de_btnpos button:first-child {
         margin-left: 0px; }
@@ -3967,23 +3933,22 @@ main.center_member .deposit .main_content {
       main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button {
         padding: 8px 20px;
         float: right;
-        color: #fff;
         font-family: "Microsoft JhengHei";
         font-size: 14px;
-        border: 1px solid #96d5ff;
         border-radius: 5px;
-        background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+        background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+        border: none;
+        box-shadow: 0px 2px 5px 0px #00000060;
+        color: #fff;
         cursor: pointer;
         color: #fff;
         line-height: 15px;
         height: 33px;
         border: 1px solid #daaa33;
         background: linear-gradient(to bottom, #f1d05a 0%, #bb7d08 99%); }
-        main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button:hover {
-          background: #062744;
-          border: 1px solid #4bb2f7; }
-        main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button:active {
-          background: #062744; }
+        main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button:hover, main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button:active, main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button.active {
+          background: #4c5473;
+          transform: translateY(3px); }
         main.center_member .deposit .main_content .right_area div.paydetail_content div.reload button:hover {
           background: #c9931e; }
     main.center_member .deposit .main_content .right_area div.paydetail_content ul.deposit_button {
@@ -4183,10 +4148,6 @@ main.center_member .deposit .main_content {
           /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
           background: #dcdcdc;
           /* Old browsers */
-          background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-          /* FF3.6-15 */
-          background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-          /* Chrome10-25,Safari5.1-6 */
           background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
           /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -4221,30 +4182,28 @@ main.center_member .deposit .main_content {
             cursor: pointer;
             font-size: 15px;
             font-family: "Microsoft JhengHei";
-            color: #ffffff;
-            border: 1px solid #cbcbcb;
             border-radius: 5px;
             padding: 0 18px;
-            background: #1394e8;
+            background: linear-gradient(to top, #a28362 0%, #876745 100%);
+            border: solid 1px #715435;
+            color: #ffffff;
             border-radius: 4px;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             width: 180px;
             height: 40px;
             float: none; }
-            main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm:hover {
-              background: #062744; }
-            main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm:active {
+            main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm:hover, main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm:active, main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.active {
               background: #062744; }
             main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn {
               cursor: pointer;
               font-size: 15px;
               font-family: "Microsoft JhengHei";
-              color: #ffffff;
-              border: 1px solid #cbcbcb;
               border-radius: 5px;
               padding: 0 18px;
-              background: #1394e8;
+              background: linear-gradient(to top, #a28362 0%, #876745 100%);
+              border: solid 1px #715435;
+              color: #ffffff;
               border-radius: 4px;
               -webkit-border-radius: 4px;
               -moz-border-radius: 4px;
@@ -4252,9 +4211,7 @@ main.center_member .deposit .main_content {
               background: #777777;
               cursor: default;
               float: none; }
-              main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn:hover {
-                background: #062744; }
-              main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn:active {
+              main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn:hover, main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn:active, main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn.active {
                 background: #062744; }
               main.center_member .deposit .main_content .right_area div.paydetail_content ul.steplist li.dpwith_btnbox button.confirm.notclick_btn:hover {
                 background: #777777; }
@@ -4291,10 +4248,6 @@ main.center_member .deposit .main_content {
       /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
       background: #dcdcdc;
       /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -4348,20 +4301,18 @@ main.center_member .deposit .main_content {
         cursor: pointer;
         font-size: 15px;
         font-family: "Microsoft JhengHei";
-        color: #ffffff;
-        border: 1px solid #cbcbcb;
         border-radius: 5px;
         padding: 0 18px;
-        background: #1394e8;
+        background: linear-gradient(to top, #a28362 0%, #876745 100%);
+        border: solid 1px #715435;
+        color: #ffffff;
         border-radius: 4px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         float: none;
         background: #777777;
         cursor: default; }
-        main.center_member .deposit .main_content .right_area div.paydetail_content ul.step_book li button.notclick_btn:hover {
-          background: #062744; }
-        main.center_member .deposit .main_content .right_area div.paydetail_content ul.step_book li button.notclick_btn:active {
+        main.center_member .deposit .main_content .right_area div.paydetail_content ul.step_book li button.notclick_btn:hover, main.center_member .deposit .main_content .right_area div.paydetail_content ul.step_book li button.notclick_btn:active, main.center_member .deposit .main_content .right_area div.paydetail_content ul.step_book li button.notclick_btn.active {
           background: #062744; }
         main.center_member .deposit .main_content .right_area div.paydetail_content ul.step_book li button.notclick_btn:hover {
           background: #777777; }
@@ -4456,23 +4407,22 @@ main.center_member .withdra .main_content, main.center_member .bankcd .main_cont
       main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button {
         padding: 8px 20px;
         float: right;
-        color: #fff;
         font-family: "Microsoft JhengHei";
         font-size: 14px;
-        border: 1px solid #96d5ff;
         border-radius: 5px;
-        background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+        background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+        border: none;
+        box-shadow: 0px 2px 5px 0px #00000060;
+        color: #fff;
         cursor: pointer;
         color: #fff;
         line-height: 15px;
         height: 33px;
         border: 1px solid #daaa33;
         background: linear-gradient(to bottom, #f1d05a 0%, #bb7d08 99%); }
-        main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button:hover {
-          background: #062744;
-          border: 1px solid #4bb2f7; }
-        main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button:active, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button:active {
-          background: #062744; }
+        main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button:hover, main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button:active, main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button.active, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button:active, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button.active {
+          background: #4c5473;
+          transform: translateY(3px); }
         main.center_member .withdra .main_content .right_area .withdraw_ways div.reload button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways div.reload button:hover {
           background: #c9931e; }
     main.center_member .withdra .main_content .right_area .withdraw_ways ul.bankinfo:after, main.center_member .bankcd .main_content .right_area .withdraw_ways ul.bankinfo:after {
@@ -4542,10 +4492,6 @@ main.center_member .withdra .main_content, main.center_member .bankcd .main_cont
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
         background: #dcdcdc;
         /* Old browsers */
-        background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-        /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -4576,12 +4522,13 @@ main.center_member .withdra .main_content, main.center_member .bankcd .main_cont
     main.center_member .withdra .main_content .right_area .withdraw_ways li button, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button, main.center_member .bankcd .main_content .right_area .withdraw_ways li button, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button {
       padding: 8px 20px;
       float: right;
-      color: #fff;
       font-family: "Microsoft JhengHei";
       font-size: 14px;
-      border: 1px solid #96d5ff;
       border-radius: 5px;
-      background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+      background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+      border: none;
+      box-shadow: 0px 2px 5px 0px #00000060;
+      color: #fff;
       cursor: pointer;
       color: #fff;
       line-height: 15px;
@@ -4594,22 +4541,20 @@ main.center_member .withdra .main_content, main.center_member .bankcd .main_cont
       height: 38px;
       position: relative;
       left: 205px; }
-      main.center_member .withdra .main_content .right_area .withdraw_ways li button:hover, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways li button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7; }
-      main.center_member .withdra .main_content .right_area .withdraw_ways li button:active, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button:active, main.center_member .bankcd .main_content .right_area .withdraw_ways li button:active, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button:active {
-        background: #062744; }
+      main.center_member .withdra .main_content .right_area .withdraw_ways li button:hover, main.center_member .withdra .main_content .right_area .withdraw_ways li button:active, main.center_member .withdra .main_content .right_area .withdraw_ways li button.active, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button:hover, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button:active, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.active, main.center_member .bankcd .main_content .right_area .withdraw_ways li button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways li button:active, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.active, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button:active, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.active {
+        background: #4c5473;
+        transform: translateY(3px); }
       main.center_member .withdra .main_content .right_area .withdraw_ways li button:hover, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways li button:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button:hover {
         background: #c9931e; }
       main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn {
         cursor: pointer;
         font-size: 15px;
         font-family: "Microsoft JhengHei";
-        color: #ffffff;
-        border: 1px solid #cbcbcb;
         border-radius: 5px;
         padding: 0 18px;
-        background: #1394e8;
+        background: linear-gradient(to top, #a28362 0%, #876745 100%);
+        border: solid 1px #715435;
+        color: #ffffff;
         border-radius: 4px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
@@ -4617,9 +4562,7 @@ main.center_member .withdra .main_content, main.center_member .bankcd .main_cont
         background: #777777;
         cursor: default;
         float: none; }
-        main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn:hover, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:hover {
-          background: #062744; }
-        main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn:active, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:active, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn:active, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:active {
+        main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn:hover, main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn:active, main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn.active, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:hover, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:active, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn.active, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn:active, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn.active, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:active, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn.active {
           background: #062744; }
         main.center_member .withdra .main_content .right_area .withdraw_ways li button.notclick_btn:hover, main.center_member .withdra .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways li button.notclick_btn:hover, main.center_member .bankcd .main_content .right_area .withdraw_ways .dpwith_btnbox button.notclick_btn:hover {
           background: #777777; }
@@ -4685,20 +4628,18 @@ main.center_member .bankcd .main_content table.bankList {
       cursor: pointer;
       font-size: 15px;
       font-family: "Microsoft JhengHei";
-      color: #ffffff;
-      border: 1px solid #cbcbcb;
       border-radius: 5px;
       padding: 0 18px;
-      background: #1394e8;
+      background: linear-gradient(to top, #a28362 0%, #876745 100%);
+      border: solid 1px #715435;
+      color: #ffffff;
       border-radius: 4px;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       width: auto;
       height: auto;
       padding: 3px 10px; }
-      main.center_member .bankcd .main_content table.bankList td button:hover {
-        background: #062744; }
-      main.center_member .bankcd .main_content table.bankList td button:active {
+      main.center_member .bankcd .main_content table.bankList td button:hover, main.center_member .bankcd .main_content table.bankList td button:active, main.center_member .bankcd .main_content table.bankList td button.active {
         background: #062744; }
 
 main.center_member .bankcd .main_content .right_area ul.bankinfo li {
@@ -4710,10 +4651,6 @@ main.center_member .bankcd .main_content .right_area ul.bankinfo li {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
     background: #dcdcdc;
     /* Old browsers */
-    background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -4843,18 +4780,17 @@ main.center_member .mbprob .main_content {
     main.center_member .mbprob .main_content .right_area .reload button {
       padding: 8px 20px;
       float: right;
-      color: #fff;
       font-family: "Microsoft JhengHei";
       font-size: 14px;
-      border: 1px solid #96d5ff;
       border-radius: 5px;
-      background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+      background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+      border: none;
+      box-shadow: 0px 2px 5px 0px #00000060;
+      color: #fff;
       cursor: pointer; }
-      main.center_member .mbprob .main_content .right_area .reload button:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7; }
-      main.center_member .mbprob .main_content .right_area .reload button:active {
-        background: #062744; }
+      main.center_member .mbprob .main_content .right_area .reload button:hover, main.center_member .mbprob .main_content .right_area .reload button:active, main.center_member .mbprob .main_content .right_area .reload button.active {
+        background: #4c5473;
+        transform: translateY(3px); }
   main.center_member .mbprob .main_content .right_area ul.form_list {
     width: 100%;
     padding-bottom: 20px;
@@ -4900,28 +4836,27 @@ main.center_member .mbprob .main_content {
         cursor: pointer;
         font-size: 15px;
         font-family: "Microsoft JhengHei";
-        color: #fff;
-        border: 1px solid #cbcbcb;
         border-radius: 5px;
-        padding: 2px 18px;
-        background: #1394e8;
+        padding: 3px 18px;
+        background: linear-gradient(135deg, #e6c197 0%, #cea983 100%);
+        border: solid 1px #fff;
+        color: #fff;
         height: 40px;
         float: left;
         margin: 0 420px 0;
         width: 120px; }
-        main.center_member .mbprob .main_content .right_area ul.form_list li button:hover {
-          background: #062744; }
-        main.center_member .mbprob .main_content .right_area ul.form_list li button:active {
-          background: #062744; }
+        main.center_member .mbprob .main_content .right_area ul.form_list li button:hover, main.center_member .mbprob .main_content .right_area ul.form_list li button:active, main.center_member .mbprob .main_content .right_area ul.form_list li button.active {
+          background: linear-gradient(to top, #d2b494 0%, #886745 100%);
+          color: #fff; }
         main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn {
           cursor: pointer;
           font-size: 15px;
           font-family: "Microsoft JhengHei";
-          color: #ffffff;
-          border: 1px solid #cbcbcb;
           border-radius: 5px;
           padding: 0 18px;
-          background: #1394e8;
+          background: linear-gradient(to top, #a28362 0%, #876745 100%);
+          border: solid 1px #715435;
+          color: #ffffff;
           border-radius: 4px;
           -webkit-border-radius: 4px;
           -moz-border-radius: 4px;
@@ -4929,9 +4864,7 @@ main.center_member .mbprob .main_content {
           background: #777777;
           cursor: default;
           float: none; }
-          main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn:hover {
-            background: #062744; }
-          main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn:active {
+          main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn:hover, main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn:active, main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn.active {
             background: #062744; }
           main.center_member .mbprob .main_content .right_area ul.form_list li button.notclick_btn:hover {
             background: #777777; }
@@ -5120,11 +5053,11 @@ main.center_member .frm_body {
     width: 100%;
     height: 40px;
     padding: 0;
-    background: #041c31;
+    background: #ffffff;
     line-height: 20px;
-    color: #ffffff;
+    color: #929ab7;
     font-size: 13px;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.4); }
+    box-shadow: 0 -2px 5px #a8afc3; }
     main.center_member .frm_body .frm_footer .cpright {
       float: left;
       margin: 10px 0 0 40px; }
@@ -5135,7 +5068,7 @@ main.center_member .frm_body {
         float: left;
         margin-left: 40px;
         text-align: center;
-        opacity: 0.7;
+        opacity: 1;
         cursor: default; }
         main.center_member .frm_body .frm_footer .supbroswer .broswericon:before {
           content: '';
@@ -5143,7 +5076,7 @@ main.center_member .frm_body {
           width: 20px;
           height: 20px;
           margin-right: 10px;
-          background: url("../img/broswericon.png") 0 0 no-repeat;
+          background: url("../img/new/browserIC.png") no-repeat;
           background-size: 300%;
           position: relative;
           top: 5px; }
@@ -5152,11 +5085,11 @@ main.center_member .frm_body {
         main.center_member .frm_body .frm_footer .supbroswer .broswericon:first-child {
           margin-left: 0; }
       main.center_member .frm_body .frm_footer .supbroswer .suggestion:before {
-        background-position: 20px 0; }
+        background: transparent; }
       main.center_member .frm_body .frm_footer .supbroswer .bs_fox:before {
-        background-position: -20px 0; }
+        background-position-x: 50%; }
       main.center_member .frm_body .frm_footer .supbroswer .bs_ie:before {
-        background-position: -40px 0; }
+        background-position-x: 100%; }
 
 .frm_rightnav {
   width: 100%; }
@@ -5213,7 +5146,7 @@ main.center_member .frm_body {
         top: -10px;
         z-index: 99;
         border-radius: 50% 50% 0 50%;
-        background-color: #cd0a55;
+        background-color: #ff0e0e;
         border: 1px solid #fff;
         padding: 3px;
         color: #ffffff;
@@ -5359,22 +5292,17 @@ main.center_member .frm_body {
         cursor: pointer;
         font-size: 15px;
         font-family: "Microsoft JhengHei";
-        color: #fff;
-        background: #015556;
+        color: #000;
+        background: #ccd6dd;
         /* Old browsers */
-        background: -moz-linear-gradient(top, #07b585 1%, #015556 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #07b585 1%, #015556 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, #07b585 1%, #015556 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        background: linear-gradient(to bottom, #07b585 0%, #015556 100%);
+        background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6767FF', endColorstr='#5252CC',GradientType=0 );
         /* IE6-9 */
         border-radius: 5px;
         padding: 8px 25px;
         text-align: center;
         font-weight: bold;
+        border: 1px solid #cccccc;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6e55a5+0,6e3796+100 */
         background: #6e55a5;
         /* Old browsers */
@@ -5389,10 +5317,10 @@ main.center_member .frm_body {
         width: 300px;
         margin: 0px auto;
         padding: 8px 0; }
-        .frm_rightnav .qrcode_dialog .main_center_dialog .box button:hover {
-          color: #fff;
-          background: #08423b;
-          /* Old browsers */ }
+        .frm_rightnav .qrcode_dialog .main_center_dialog .box button:hover, .frm_rightnav .qrcode_dialog .main_center_dialog .box button:active, .frm_rightnav .qrcode_dialog .main_center_dialog .box button.active {
+          background: linear-gradient(to top, #fff0c4 0%, #dcb287 100%);
+          border: 1px solid #d6b898;
+          color: #543f18; }
         .frm_rightnav .qrcode_dialog .main_center_dialog .box button:hover {
           background: #41195a; }
 
@@ -5414,31 +5342,9 @@ main .pb .main_title .title_btn, main .rule .main_title .title_btn, main .how .m
   border: 1px solid #B8B8CC;
   border-bottom: 0;
   letter-spacing: 0;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
-  background: #dcdcdc;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-  /* IE6-9 */ }
-  main .pb .main_title .title_btn:hover, main .rule .main_title .title_btn:hover, main .how .main_title .title_btn:hover {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ccd6dd+5,ffffff+100 */
-    background: #ccd6dd;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #ccd6dd 5%, #ffffff 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-    /* IE6-9 */ }
-  main .pb .main_title .title_btn.active, main .pb .main_title .title_btn:active, main .rule .main_title .title_btn.active, main .rule .main_title .title_btn:active, main .how .main_title .title_btn.active, main .how .main_title .title_btn:active {
-    background: #114169;
+  background: linear-gradient(to bottom, #ffffff 5%, #b4bbd6 80%, #eff0f6 100%); }
+  main .pb .main_title .title_btn:hover, main .pb .main_title .title_btn.active, main .pb .main_title .title_btn:active, main .rule .main_title .title_btn:hover, main .rule .main_title .title_btn.active, main .rule .main_title .title_btn:active, main .how .main_title .title_btn:hover, main .how .main_title .title_btn.active, main .how .main_title .title_btn:active {
+    background: linear-gradient(to bottom, #4C5473 0%, #929AB7 100%);
     color: #fff; }
 
 main .pb .main_content, main .rule .main_content, main .how .main_content {
@@ -5446,7 +5352,7 @@ main .pb .main_content, main .rule .main_content, main .how .main_content {
 
 main.about_rule .rule .main_content {
   padding: 0 0 50px 0;
-  background: #114169; }
+  background: #fff; }
   main.about_rule .rule .main_content .us_category {
     padding: 30px 30px 0 68px; }
     main.about_rule .rule .main_content .us_category:after {
@@ -5461,59 +5367,32 @@ main.about_rule .rule .main_content {
       cursor: pointer;
       font-size: 15px;
       font-family: "Microsoft JhengHei";
-      color: #ffffff;
-      border: 1px solid #cbcbcb;
       border-radius: 5px;
       padding: 0 18px;
-      background: #1394e8;
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
-      background: #dcdcdc;
-      /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-      /* IE6-9 */
-      color: #006abb;
+      background: linear-gradient(to top, #a28362 0%, #876745 100%);
+      border: solid 1px #715435;
+      color: #ffffff;
+      background: linear-gradient(to bottom, #DEC38A 0%, #BB8E5D 100%);
+      color: #fff;
       margin-right: 15px; }
-      main.about_rule .rule .main_content .us_category div:hover {
+      main.about_rule .rule .main_content .us_category div:hover, main.about_rule .rule .main_content .us_category div:active, main.about_rule .rule .main_content .us_category div.active {
         background: #062744; }
-      main.about_rule .rule .main_content .us_category div:active {
-        background: #062744; }
-      main.about_rule .rule .main_content .us_category div:hover {
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ccd6dd+5,ffffff+100 */
-        background: #ccd6dd;
-        /* Old browsers */
-        background: -moz-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, #ccd6dd 5%, #ffffff 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-        /* IE6-9 */ }
-      main.about_rule .rule .main_content .us_category div.active {
-        background: linear-gradient(to bottom, #19a4ff 1%, #1268b1 100%);
-        color: #fff; }
-        main.about_rule .rule .main_content .us_category div.active:hover {
-          background: linear-gradient(to bottom, #1268b1 0%, #19a4ff 100%); }
+      main.about_rule .rule .main_content .us_category div:hover, main.about_rule .rule .main_content .us_category div:active, main.about_rule .rule .main_content .us_category div.active {
+        background: linear-gradient(to bottom, #82562B 0%, #BD9D5C 100%); }
   main.about_rule .rule .main_content .right_area {
     width: 1200px;
     margin: 0px auto 0px auto; }
     main.about_rule .rule .main_content .right_area .red {
-      color: #ffcd2b;
+      color: #c39059;
       font-weight: bold; }
     main.about_rule .rule .main_content .right_area h1 {
       font-size: 24px;
-      color: #fff;
+      color: #3a3a3a;
       font-weight: bold;
       padding: 50px 0px 15px 0; }
     main.about_rule .rule .main_content .right_area h2 {
       font-size: 20px;
-      color: #fff;
+      color: #3a3a3a;
       font-weight: bold;
       line-height: 36px; }
     main.about_rule .rule .main_content .right_area ol {
@@ -5522,7 +5401,7 @@ main.about_rule .rule .main_content {
       list-style-type: decimal;
       margin-left: 40px; }
       main.about_rule .rule .main_content .right_area ol li {
-        color: #fff;
+        color: #3a3a3a;
         padding: 0 0 0 32px;
         text-indent: -13px;
         border-bottom: 1px solid transparent;
@@ -5533,7 +5412,7 @@ main.about_rule .rule .main_content {
     main.about_rule .rule .main_content .right_area p {
       font-size: 16px;
       line-height: 30px;
-      color: #fff;
+      color: #3a3a3a;
       font-weight: bold; }
     main.about_rule .rule .main_content .right_area .img1-1, main.about_rule .rule .main_content .right_area .img1-2, main.about_rule .rule .main_content .right_area .img2-1, main.about_rule .rule .main_content .right_area .img2-2, main.about_rule .rule .main_content .right_area .img3-1, main.about_rule .rule .main_content .right_area .img3-2 {
       margin: 10px 0 0 0;
@@ -5591,7 +5470,7 @@ main.about_rule .rule .main_content {
 
 main.about_how .how .main_content {
   padding: 0 0 50px 0;
-  background: #114169; }
+  background: #fff; }
   main.about_how .how .main_content .us_category {
     padding: 30px 30px 0 68px; }
     main.about_how .how .main_content .us_category:after {
@@ -5606,45 +5485,18 @@ main.about_how .how .main_content {
       cursor: pointer;
       font-size: 15px;
       font-family: "Microsoft JhengHei";
-      color: #ffffff;
-      border: 1px solid #cbcbcb;
       border-radius: 5px;
       padding: 0 18px;
-      background: #1394e8;
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
-      background: #dcdcdc;
-      /* Old browsers */
-      background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-      /* IE6-9 */
-      color: #006abb;
-      margin-right: 15px; }
-      main.about_how .how .main_content .us_category div:hover {
+      background: linear-gradient(to top, #a28362 0%, #876745 100%);
+      border: solid 1px #715435;
+      color: #ffffff;
+      margin-right: 15px;
+      background: linear-gradient(to bottom, #DEC38A 0%, #BB8E5D 100%);
+      color: #fff; }
+      main.about_how .how .main_content .us_category div:hover, main.about_how .how .main_content .us_category div:active, main.about_how .how .main_content .us_category div.active {
         background: #062744; }
-      main.about_how .how .main_content .us_category div:active {
-        background: #062744; }
-      main.about_how .how .main_content .us_category div:hover {
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ccd6dd+5,ffffff+100 */
-        background: #ccd6dd;
-        /* Old browsers */
-        background: -moz-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #ccd6dd 5%, #ffffff 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, #ccd6dd 5%, #ffffff 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
-        /* IE6-9 */ }
-      main.about_how .how .main_content .us_category div.active {
-        background: linear-gradient(to bottom, #19a4ff 1%, #1268b1 100%);
-        color: #fff; }
-        main.about_how .how .main_content .us_category div.active:hover {
-          background: linear-gradient(to bottom, #1268b1 0%, #19a4ff 100%); }
+      main.about_how .how .main_content .us_category div:hover, main.about_how .how .main_content .us_category div:active, main.about_how .how .main_content .us_category div.active {
+        background: linear-gradient(to bottom, #82562B 0%, #BD9D5C 100%); }
   main.about_how .how .main_content .right_area {
     width: 1200px;
     margin: 0px auto 0px auto; }
@@ -5653,7 +5505,7 @@ main.about_how .how .main_content {
       font-weight: bold; }
     main.about_how .how .main_content .right_area h1 {
       font-size: 24px;
-      color: #fff;
+      color: #3a3a3a;
       font-weight: bold;
       padding: 50px 0px 35px 0; }
     main.about_how .how .main_content .right_area ol {
@@ -5663,7 +5515,7 @@ main.about_how .how .main_content {
       position: relative; }
       main.about_how .how .main_content .right_area ol li {
         position: relative;
-        color: #fff;
+        color: #3a3a3a;
         padding: 0 0 25px 50px;
         text-indent: -13px;
         font-size: 18px;
@@ -5677,7 +5529,7 @@ main.about_how .how .main_content {
           width: 29px;
           height: 29px;
           transform: rotate(-45deg);
-          background: #1dccff;
+          background: #a28362;
           left: -14px;
           top: 0; }
         main.about_how .how .main_content .right_area ol li:nth-child(1):after {
@@ -5694,13 +5546,13 @@ main.about_how .how .main_content {
           display: block;
           left: 9px;
           top: -1px;
-          color: #062744;
+          color: #fff;
           font-size: 16px; }
         main.about_how .how .main_content .right_area ol li:last-child {
           padding-bottom: 0;
           border-left: 0; }
           main.about_how .how .main_content .right_area ol li:last-child::before {
-            background: #1dccff; }
+            background: #a28362; }
           main.about_how .how .main_content .right_area ol li:last-child::after {
             content: '';
             width: 18px;
@@ -5995,20 +5847,18 @@ main.center_member .ichat_atm {
         cursor: pointer;
         font-size: 15px;
         font-family: "Microsoft JhengHei";
-        color: #ffffff;
-        border: 1px solid #cbcbcb;
         border-radius: 5px;
         padding: 0 18px;
-        background: #1394e8;
+        background: linear-gradient(to top, #a28362 0%, #876745 100%);
+        border: solid 1px #715435;
+        color: #ffffff;
         border-radius: 4px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         float: none;
         background: #777777;
         cursor: default; }
-        main.center_member .ichat_atm .btn-group button.notclick_btn:hover {
-          background: #062744; }
-        main.center_member .ichat_atm .btn-group button.notclick_btn:active {
+        main.center_member .ichat_atm .btn-group button.notclick_btn:hover, main.center_member .ichat_atm .btn-group button.notclick_btn:active, main.center_member .ichat_atm .btn-group button.notclick_btn.active {
           background: #062744; }
         main.center_member .ichat_atm .btn-group button.notclick_btn:hover {
           background: #777777; }
@@ -6040,10 +5890,6 @@ main.bulletin_discount .main_center .main_title .title_btn {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
   background: #dcdcdc;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #ffffff 5%, #ccd6dd 100%);
-  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
@@ -6080,7 +5926,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card1 .banner .check {
         position: absolute;
         bottom: 0;
@@ -6109,7 +5956,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card2 .banner .check {
         position: absolute;
         bottom: 0;
@@ -6138,7 +5986,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card3 .banner .check {
         position: absolute;
         bottom: 0;
@@ -6167,7 +6016,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card4 .banner .check {
         position: absolute;
         bottom: 0;
@@ -6196,7 +6046,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card5 .banner .check {
         position: absolute;
         bottom: 0;
@@ -6225,7 +6076,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card6 .banner .check {
         position: absolute;
         bottom: 0;
@@ -6254,7 +6106,8 @@ main.bulletin_discount .main_center .main_content {
       height: 145px;
       position: relative;
       border-radius: 8px 8px 0 0;
-      overflow: hidden; }
+      overflow: hidden;
+      cursor: pointer; }
       main.bulletin_discount .main_center .main_content .card7 .banner .check {
         position: absolute;
         bottom: 0;

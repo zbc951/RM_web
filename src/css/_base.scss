@@ -48,7 +48,7 @@ $color-orange7: #ffe0d3;
 $color-orange8: #9c3400;
 $color-purple1: #41195a;
 $color-purple2: #be0f55;
-$color-purple3: #cd0a55;
+$color-purple3: #ff0e0e;
 $color-purple4: #2d1e73;
 $color-purple5: #6e55a5;
 $color-gold1: #aa8750;
@@ -59,6 +59,7 @@ $color-gold5: #ffbe28;
 $color-gold6: #ffc30e;
 $color-gold7: #ffc926;
 $color-gold8: #c9931e;
+$color-gold9: #a28362;
 
 /*文字大小*/
 $front12: 12px;
@@ -147,8 +148,6 @@ $logo-wudth: 229px;
 @mixin gradient-gray2 {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdcdc+5,ffffff+100 */
     background: #dcdcdc; /* Old browsers */
-    background: -moz-linear-gradient(top, #ffffff 5%, #ccd6dd 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffffff 5%,#ccd6dd 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffffff 5%,#ccd6dd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
@@ -322,8 +321,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6e55a5', end
 
 /*label*/
 @mixin label-style1 {
-    color: #fff;
-    line-height: 28px;
+    color: #35353b;
+    line-height: 32px;
     font-weight: 700;
     margin: 0 10px 0 0;
 }
@@ -447,16 +446,18 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei";
-    color: #0181d4;
-    border: 2px solid #22a8ff;
     border-radius: 5px;
-    padding: 6px 15px;
+    padding: 8px 15px;
     text-align: center;
     font-weight: bold;
-    background: #fff;
-    &:hover {
+    background: linear-gradient(to top,#ffffff 0%,#f5ede1 46%,#ffffff 100%);
+    box-shadow: 0px 2px 5px 0px #9a846e;
+    border: solid 1px #64472b;
+    color: #926c46;
+    &:hover,&:active,&.active {
+        background: linear-gradient(to top,#636f99 0%,#495377 100%);
+        border-color: #fff;
         color: #fff;
-        background: #0b3c65;
     }
 }
 
@@ -466,15 +467,18 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei"; //微軟正黑體
-    color: #FFFFFF;
-    background: linear-gradient(to bottom, #19a4ff 0%, #1268b1 100%);
-    border: 0;
     border-radius: 5px;
     padding: 8px 15px;
     text-align: center;
     font-weight: bold;
-    &:hover {
-        background: #00609e;
+    background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+    border: solid 1px #617399;
+    box-shadow: 0px 2px 5px 0px #9a846e;
+    color: #926c46;
+    &:hover,&:active,&.active {
+        background: linear-gradient(to top,#5681dd 0%,#436dc6 100%);
+        border-color: #3f496f;
+        color: #fff
     }
 }
 @mixin btn-style13 {
@@ -483,15 +487,17 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei"; //微軟正黑體
-    color: #FFFFFF;
-    background: linear-gradient(to bottom, #be0f55 0%, #cd0a55 100%);
-    border: 0;
     border-radius: 5px;
     padding: 8px 15px;
     text-align: center;
     font-weight: bold;
-    &:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+    border: solid 1px #617399;
+    box-shadow: 0px 2px 5px 0px #9a846e;
+    color: #926c46;
+    &:hover,&:active,&.active {
         background: #cd0a55;
+        color: #fff;
     }
 }
 
@@ -500,11 +506,13 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei";
-    color: #6c6c6c;
-    background: linear-gradient(to bottom,  #fafafa 0%, #fff 50%, #d3d3d3 100%);
     padding: 0 18px;
-    &:hover {
-        background: #f0f0f0;
+    background: linear-gradient(to top,  #ffffff 0%, #e7ecf7 48%, #ffffff 100%);
+    border: solid 1px #64472b;
+    color: #8b643d;
+    &:hover,&:active,&.active {
+        background:#ae8c67;
+        color: #fff;
     }
 }
 
@@ -512,15 +520,12 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei";
-    color: #ffffff;
-    border: 1px solid #cbcbcb;
     border-radius: 5px;
     padding: 0 18px;
-    background: #1394e8;
-    &:hover {
-        background: #062744;
-    }
-    &:active {
+    background: linear-gradient(to top,#a28362 0%,#876745 100%);
+    border: solid 1px #715435;
+    color: #ffffff;
+    &:hover,&:active,&.active {
         background: #062744;
     }
 }
@@ -529,20 +534,19 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei";
-    color: $color-white;
-    background: #015556; /* Old browsers */
-    background: -moz-linear-gradient(top, #07b585 1%, #015556 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #07b585 1%,#015556 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #07b585 1%,#015556 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    background: linear-gradient(to bottom, #07b585 0%, #015556 100%);
+    color: #000;
+    background: #ccd6dd; /* Old browsers */
+    background: linear-gradient(to bottom, #ffffff 5%, #ccd6dd 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6767FF', endColorstr='#5252CC',GradientType=0 ); /* IE6-9 */
     border-radius: 5px;
     padding: 8px 25px;
     text-align: center;
     font-weight: bold;
-    &:hover {
-        color: $color-white;
-        background: #08423b; /* Old browsers */
+    border: 1px solid #cccccc;
+    &:hover,&:active,&.active {
+        background: linear-gradient(to top, #fff0c4 0%, #dcb287 100%);
+        border: 1px solid #d6b898;
+        color: #543f18;
         // background: -moz-linear-gradient(top, #6767FF 1%, #5252CC 100%); /* FF3.6-15 */
         // background: -webkit-linear-gradient(top, #6767FF 1%,#5252CC 100%); /* Chrome10-25,Safari5.1-6 */
         // background: linear-gradient(to bottom, #6767FF 1%,#5252CC 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -554,19 +558,17 @@ button {
 @mixin btn-style6-reload {
     padding: 8px 20px;
     float: right;
-    color: #fff;
     font-family: "Microsoft JhengHei";
     font-size: 14px;
-    border: 1px solid #96d5ff;
     border-radius: 5px;
-    background: linear-gradient(to bottom, #32a6f3 0%, #114169 100%);
+    background: linear-gradient(to top, #4c5473 0%, #929ab7 100%);
+    border: none;
+    box-shadow: 0px 2px 5px 0px #00000060;
+    color: #fff;
     cursor: pointer;
-    &:hover {
-        background: #062744;
-        border: 1px solid #4bb2f7;
-    }
-    &:active {
-        background: #062744;
+    &:hover,&:active,&.active {
+        background: #4c5473;
+        transform: translateY(3px);
     }
 }
 
@@ -635,16 +637,14 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei";
-    color: #fff;
-    border: 1px solid #cbcbcb;
     border-radius: 5px;
-    padding: 2px 18px;
-    background: #1394e8;
-    &:hover {
-        background: #062744;
-    }
-    &:active {
-        background: #062744;
+    padding: 3px 18px;
+    background: linear-gradient(135deg, #e6c197 0%, #cea983 100%);
+    border: solid 1px #fff;
+    color: #fff;
+    &:hover,&:active,&.active {
+        background: linear-gradient(to top, #d2b494 0%, #886745 100%);
+        color: #fff;
     }
 }
 
@@ -701,15 +701,18 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-family: "Microsoft JhengHei"; //微軟正黑體
-    color: #FFFFFF;
-    background: linear-gradient(to bottom, #50c133 0%, #268f0b 100%);
-    border: 0;
     border-radius: 5px;
     padding: 8px 15px;
     text-align: center;
     font-weight: bold;
-    &:hover {
-        background: linear-gradient(to bottom, #135c00 0%, #248b0a 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%);
+    border: solid 1px #617399;
+    box-shadow: 0px 2px 5px 0px #ae9b87;
+    color: #926c46;
+    &:hover,&:active,&.active {
+        background: #617399;
+        color: #fff;
+        border-color: #fff;
     }
 }
 
@@ -856,8 +859,8 @@ button {
     &::-webkit-scrollbar-thumb {
         background-color: #b4b4b4;
         background-image: -webkit-gradient(linear, 0 0, 0 100%,
-                        color-stop(.5, rgba(255, 255, 255, .2)),
-                        color-stop(.5, transparent), to(transparent));
+                        color-stop(.5, rgba(146, 154, 183, 1)),
+                        color-stop(.5, #838aa7), to(#636c8e));
     }
 }
 
@@ -898,7 +901,7 @@ button {
 @mixin main_title2 {
     position: relative;
     z-index: 1;
-    color: #0093d4;
+    color: #a2805c;
     font-size: 25px;
     font-weight: bold;
     height: 60px;
@@ -908,7 +911,7 @@ button {
     font-size: 20px;
     letter-spacing: 3px;
     box-shadow: 0 0 10px rgba(50,0,70,0.4);
-    @include gradient-gray1;
+    background: linear-gradient(to bottom,#ffffff 0%,#e7ecf7 48%,#ffffff 100%);
 }
 
 /*checkbox樣式*/
@@ -933,17 +936,17 @@ button {
     position: absolute;
     left: 0; top: 0;
     width: 1.25em; height: 1.25em;
-    border: 2px solid #ccc;
+    border: solid 1px #af8f6d;
     background: #fff;
     border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    box-shadow: 0px 0px 5px 2px #e5e6ea inset;
     }
     /* checked mark aspect */
     [type="checkbox"]:not(:checked) + label:after,
     [type="checkbox"]:checked + label:after {
     content: '✔';
     position: absolute;
-    top: 4px; left: 4px;
+    top: 3px; left: 3px;
     font-size: 1.3em;
     line-height: 0.8;
     color: #ff4d7f;
@@ -1013,7 +1016,6 @@ html,
 body {
     font-family: "\5FAE\8EDF\6B63\9ED1\9AD4","Microsoft JhengHei","MingLiU","sans-serif","Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #ffffff;
-    background: #062744;
 }
 body {
     //@include scrollbar_blue2;
@@ -1023,18 +1025,30 @@ body {
     left: 0;
     width: 100%;
     overflow-y: hidden;
+
+    .bg {
+        width: 100%;
+        min-width: 1500px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: url('../img/new/bg.jpg') no-repeat top center;
+        background-size: cover;
+        z-index: -999;
+    }
 }
 
 //頁面上方bar
 header {  
-    background: #062744;
+    background: linear-gradient(to right,#bd9872 0%,#e9ccad 26%,#d3b494 41%,#bd9872 60%,#f5e6bc 80%,#e9ccad 91%);
     height: 125px;
     width: 100%;
     min-width: 1500px;
     position: relative;
     top: 0;
     z-index: 999;
-    box-shadow: 0 2px 30px rgba(#000, 0.3);
+    box-shadow: 0 2px 18px rgba(#000, 0.3);
     &::before {
         content: "";
         display: block;
@@ -1047,11 +1061,10 @@ header {
     }
     .top { 
         // @include gradient-gold;
-        background: #041c31;
         width: 100%;
         height: 30px;
+        background: url('../img/new/headerTop.jpg') no-repeat top center;
         // box-shadow: 0 0 5px rgba(0,0,0,0.3);
-        border-bottom: 1px solid #103a5f;
         &::before {}
         &::after {
             content: "";
@@ -1066,20 +1079,20 @@ header {
         }
         .time {
             line-height: 30px;
-            color: $color-white;
+            color: #bd9874;
             font-size: $front14;
             float: left;
             padding: 0 0 0 10px;
         }
         .language {
             // float: right;
-            color: $color-blue14;
+            color: #009944;
             position: absolute;
             z-index: 999;
             top: 0;
             right: 10px;
             cursor: pointer;
-            padding: 6px 0 2px;
+            padding: 9px 0 2px;
             width: 100px;
             height: 18px;
             background-color: #fff;
@@ -1150,7 +1163,7 @@ header {
             line-height: 30px;
             margin-right: 130px;
             font-size: $front16;
-            color: $color-white;
+            color: #bd9874;
             width: calc(100% - 450px);
             height: 100%;
             cursor: pointer;         
@@ -1160,7 +1173,7 @@ header {
         height: 95px;
         .logo {
             float: left;
-            background: url(../img/header/logo.png) no-repeat;
+            background: #fff;
             width: 229px;
             height: 70px;
             margin: 12px 0 0 40px;
@@ -1169,25 +1182,36 @@ header {
         .menu {
             // margin-left: 14px;
             float: left;
+            font-size: 0px;
             span {    
                 position: relative;
                 display: inline-block;
-                padding: 0 8px;
+                padding: 0 12px;
                 height: 100%;
                 line-height: 95px;
                 font-size: 20px;
                 font-weight: bold;
                 color: #fff;
                 cursor: pointer;
-                &:hover, &.active {
-                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(58, 160, 220, 0.62) 97%, #ffffff 97%);
+                &:hover,&:active,&.active {
+                    background: linear-gradient(to top, #efd3b4 0%, #a5825c 100%);
+                    
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0px;
+                        bottom: 0px;
+                        background: #fff;
+                        width: 100%;
+                        height: 4px;
+                    }
                 }
 
                 .count{
                     border: 1px solid #fff;
                     border-radius: 50% 50% 50% 0;
                     padding: 3px;
-                    background: #c58d0d;
+                    background: #405480;
                     position: absolute;
                     z-index: 99;
                     right: -10px;
@@ -1226,8 +1250,8 @@ header {
                     right: 1px;
                     border-radius: 0 5px 5px 0;
                     float: left;
-                    background: linear-gradient(to bottom, #1394e8 0%, #155b96 100%);
-                    width: 24px;
+                    background: linear-gradient(to bottom, #a28363 0%, #b09272 100%);
+                    width: 30px;
                     height: 30px;
                     margin: 6px 0 0 -20px;
                     cursor: pointer;
@@ -1235,16 +1259,16 @@ header {
                         content: '';
                         display: block;
                         position: absolute;
-                        top: 7px;
-                        right: 4px;
-                        background: url(../img/header/icon_reload.png) no-repeat;
-                        width: 16px;
-                        height: 15px;
+                        top: 5px;
+                        right: 7px;
+                        background: url('../img/new/reIC.png') no-repeat;
+                        width: 17px;
+                        height: 20px;
                         transition: all 0.2s ease-out;
                     }
                     &:hover {
                         &::before {
-                            transform: rotate(-120deg); 
+                            transform: rotate(120deg); 
                         }
                         
                     }
@@ -1270,17 +1294,10 @@ header {
                 margin-top: 4px;
                 .btn_wallet {
                     @include btn-style1;
-                    padding: 8px 15px;
                     float: left;
                     margin: 6px 12px 0 0;
-                    border: 0;
-                    color: #fff;
-                    background: linear-gradient(to bottom, #f1d05a 0%, #bb7d08 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    background: linear-gradient(to bottom, #ffffff 0%, #dfe7f8 52%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05b464', endColorstr='#00ff87',GradientType=0 ); /* IE6-9 */
-                    &:hover {
-                        color: #fff;
-                        background: #8a5d16;
-                    }
                     font-size: 13px;
                 }
                 .btn_account {
@@ -1290,7 +1307,7 @@ header {
                     margin: 6px 10px 0 0;
                 }
                 .btn_account_g {
-                    @include btn-style14;
+                    @include btn-style2;
                     float: left;
                     font-size: 13px;
                     margin: 6px 10px 0 0;
@@ -1303,10 +1320,20 @@ header {
                 }
                 .btn_discount {
                     @include btn-style13; //btn-style13
+                    background: linear-gradient(to top,#ffffff 0%,#dfe7f8 52%,#ffffff 100%);
                     float: left; 
                     font-size: 13px;
                     margin: 6px 10px 0 0;
+                    border: solid 1px #617399;
+                    color: #926c46;
+                    box-shadow: 0px 2px 5px 0px #ae9b87;
+                    &:hover,&:active,&.active {
+                        background: linear-gradient(to top, #bd4d4d 0%, #8c0000 100%);
+                        color: #fff;
+                        border-color: #ffc3c3;
+                    }
                     .serial{
+                        display: none;
                         float: left;
                         width: 24px;
                         height: 17px;
@@ -1348,7 +1375,7 @@ header {
                     color : $color-white;
                     @include checkbox-style1;
                     label {
-                        color: #fff;
+                        color: #35353b;
                     }
                     input{
                         width: 2em;
@@ -1376,7 +1403,7 @@ header {
                 .btn_forget_g {
                     @include btn-style14;
                     float: left;
-                    padding: 10px 15px;
+                    padding: 10px 15px 11px;
                     width: 70px;
                     margin: 6px 12px 0 0;
                 }
@@ -1394,7 +1421,7 @@ header {
                     color : $color-white;
                     @include checkbox-style1;
                     label {
-                        color: #fff;
+                        color: #35353b;
                     }
                     input{
                         width: 2em;
@@ -1575,7 +1602,6 @@ header {
 main {
     //height: calc(100vh - 155px);
     // min-height: 800px;
-    background: #041c31 url('../img/main_bg.png') center center no-repeat;
     background-size: cover;
     font-size: 50px;
     width: 100%;
@@ -1593,11 +1619,11 @@ main {
         margin: 0 auto;
         position: relative;
         min-height: 100%;
-        background: #114169;
-        border-left: 1px solid #b2b2b2;
-        border-right: 1px solid #b2b2b2;
+        background: #fff;
         .main_title {
             @include main_title2;
+            border: solid 3px #bfc3da;
+            border-top-width: 0px;
         }
     }
     .bind_login{
