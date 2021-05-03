@@ -9,6 +9,7 @@
             <div class="title_btn" [class.active]="selectItem == 'bankCard'" (click)="changeSelectItem('bankCard')" *ngIf="globals.getShowLogout()">{{"Instructions for binding ATM card" | getLang : api.langPackage}}</div>
             <div class="title_btn" [class.active]="selectItem == 'depositSerial'" (click)="changeSelectItem('depositSerial')" *ngIf="globals.getShowLogout()">{{"deposit operation instructions" | getLang : api.langPackage}}</div>
             <div class="title_btn" [class.active]="selectItem == 'withdraw'" (click)="changeSelectItem('withdraw')" *ngIf="globals.getShowLogout()">{{"Withdrawal instructions" | getLang : api.langPackage}}</div>            
+            <div class="title_btn">系統懲處規章</div>
         </div>
         <div class="main_content" [ngSwitch]="selectItem">
                 <rules  *ngSwitchCase="'rules'"></rules>
@@ -16,7 +17,6 @@
                 <about-bank-card  *ngSwitchCase="'bankCard'"></about-bank-card>
                 <about-deposit-serial  *ngSwitchCase="'depositSerial'"></about-deposit-serial>
                 <about-withdraw  *ngSwitchCase="'withdraw'"></about-withdraw>
-
         </div>
     </div>
 </main>

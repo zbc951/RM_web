@@ -230,11 +230,12 @@ header {
     height: 95px; }
     header .down .logo {
       float: left;
-      background: #000;
-      width: 229px;
+      width: 160px;
       height: 70px;
-      margin: 12px 0 0 40px;
-      background-size: contain; }
+      margin: 16px 25px 0px 25px;
+      background-size: contain;
+      background: url("../img/new/logo.png") no-repeat;
+      background-size: 100%; }
     header .down .menu {
       float: left;
       font-size: 0px; }
@@ -2112,7 +2113,7 @@ main.bet_detail .bd .main_content {
       main.bet_detail .bd .main_content .bd_group .bd_data .data6 {
         width: 80px;
         line-height: 54px;
-        color: #114169; }
+        color: #495686; }
       main.bet_detail .bd .main_content .bd_group .bd_data .data7 {
         width: 80px;
         line-height: 54px; }
@@ -3201,7 +3202,7 @@ main.center_member .main_content {
       padding: 0 16px;
       font-size: 16px;
       font-weight: bold;
-      color: #114169;
+      color: #495686;
       border: 1px solid #B8B8CC;
       border-radius: 16px;
       background: linear-gradient(to bottom, #fff 0%, #F5F5F7 40%, #CDCDD9 100%);
@@ -3602,9 +3603,9 @@ main.center_member .mbtsrd .main_content {
         width: 50%;
         text-align: left; }
         main.center_member .mbtsrd .main_content .right_area .mbtsrd_group > div.mbtsrd_total .total:first-child span:first-child {
-          color: #114169; }
+          color: #495686; }
           main.center_member .mbtsrd .main_content .right_area .mbtsrd_group > div.mbtsrd_total .total:first-child span:first-child::before {
-            background-color: #114169; }
+            background-color: #495686; }
         main.center_member .mbtsrd .main_content .right_area .mbtsrd_group > div.mbtsrd_total .total:nth-child(2) span:first-child {
           color: #eb4646; }
           main.center_member .mbtsrd .main_content .right_area .mbtsrd_group > div.mbtsrd_total .total:nth-child(2) span:first-child::before {
@@ -3645,9 +3646,9 @@ main .right_area .select_row_bet {
     width: 33%;
     text-align: left;
     float: left;
-    color: #114169; }
+    color: #495686; }
     main .right_area .select_row_bet .total::before {
-      background-color: #114169; }
+      background-color: #495686; }
     main .right_area .select_row_bet .total span {
       position: relative;
       padding-left: 30px;
@@ -3742,9 +3743,9 @@ main .right_area .mbtsrd_group_bet > div {
       width: 50%;
       text-align: left; }
       main .right_area .mbtsrd_group_bet > div.mbtsrd_total .total:first-child span:first-child {
-        color: #114169; }
+        color: #495686; }
         main .right_area .mbtsrd_group_bet > div.mbtsrd_total .total:first-child span:first-child::before {
-          background-color: #114169; }
+          background-color: #495686; }
       main .right_area .mbtsrd_group_bet > div.mbtsrd_total .total:nth-child(2) span:first-child {
         color: #eb4646; }
         main .right_area .mbtsrd_group_bet > div.mbtsrd_total .total:nth-child(2) span:first-child::before {
@@ -3841,7 +3842,7 @@ main.center_member .deposit_Mask {
       main.center_member .deposit_Mask ol li:last-child {
         border-bottom: 0; }
       main.center_member .deposit_Mask ol li span {
-        color: #114169;
+        color: #495686;
         float: left;
         display: inline-block;
         padding: 15px 0 15px 5px;
@@ -5030,7 +5031,7 @@ main.center_member .frm_body {
       position: absolute;
       top: 0;
       left: 0;
-      animation: banner 25s infinite; }
+      animation: banner 18s infinite; }
       main.center_member .frm_body .main_content .slidebg .bannerContainer .banner {
         height: 100%;
         width: calc(100% / 5);
@@ -5441,6 +5442,11 @@ main.about_rule .rule .main_content {
       background: url("../img/rule/rule_img3-2.jpg") no-repeat;
       width: 828px;
       height: 527px; }
+    main.about_rule .rule .main_content .right_area .punishImg {
+      background: url("../img/rule/rule_img3-3.jpg") no-repeat;
+      background-size: 100%;
+      width: 700px;
+      height: 933px; }
     main.about_rule .rule .main_content .right_area ul.qa_record {
       margin: 30px 0 70px;
       font-size: 18px;
@@ -5907,7 +5913,7 @@ main.bulletin_discount .main_center .main_title .title_btn {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd6dd', endColorstr='#ffffff',GradientType=0 );
     /* IE6-9 */ }
   main.bulletin_discount .main_center .main_title .title_btn.active, main.bulletin_discount .main_center .main_title .title_btn:active {
-    background: #114169;
+    background: #495686;
     color: #fff; }
 
 main.bulletin_discount .main_center .main_content {
@@ -5949,7 +5955,7 @@ main.bulletin_discount .main_center .main_content {
     margin: 20px 0 0 0;
     border-radius: 8px; }
     main.bulletin_discount .main_center .main_content .card2 .banner {
-      background: url(../img/event/event_002.jpg) no-repeat;
+      background: url(../img/event/event_0002.jpg) no-repeat;
       background-size: cover;
       background-position: center;
       width: 100%;
@@ -5968,7 +5974,7 @@ main.bulletin_discount .main_center .main_content {
         width: 200px;
         height: 40px; }
     main.bulletin_discount .main_center .main_content .card2 .content {
-      background: url(../img/event/event_002_content.jpg) no-repeat;
+      background: url(../img/event/event_0002_content.jpg) no-repeat;
       background-size: 100%;
       background-position: top;
       width: 100%;

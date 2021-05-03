@@ -35,7 +35,7 @@ $color-blue14:#006fa2;
 $color-blue15: #4e86ad;
 $color-blue16: #1dccff;
 $color-blue17: #0099ff;
-$color-blue18: #114169;
+$color-blue18: #495686;
 $color-blue19: #006bb1;
 $color-green1: #a7e9df;
 $color-orange1: #ff6116;
@@ -1173,11 +1173,13 @@ header {
         height: 95px;
         .logo {
             float: left;
-            background: #fff;
-            width: 229px;
+            // background: #fff;
+            width: 160px;
             height: 70px;
-            margin: 12px 0 0 40px;
+            margin: 16px 25px 0px 25px;
             background-size: contain;
+            background: url('../img/new/logo.png') no-repeat;
+            background-size: 100%;
         }
         .menu {
             // margin-left: 14px;
